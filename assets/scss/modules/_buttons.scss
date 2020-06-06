@@ -11,3 +11,45 @@
         color: $r!important;
     }
 }
+
+@mixin button-white {
+    background-color: $w;
+    color: $r;
+    padding: 9px 15px;
+    border: solid 1px $r;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: 0.3s ease-out;
+    &:hover {
+        background-color: $r;
+        color: $w!important;
+    }
+}
+
+@mixin button-white-2 {
+    background-color: $w;
+    color: $r;
+    padding: 9px 15px;
+    border: solid 1px $r;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: 0.3s ease-out;
+    &:hover {
+        border: solid 1px rgb(255, 28, 28);
+        color:  rgb(255, 28, 28)!important;
+    }
+}
+
+@mixin button-red-2 {
+    background-color: $r;
+    color: $w;
+    padding: 9px 15px;
+    border: solid 1px $r;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: 0.3s ease-out;
+    &:hover {
+        background-color: rgb(206, 37, 37);
+        color: $w!important;
+    }
+}

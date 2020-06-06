@@ -1,0 +1,193 @@
+.form-upload {
+    background-color: $w;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 26px;
+    border-radius: 6px;
+    box-shadow: $s;
+    .flex {
+        display: flex;
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            height: 30px;
+            padding-left: 10px;
+            border-radius: 2px;
+            border: solid 1px rgb(124, 124, 124);
+            outline: none;
+        }
+        textarea {
+            padding: 10px 10px;
+            outline: none;
+            border: solid 1px rgb(124, 124, 124);
+        }
+        .info-cards {
+            .infos{
+               display: flex;
+               div {
+                   margin-right: 26px;
+               }
+            }
+            .bio {
+                padding-top: 16px;
+                textarea {
+                    width: 535px;
+                }
+            }
+            button {
+                cursor: pointer;
+                margin-top: 16px;
+                font-family: 'Lato',sans-serif;
+                &:hover {
+                    background-color: $w;
+                }
+            }
+        }
+        .img-card {
+            input {
+                height: 258px;
+                width: 250px;
+                padding-top: 125px;
+            }
+        }
+        .btn-2 {
+            display: none;
+            cursor: pointer;
+            margin-top: 16px;
+            font-family: 'Lato',sans-serif;
+            &:hover {
+                background-color: $w;
+            }
+        }
+    }
+    @media screen and (max-width:900px) {
+        background-color: $w;
+        margin-top: 155px;
+        margin-bottom: 60px;
+        padding: 26px;
+        border-radius: 6px;
+        box-shadow: $s;
+        .flex {
+            display: block;
+            label{
+                display: block;
+                margin-bottom: 10px;
+            }
+            input {
+                height: 30px;
+                padding-left: 10px;
+                margin-bottom: 12px;
+                border-radius: 2px;
+                border: solid 1px rgb(124, 124, 124);
+                outline: none;
+            }
+            textarea {
+                padding: 10px 10px;
+                outline: none;
+                border: solid 1px rgb(124, 124, 124);
+            }
+            .info-cards {
+                .infos{
+                   display: flex;
+                   div {
+                       margin-right: 26px;
+                   }
+                }
+                .bio {
+                    padding-top: 16px;
+                    textarea {
+                        width: 535px;
+                    }
+                }
+                button {
+                    display: none;
+                    cursor: pointer;
+                    margin-top: 16px;
+                    font-family: 'Lato',sans-serif;
+                    &:hover {
+                        background-color: $w;
+                    }
+                }
+            }
+            .img-card {
+                margin-top: 16px;
+                input {
+                    height: 258px;
+                    width: 535px;
+                    padding-top: 125px;
+                    padding-left: 200px;
+                    margin-bottom: 0;
+                }
+            }
+            .btn-2 {
+                display: block;
+            }
+        }
+    }
+    
+    @media screen and (max-width:650px) {
+        position: static;
+        transform: translate(40px,0);
+        margin-top: 0px;
+        background: none;
+        box-shadow: none;
+        input {  
+            width: 250px!important;
+            background-color: $bg!important;
+        }
+        .info-cards {
+            .infos{
+               display: flex!important;
+               flex-direction: column;
+               div {
+                   margin-right: 26px;
+               }
+            }
+            .bio {
+                textarea {
+                    width: 250px!important;
+                    background-color: $bg!important;
+                }
+            }
+        }
+        .img-card {
+            input {
+                height: 220px!important;
+                width: 250px!important;
+                padding-top: 110px!important;
+                padding-left: 7px!important;
+                background-color: $bg!important;
+            }
+        }
+        .btn-2 {
+            display: block!important;
+        }
+    }
+    
+    @media screen and (max-width:320px) {
+        input {  
+            width: 220px!important;
+        }
+        .flex {
+            .bio {
+                textarea {
+                    width: 220px!important;
+                }
+            }
+        }
+        
+        .img-card {
+            input {
+                height: 220px!important;
+                width: 220px!important;
+                padding-top: 110px!important;
+                padding-left: 7px!important;
+            }
+        }
+    }
+}
+

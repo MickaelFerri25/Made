@@ -14,7 +14,8 @@
 // Pages
 @import "pages/home";
 @import "pages/inscription";
-
+@import "pages/connexion";
+@import "pages/upload";
 * {
     margin: 0;
     padding: 0;
@@ -37,4 +38,31 @@ body {
 .cta-red {
     @include button-red;
     color:$w!important;
+}
+
+.cta-red-2 {
+    @include button-red-2;
+    color:$w!important;
+}
+
+.cta-white {
+    @include button-white;
+    color:$r!important;
+}
+
+.cta-white-2 {
+    @include button-white-2;
+    color:$r!important;
+}
+
+.red {
+    color: $r!important;
+}
+
+.black {
+    color: $n!important;
+}
+
+.center {
+    text-align: center;
 }

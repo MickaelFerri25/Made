@@ -1,0 +1,587 @@
+.filtre {
+    margin-left: 175px;
+    button {
+        cursor: pointer;
+        outline: none;
+        i {
+            margin-left: 5px;
+        }
+    }
+    ul {
+        display: none;
+        background-color: $w;
+        width: 83px;
+        padding: 4px 8px 8px 8px;
+        border-radius: 2px;
+        z-index: 1;
+        li {
+            margin-top: 5px;
+            a {
+                color: $n;
+                transition: $tr;
+                &:hover {
+                    color: $r;
+                }
+            }
+        }
+    }
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+   .text {
+       background-color: $w;
+       width: 600px;
+       padding: 35px;
+       position: relative;
+       h2 {
+           color: $r;
+       }
+       h4 {
+           margin-top: 5px;
+           color: $g;
+           font-weight:400;
+       }
+       h3 {
+           background-color: $bg;
+           padding: 9px 15px;
+           color: $r;
+           display: block;
+           text-align: center;
+           width: 115px;
+           border: 3px;
+           position: absolute;
+           top: 25px;
+           right: 30px;
+       }
+       p {
+            margin-top: 16px;
+            line-height: 24px;
+       }
+       .buttons {
+           margin-top: 22px;
+           i {
+               margin-right: 6px;
+           }
+           a {
+               margin-right: 15px;
+           }
+       }
+   }
+   .img {
+       img {
+           height: 349px;
+           border-top-left-radius:4px;
+       }
+   }
+}
+
+.card2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    margin-bottom: 60px;
+   .text {
+       position: relative;
+       background-color: $w;
+       width: 600px;
+       padding: 35px;
+       h2 {
+           color: $r;
+       }
+       h4 {
+           margin-top: 5px;
+           color: $g;
+           font-weight:400;
+       }
+       h3 {
+        background-color: $bg;
+        padding: 9px 15px;
+        color: $r;
+        display: block;
+        text-align: center;
+        width: 115px;
+        border: 3px;
+        position: absolute;
+        top: 25px;
+        right: 30px;
+    }
+       p {
+            margin-top: 16px;
+            line-height: 24px;
+       }
+       .buttons {
+           margin-top: 22px;
+           i {
+            margin-right: 6px;
+            }
+           a {
+               margin-right: 15px;
+           }
+       }
+   }
+   .img {
+       img {
+           height: 349px;
+           border-top-left-radius:4px;
+       }
+   }
+}
+
+@media screen and (max-width:1000px) {
+    .filtre {
+        text-align: center;
+        margin: 0 auto;
+        ul {
+            margin: 0 auto;
+        }
+    }
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+       .text {
+           background-color: $w;
+           width: 400px;
+           transform: translateY(-2px);
+           padding: 35px;
+           position: relative;
+           h2 {
+               color: $r;
+           }
+           h4 {
+               margin-top: 5px;
+               color: $g;
+               font-weight:400;
+           }
+           h3 {
+               background-color: $bg;
+               padding: 9px 15px;
+               color: $r;
+               display: block;
+               text-align: center;
+               width: 115px;
+               border: 3px;
+               position: absolute;
+               top: 25px;
+               right: 30px;
+           }
+           p {
+                font-size: 13.5px;
+                margin: 16px auto;
+                line-height: 24px;
+           }
+           .buttons {
+               margin-top: 22px;
+               i {
+                   margin-right: 6px;
+               }
+               a {
+                   margin-right: 15px;
+               }
+           }
+       }
+       .img {
+           img {
+               height:345px;
+               width: 400px!important;
+           }
+       }
+    }
+    .card2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        border-radius: 6px;
+        margin-bottom: 60px;
+       .text {
+           position: relative;
+           background-color: $w;
+           width: 400px;
+           padding: 35px;
+           h2 {
+               color: $r;
+           }
+           h4 {
+               margin-top: 5px;
+               color: $g;
+               font-weight:400;
+           }
+           h3 {
+            background-color: $bg;
+            padding: 9px 15px;
+            color: $r;
+            display: block;
+            text-align: center;
+            width: 115px;
+            border: 3px;
+            position: absolute;
+            top: 25px;
+            right: 30px;
+        }
+           p {
+                font-size: 13.5px;
+                margin: 16px auto;
+                line-height: 24px;
+           }
+           .buttons {
+               margin-top: 22px;
+               i {
+                margin-right: 6px;
+                }
+               a {
+                   margin-right: 15px;
+               }
+           }
+       }
+       .img {
+           img {
+                height:345px;
+                width: 400px!important;
+           }
+       }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .filtre {
+        text-align: center;
+        margin: 0 auto;
+        ul {
+            margin: 0 auto;
+        }
+    }
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+       .text {
+           background-color: $w;
+           width: 350px;
+           transform: translateY(-2px);
+           padding: 35px;
+           position: relative;
+           h2 {
+               color: $r;
+           }
+           h4 {
+               margin-top: 5px;
+               color: $g;
+               font-weight:400;
+           }
+           h3 {
+               background-color: $bg;
+               padding: 9px 15px;
+               color: $r;
+               display: block;
+               text-align: center;
+               width: 115px;
+               border: 3px;
+               position: absolute;
+               top: 25px;
+               right: 30px;
+           }
+           p {
+                font-size: 13.5px;
+                margin: 16px auto;
+                line-height: 24px;
+           }
+           .buttons {
+               margin-top: 22px;
+               i {
+                   margin-right: 6px;
+               }
+               a {
+                   margin-right: 15px;
+               }
+           }
+       }
+       .img {
+           img {
+               height:305px;
+               width: 350px!important;
+           }
+       }
+    }
+    .card2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        margin-bottom: 60px;
+       .text {
+           position: relative;
+           background-color: $w;
+           width: 350px;
+           padding: 35px;
+           h2 {
+               color: $r;
+           }
+           h4 {
+               margin-top: 5px;
+               color: $g;
+               font-weight:400;
+           }
+           h3 {
+            background-color: $bg;
+            padding: 9px 15px;
+            color: $r;
+            display: block;
+            text-align: center;
+            width: 115px;
+            border: 3px;
+            position: absolute;
+            top: 25px;
+            right: 30px;
+        }
+           p {
+                font-size: 13.5px;
+                margin: 16px auto;
+                line-height: 24px;
+           }
+           .buttons {
+               margin-top: 22px;
+               i {
+                margin-right: 6px;
+                }
+               a {
+                   margin-right: 15px;
+               }
+           }
+       }
+       .img {
+           img {
+                height:305px;
+                width: 400px!important;
+           }
+       }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .filtre {
+        text-align: center;
+        margin: 0 auto;
+        ul {
+            margin: 0 auto;
+        }
+    }
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+       .text {
+           background-color: $w;
+           width: 270px;
+           transform: translateY(-2px);
+           padding: 35px;
+           position: relative;
+           h2 {
+               color: $r;
+           }
+           h4 {
+               margin-top: 5px;
+               color: $g;
+               font-weight:400;
+           }
+           h3 {
+               background-color: $bg;
+               padding: 9px 15px;
+               color: $r;
+               display: block;
+               text-align: center;
+               width: 115px;
+               border: 3px;
+               position: absolute;
+               top: 25px;
+               right: 30px;
+           }
+           p {
+                font-size: 13.5px;
+                margin: 16px auto;
+                line-height: 24px;
+           }
+           .buttons {
+               margin-top: 22px;
+               i {
+                   margin-right: 6px;
+               }
+               a {
+                   margin-right: 15px;
+                   display: block;
+                   text-align: center;
+                   margin-top: 15px;
+               }
+           }
+       }
+       .img {
+           img {
+               height:230px;
+               width: 350px!important;
+           }
+       }
+    }
+    .card2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        margin-bottom: 60px;
+       .text {
+           position: relative;
+           background-color: $w;
+           width: 270px;
+           padding: 35px;
+           h2 {
+               color: $r;
+           }
+           h4 {
+               margin-top: 5px;
+               color: $g;
+               font-weight:400;
+           }
+           h3 {
+            background-color: $bg;
+            padding: 9px 15px;
+            color: $r;
+            display: block;
+            text-align: center;
+            width: 115px;
+            border: 3px;
+            position: absolute;
+            top: 25px;
+            right: 30px;
+        }
+           p {
+                font-size: 13.5px;
+                margin: 16px auto;
+                line-height: 24px;
+           }
+           .buttons {
+               margin-top: 22px;
+               i {
+                margin-right: 6px;
+                }
+               a {
+                    margin-right: 15px;
+                    display: block;
+                    text-align: center;
+                    margin-top: 15px;
+               }
+           }
+       }
+       .img {
+           img {
+            height:230px;
+            width: 350px!important;
+           }
+       }
+    }
+}
+
+@media screen and (max-width:320px) {
+    .filtre {
+        text-align: center;
+        margin: 0 auto;
+        ul {
+            margin: 0 auto;
+        }
+    }
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+       .text {
+           background-color: $w;
+           width: 270px;
+           transform: translateY(-2px);
+           padding: 35px;
+           position: relative;
+           h2 {
+               color: $r;
+           }
+           h4 {
+               margin-top: 5px;
+               color: $g;
+               font-weight:400;
+           }
+           h3 {
+               background-color: $bg;
+               padding: 9px 15px;
+               color: $r;
+               display: block;
+               text-align: center;
+               width: 125px;
+               border: 3px;
+               position: absolute;
+               top: -5px;
+               right: 30px;
+           }
+           p {
+                font-size: 13.5px;
+                margin: 16px auto;
+                line-height: 24px;
+           }
+           .buttons {
+               margin-top: 22px;
+               i {
+                   margin-right: 6px;
+               }
+               a {
+                   margin-right: 15px;
+                   display: block;
+                   text-align: center;
+                   margin-top: 15px;
+               }
+           }
+       }
+       .img {
+           img {
+               height:230px;
+               width: 350px!important;
+           }
+       }
+    }
+    .card2 {
+       .text {
+           h3 {
+            background-color: $bg;
+            padding: 9px 15px;
+            color: $r;
+            display: block;
+            text-align: center;
+            width: 125px;
+            border: 3px;
+            position: absolute;
+            top: -5px;
+            right: 30px;
+        }
+       }
+    }
+}
