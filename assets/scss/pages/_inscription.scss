@@ -1,0 +1,103 @@
+.nav-inscription {
+    padding: 30px 60px;
+    a {
+        color: $r;
+        font-size: 18px;
+    }
+}
+
+.title-inscription {
+    display: none;
+}
+
+.formulaire-inscription {
+    background-color: $w;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 43px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+    transform: translate(-90%,-50%);
+    div {
+        margin: 15px;
+        label, input {
+            display: flex;
+            flex-direction: column;
+            color: $n;
+            transition: 0.2s ease-in-out;
+        }
+        .valid {
+            color: $r;
+            border-color: $r;
+        }
+        input {
+            margin-top: 10px;
+            outline: none;
+            height: 30px;
+            width: 250px;
+            border: 1px solid #CFCFCF;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+    }
+    button {
+        @include button-red;
+        cursor: pointer;
+        margin-left: 15px;
+        font-size:14px;
+    }
+    a {
+        position: absolute;
+        bottom: 52px;
+        right: 65px;
+        color: $n;
+        transition: $tr;
+        &:hover {
+            color: $r;
+        }
+    }
+}
+
+.translate {
+    transform: translate(-50%,-50%);
+    opacity: 1;
+}
+@media screen and (max-width:500px) {
+    .nav-inscription {
+        padding-top: 30px;
+        padding-left: 35px;
+        padding-bottom: 0;
+        a {
+            color: $r;
+            font-size: 18px;
+        }
+    }
+    
+    .formulaire-inscription {
+        background: none;
+        box-shadow: none;
+        border-radius: none;
+        div {
+            input {
+                color: $n;
+                background-color: $bg;
+            }
+        }
+        a {
+            right: 60px;
+            color: $n;
+        }
+    }
+}
+
+@media screen and (max-width:320px) {
+    h3 {
+        display: block;
+        color: $r;
+        padding-left: 32.5px;
+        margin-top: 25px;
+    }
+}

@@ -1,0 +1,40 @@
+// Modules
+
+// Variables
+@import "modules/var/varColor";
+@import "modules/var/varAnimation";
+
+// composants
+@import "modules/header-desktop";
+@import "modules/header-mobile";
+@import "modules/cards";
+@import "modules/buttons";
+@import "modules/footer";
+
+// Pages
+@import "pages/home";
+@import "pages/inscription";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: $bg;
+}
+
+.logo {
+    color: $r!important;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cta-red {
+    @include button-red;
+    color:$w!important;
+}

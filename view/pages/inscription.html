@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made - Inscription</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/app.css">
+    <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
+    <script src="../../assets/js/modules/formulaire.js" defer></script>
+    <script src="../../assets/js/modules/login.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-inscription">
+            <a href="../index.html">Made</a>
+        </nav>
+    </header>
+    <h3 class="title-inscription">Inscription</h1>
+    <form action="" class="formulaire-inscription" id="block-inscription" method="post">
+        <div class="pseudo">
+            <label for="">Pseudo</label>
+            <input type="text" required>
+        </div>
+
+        <div class="email">
+            <label for="">Adresse email</label>
+            <input type="email" required>
+        </div>
+
+        <div class="password">
+            <label for="">Mot de passe</label>
+            <input type="password"  id="mdp" required>
+        </div>
+
+        <div class="confirm-password">
+            <label for="">Confirmer le Mot de passe</label>
+            <input type="password"  id="confirm_mdp" required>
+        </div>
+        <button type="submit" id="button_form">S'inscrire</button>
+        <a href="../view/pages/connexion.html">Connexion</a>
+    </form>
+</body>
+</html>

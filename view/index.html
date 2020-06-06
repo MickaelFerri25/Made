@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made - La platforme en ligne de TP pour apprendre le développement Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
+    <script src="../assets/js/modules/header.js" defer></script>
+    <script src="../assets/js/modules/animations.js" defer></script>
+    <script src="../assets/js/modules/bars.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="desktop">
+            <!-- conteneur -->
+            <div class="menu-deroulant" id="menu-deroulant">
+                <!-- ul -->
+                <ul class="liste-deroulante" id="liste-deroulante">
+                    <li>
+                        <i class="fab fa-vuejs"></i>
+                        <a href="">Front-End</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-php"></i>
+                        <a href="">Back-End</a>
+                    </li>
+                    <li>
+                        <i class="far fa-window-restore"></i>
+                        <a href="">Fullstack</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="menu-left">
+                <li class="menu-logo">
+                    <a href="#" class="logo">Made</a>
+                </li>
+            </ul>
+            <ul class="menu-right">
+                <li>
+                    <a href="#" id="lien-tp">Traveaux pratiques <i class="fas fa-chevron-down arrow"></i></a>
+                </li>
+                <li>
+                    <a href="">Releases</a>
+                </li>
+                <li>
+                    <a href="">Upload</a>
+                </li>
+                <li>
+                    <a href="">Connexion</a>
+                </li>
+                <li>
+                    <a href="../view/pages/inscription.html" class="cta-red">Inscription</a>
+                </li>
+                <li>
+                    <i class="fas fa-bars bars" id="bars-bg"></i>
+                </li>
+            </ul>
+        </nav>
+        <nav class="mobile" id="block-bg">
+            <i class="fas fa-times times croix" id="croix-bg"></i>
+            <a href="" class="menu-logo">Made</a>
+            <ul>
+                <li>
+                    <a href="#" id="lien-tp2">Traveaux pratiques <i class="fas fa-chevron-down arrow"></i></a>
+                    <div class="liens" id="menu-mobil-deroualant">
+                        <a href="">Front-End</a>
+                        <a href="">Back-End</a>
+                        <a href="">Fullstack</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="">Releases</a>
+                </li>
+
+                <li>
+                    <a href="">A propos</a>
+                </li>
+
+                <li>
+                    <a href="">Confidentialité</a>
+                </li>
+
+                <li>
+                    <a href="">Connexion</a>
+                </li>
+
+                <li>
+                    <a href="">Inscription</a>
+                </li>
+
+                <!-- <li>
+                    <a href=""></a>
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+    <section class="section1">
+        <h1 id="text">La première platforme en ligne de TP web</h1>
+        <div class="tp">
+            <div class="etiquettes" id="etiquettes">
+                <div id="bars1">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Besoin de projets concret ?</h3>
+                </div>
+
+                <div id="bars2">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>TP pour tous les niveaux</h3>
+                </div>
+
+                <div id="bars3">
+                    <i class="fab fa-figma"></i>
+                    <h3>Maquettes + site fournis</h3>
+                </div>
+                <a href="" class="cta-red button" id="button-red">Voir les TP</a>
+            </div>
+            <div class="img" id="img1">
+                <img src="../assets/img/home/projects.svg" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="section2">
+        <div class="card-about" id="a-propos">
+            <div class="text">
+                    <h2>A propos</h2>
+                    <p class="p1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam in mi<br>
+                        faucibus eget dapibus purus aliquam egestas. Tellus sed sed orci amet <br>
+                        sodales. Aenean quam nibh justo dictum tincidunt fringilla mollis.<br>
+                        Sed arcu, morbi tortor, interdum aenean in ut amet. Libero massa, arcu,<br> 
+                        laoreet mauris pellentesque fermentum facilisi consequat.
+                    </p>
+                    <p class="p2" id="p2-savoir-plus">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam in mi<br>
+                        faucibus eget dapibus purus aliquam egestas. Tellus sed sed orci amet <br>
+                        sodales. Aenean quam nibh justo dictum tincidunt fringilla mollis.<br>
+                    </p>
+                    <div class="lien-color">
+                        <a id="lien-savoir-plus">Voir plus <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    
+            </div>
+            <div class="img">
+                <img src="../assets/img/home/profil.svg" alt="">
+            </div>
+            </div>
+        </div>
+    </section>
+    <section class="section3">
+        <div class="support" id="section_support">
+            <div class="text">
+                <h1>SUPPORT</h1>
+                <p>
+                    Vous voulez avoir de nouvelles fonctionnalité ?<br>
+                    Nous rapporter des bugs ? 
+                </p>
+                <a href="" class="cta-red">Contacter-nous</a>
+            </div>
+            <div class="img">
+                <img src="../assets/img/home/support.svg" alt="">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <div class="left">
+                <h2>Made</h2>
+                <ul>
+                    <li>
+                        <a href="">Instagram</a>
+                    </li>
+    
+                    <li>
+                        <a href="">Twitter</a>
+                    </li>
+    
+                    <li>
+                        <a href="">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="middle">
+                <h2>Pages</h2>
+                <ul>
+                    <li>
+                        <a href="">Traveaux pratique</a>
+                    </li>
+    
+                    <li>
+                        <a href="">Releases</a>
+                    </li>
+    
+                    <li>
+                        <a href="">Upload</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <h2>Pages</h2>
+                <ul>
+                    <li>
+                        <a href="">Connexion</a>
+                    </li>
+    
+                    <li>
+                        <a href="../view/pages/inscription.html">Inscription</a>
+                    </li>
+    
+                    <li>
+                        <a href="">Confidentialité</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

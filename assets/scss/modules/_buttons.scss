@@ -1,0 +1,13 @@
+@mixin button-red {
+    background-color: $r;
+    color: $w;
+    padding: 9px 15px;
+    border: solid 1px $r;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: 0.3s ease-out;
+    &:hover {
+        background-color: $bg;
+        color: $r!important;
+    }
+}
