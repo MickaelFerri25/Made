@@ -1,0 +1,24 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    .number {
+        transition: $tr;
+        margin: 7px;
+        a {         
+            transition: $tr;
+            color: $r;
+            background-color: $bg;
+            padding: 8px 12px;
+            border-radius: 2px;
+            &:hover {
+                color: $w;
+                background-color: $r;
+            }
+        }
+        a.number1 {
+            background-color: $r;
+            color: $w;
+        }
+    }
+}
