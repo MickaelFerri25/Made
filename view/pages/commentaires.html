@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <script src="../../assets/js/modules/header.js" defer></script>
     <script src="../../assets/js/modules/animations.js" defer></script>
 </head>
-<body>
+<body class="body">
     <header>
         <nav class="desktop">
             <!-- conteneur -->
@@ -19,21 +19,21 @@
                 <ul class="liste-deroulante" id="liste-deroulante">
                     <li>
                         <i class="fab fa-vuejs"></i>
-                        <a href="../pages/frontend.html">Front-End</a>
+                        <a href="../view/pages/frontend.html">Front-End</a>
                     </li>
                     <li>
                         <i class="fab fa-php"></i>
-                        <a href="../pages/backend.html">Back-End</a>
+                        <a href="../view/pages/backend.html">Back-End</a>
                     </li>
                     <li>
                         <i class="far fa-window-restore"></i>
-                        <a href="../pages/fullstack.html">Fullstack</a>
+                        <a href="../view/pages/fullstack.html">Fullstack</a>
                     </li>
                 </ul>
             </div>
             <ul class="menu-left">
                 <li class="menu-logo">
-                    <a href="../index.html" class="logo">Made</a>
+                    <a href="#" class="logo">Made</a>
                 </li>
             </ul>
             <ul class="menu-right">
@@ -41,19 +41,19 @@
                     <a href="#" id="lien-tp">Traveaux pratiques <i class="fas fa-chevron-down arrow"></i></a>
                 </li>
                 <li>
-                    <a href="../pages/releases.html">Releases</a>
+                    <a href="../view/pages/releases.html">Releases</a>
                 </li>
                 <li>
-                    <a href="#" class="red">Upload</a>
+                    <a href="../view/pages/upload.html">Upload</a>
                 </li>
                 <li>
-                    <a href="../view/pages/fonctionnalites.html">Ajouts de fonctionnalités</a>
+                    <a href="../view/pages/fonctionnalites.html" class="red">Ajouts de fonctionnalités</a>
                 </li>
                 <li>
-                    <a href="../pages/connexion.html">Connexion</a>
+                    <a href="../view/pages/connexion.html">Connexion</a>
                 </li>
                 <li>
-                    <a href="../pages/inscription.html" class="cta-red">Inscription</a>
+                    <a href="../view/pages/inscription.html" class="cta-red">Inscription</a>
                 </li>
                 <li>
                     <i class="fas fa-bars bars" id="bars-bg"></i>
@@ -67,18 +67,18 @@
                 <li>
                     <a href="#" id="lien-tp2">Traveaux pratiques <i class="fas fa-chevron-down arrow"></i></a>
                     <div class="liens" id="menu-mobil-deroualant">
-                        <a href="../pages/frontend.html">Front-End</a>
-                        <a href="../pages/backend.html">Back-End</a>
-                        <a href="../pages/fullstack.html">Fullstack</a>
+                        <a href="../view/pages/frontend.html">Front-End</a>
+                        <a href="../view/pages/backend.html">Back-End</a>
+                        <a href="../view/pages/fullstack.html">Fullstack</a>
                     </div>
                 </li>
 
                 <li>
-                    <a href="../pages/releases.html">Releases</a>
+                    <a href="../view/pages/releases.html">Releases</a>
                 </li>
 
                 <li>
-                    <a href="#">Upload</a>
+                    <a href="../view/pages/upload.html">Upload</a>
                 </li>
 
                 <li>
@@ -86,49 +86,48 @@
                 </li>
                 
                 <li>
-                    <a href="../pages/confidentialite.html">Confidentialité</a>
+                    <a href="../view/pages/confidentialite.html">Confidentialité</a>
                 </li>
 
                 <li>
-                    <a href="../pages/connexion.html">Connexion</a>
+                    <a href="../view/pages/connexion.html">Connexion</a>
                 </li>
 
                 <li>
-                    <a href="../pages/inscription.html">Inscription</a>
+                    <a href="../view/pages/inscription.html">Inscription</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <form action="" class="form-upload">
-        <div class="flex">
-            <div class="info-cards">
-                <div class="infos">
-                    <div>
-                        <label for="">Nom du projet</label>
-                        <input type="text" placeholder="Made" required>
-                    </div>
-
-                    <div>
-                        <label for="">Créateur</label>
-                        <input type="text" placeholder="Mickael" required>
-                    </div>
-
-                    <div>
-                        <label for="">Type</label>
-                        <input type="text" placeholder="Front / Back / fullstack" required>
-                    </div>
-                </div>
-                <div class="bio">
-                    <label for="">Bio</label>
-                    <textarea required placeholder="Description" name="" id="" cols="30" rows="10"></textarea>
-                </div>
-                <button type="submit" class="cta-red">Enregistrer</button>
+    <section class="ajout-de-commentaire">
+        <h2>Proposer nous de nouvelles fonctionnalités !</h2>
+        <!-- Formulaire pour le PHP -->
+        <form action="POST">
+            <label for="">Message</label>
+            <textarea required name="Message" id="" cols="30" rows="10"></textarea>
+            <button type="submit" class="cta-red">Envoyer</button>
+        </form>
+    </section>
+    <section class="espace-commentaire">
+        <h3 class="number-comments">16 Commentaire</h3>
+        <div class="commentaire">
+            <div class="img">
+                <img src="../../assets/img/commentaires/user-profil.svg" alt="">
             </div>
-            <div class="img-card">
-                <label for="">Image</label>
-               <input type="file" alt="upload image" required>
+            <div class="text">
+                <h3>Jonh Does</h3>
+                <p class="time">il y a 20 min</p>
+                <p class="content-commentaire">
+                    J'aimerais bien voir arriver sur Made la possibilité d'avoir un compte premium et avoir<br>
+                    accès à diffèrentes choses.
+                </p>
+                <div class="buttons">
+                    <a href="" class="cta-red-2">Répondre</a>
+                    <a href="" class="cta-white-2">Voir le profil</a>
+                    <a href="" class="delete cta-red">Supprimer</a>
+                </div>
             </div>
-            <button type="submit" class="cta-red btn-2">Enregistrer</button>
-    </form>
+        </div>
+    </section>
 </body>
 </html>
