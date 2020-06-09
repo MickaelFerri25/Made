@@ -12,7 +12,7 @@
         opacity: 0;
         transition: $tr;
         transform: translateX(-50px);
-        right: 495px;
+        right: 695px;
         padding-top: 15px;
         z-index: 5;
         height: 158px;
@@ -58,7 +58,7 @@
     }
 }
 
-@media screen and (max-width:900px){
+@media screen and (max-width:1000px){
     .desktop {
         .menu-right {
             a {

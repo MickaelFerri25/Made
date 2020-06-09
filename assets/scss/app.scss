@@ -16,6 +16,7 @@
 @import "pages/inscription";
 @import "pages/connexion";
 @import "pages/upload";
+@import "pages/commentaires";
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +28,10 @@
 
 body {
     background-color: $bg;
+}
+
+.body {
+    background-color: $w;
 }
 
 .logo {
