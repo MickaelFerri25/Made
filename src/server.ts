@@ -1,4 +1,3 @@
-import { ConnectDb } from './models/db.model';
 import bodyParser from 'body-parser';
 import config from './utils/config.util';
 import cookieParser from 'cookie-parser';
@@ -7,9 +6,10 @@ import express from 'express';
 import expressSession from 'express-session';
 import helmet from 'helmet';
 import nunjucks from 'nunjucks';
+import routes from './routes';
 
 export default async () => {
-  await ConnectDb();
+  // await ConnectDb();
   const app = express();
   app.use(cookieParser());
   app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +27,7 @@ export default async () => {
   app.set('view engine', 'njk');
   app.use(errorHandler);
   app.use('/assets', express.static('assets'));
-
+  app.use('/', routes);
   nunjucks.configure('view', {
     express: app,
     autoescape: true,

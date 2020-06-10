@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "outFile": "../dist/index.js",
+    "outDir": "../dist/",
     "sourceMap": false,
     "noImplicitAny": true,
-    "module": "System",
+    "module": "CommonJS",
     "removeComments": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
