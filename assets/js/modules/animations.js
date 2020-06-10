@@ -23,6 +23,7 @@ menu_mobile_deroulante.addEventListener('click', () => {
 
 lien_tp.addEventListener('click', () => {
     menu_deroulant_tp.style.opacity = "1"
+    menu_deroulant_tp.style.zIndex = "1"
     menu_deroulant_tp.style.transform = "translateX(35px)"
 })
 menu_deroulant_tp.addEventListener('mouseleave', () => {

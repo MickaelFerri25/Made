@@ -1,0 +1,279 @@
+.ajout-de-commentaire {
+    text-align: center;
+    margin-top: 70px;
+    color: $n;
+    h2 {
+        margin-bottom: 35px;
+    }
+    form {    
+        label {
+            display: block;
+            transform: translateX(-145px);
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 350px;
+            height: 150px;
+            border: none;
+            background-color: rgb(233, 233, 236);
+            outline: none;
+            padding: 10px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+            margin-top: 10px;
+            transform: translateX(-135px);
+        }
+    }
+    @media screen and(max-width:320px) {
+            form {    
+                label {
+                    display: block;
+                    transform: translateX(0);
+                    margin-bottom: 10px;
+                }
+                textarea {
+                    width: 270px;
+                    height: 150px;
+                    border: none;
+                    background-color: rgb(233, 233, 236);
+                    outline: none;
+                    padding: 10px;
+                }
+                button {
+                    display: block;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    margin-top: 10px;
+                    transform: translateX(0px);
+                }
+            }
+    }
+}
+
+.espace-commentaire {
+    color: $n;
+    h3.number-comments {
+        text-align: center;
+        transform: translateX(-106px);
+        margin-top: 40px;
+        position: relative;
+        &:after {
+            content:'';
+            position: absolute;
+            bottom: -10px;
+            width:350px;
+            transform: translateX(-138px);
+            height: 2px;
+            background-color: rgb(233, 233, 233);
+        }
+    }
+    .commentaire {
+        margin-left: 100px;
+        margin-top: 75px;
+        display: flex;
+        margin-bottom: 30px;
+        .img {
+            margin-right: 15px;
+         }
+        .text {
+            color: $n;
+            p.time {
+                margin-top: 3px;
+                color: grey;
+            }
+            p {
+                margin-bottom: 10px;
+            }
+            p.content-commentaire {
+                padding: 22.5px;
+                display: block;
+                width: auto;
+                margin-top: 10px;
+                border-radius: 4px;
+                background-color: rgb(237, 237, 240);
+           }
+           .buttons {
+               padding-top: 20px;
+               a {
+                   margin-right: 10px;
+               }
+               .delete {
+                  transition: 0.2s ease-in-out;
+                  float:right;
+                  background-color: rgb(250, 226, 226);
+                  border: 1px solid rgb(250, 226, 226);
+                  color: $r!important;
+                  margin-right: 0;
+                  transform: translateY(-10px);
+                  &:hover {
+                    transform: translateY(-16px);
+                  }
+               }
+           }
+        }
+    }
+    @media screen and(max-width:500px) {
+        .commentaire {
+            margin-left: 0px;
+            margin-top: 75px;
+            display: flex;
+            margin-bottom: 30px;
+            .img {
+                margin-right: 15px;
+             }
+            .text {
+                color: $n;
+                p.time {
+                    margin-top: 3px;
+                    color: grey;
+                }
+                p {
+                    margin-bottom: 10px;
+                }
+                p.content-commentaire {
+                    padding: 22.5px;
+                    display: block;
+                    width: auto;
+                    margin-top: 10px;
+                    border-radius: 4px;
+                    background-color: rgb(237, 237, 240);
+               }
+               .buttons {
+                   padding-top: 20px;
+                   a {
+                       margin-right: 10px;
+                   }
+                   .delete {
+                      float: left;
+                      margin: 30px auto;
+                      display: block;
+                      width: 235px;
+                      text-align: center;
+                   }
+               }
+            }
+        } 
+    }
+    @media screen and(max-width:400px) {
+        .commentaire {
+            margin-left: 0px;
+            margin-top: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 30px;
+            .img {
+                margin-right: 15px;
+             }
+            .text {
+                color: $n;
+                h3 {
+                    text-align:center;
+                }
+                p.time {
+                    margin-top: 3px;
+                    color: grey;
+                    text-align:center;
+                }
+                p {
+                    margin-bottom: 10px;
+                }
+                p.content-commentaire {
+                    padding: 22.5px;
+                    display: block;
+                    width: auto;
+                    margin-top: 10px;
+                    border-radius: 4px;
+                    background-color: rgb(237, 237, 240);
+               }
+               .buttons {
+                   padding-top: 20px;
+                   margin: 0 auto;
+                   text-align: center;
+                   a {
+                       margin-right: 7px;
+                   }
+                   .delete {
+                      float: none;
+                      margin: 30px auto;
+                      display: block;
+                      width: 235px;
+                      text-align: center;
+                   }
+               }
+            }
+        } 
+    }
+    @media screen and(max-width:320px) {
+        h3.number-comments {
+            text-align: center;
+            transform: translateX(0px);
+            margin-top: 40px;
+            position: relative;
+            &:after {
+                content:'';
+                position: absolute;
+                bottom: -10px;
+                width:150px;
+                transform: translateX(-150px);
+                height: 2px;
+                background-color: rgb(233, 233, 233);
+            }
+        }
+        .commentaire {
+            margin-left: 0px;
+            margin-top: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 30px;
+            .img {
+                margin: 0 auto;
+             }
+            .text {
+                color: $n;
+                h3 {
+                    text-align:center;
+                }
+                p.time {
+                    margin-top: 3px;
+                    color: grey;
+                    text-align:center;
+                }
+                p {
+                    margin-bottom: 10px;
+                }
+                p.content-commentaire {
+                    padding: 22.5px;
+                    display: block;
+                    width: auto;
+                    text-align: center;
+                    margin-top: 10px;
+                    margin-left: 0px;
+                    border-radius: 4px;
+                    background-color: rgb(237, 237, 240);
+               }
+               .buttons {
+                   padding-top: 20px;
+                   margin: 0 auto;
+                   text-align: center;
+                   a {
+                       margin-right: 7px;
+                   }
+                   .delete {
+                      float: none;
+                      margin: 30px auto;
+                      display: block;
+                      width: 235px;
+                      text-align: center;
+                   }
+               }
+            }
+        } 
+    }
+}
