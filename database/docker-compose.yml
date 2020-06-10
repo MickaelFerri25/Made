@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+  db:
+    image: mariadb
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: make_db
+      MYSQL_USER: make_admin
+      MYSQL_PASSWORD: secret
+  db_admin:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outFile": "../dist/index.js",
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "module": "System",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "target": "ES2017",
+    "allowJs": true,
+    "strictNullChecks": true,
+    "jsx": "react",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["dom", "es7", "es2017"],
+    "types": []
+  },
+  "include": ["./**/*"],
+  "exclude": ["./node_modules", "**/*.spec.ts", "./dist/**/*.*", "./assets/**/*.*"]
+}
