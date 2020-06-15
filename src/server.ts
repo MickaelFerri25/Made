@@ -5,11 +5,12 @@ import { errorHandler } from './utils/middlewares.util';
 import express from 'express';
 import expressSession from 'express-session';
 import helmet from 'helmet';
+import initModel from './models';
 import nunjucks from 'nunjucks';
 import routes from './routes';
 
 export default async () => {
-  // await ConnectDb();
+  await initModel();
   const app = express();
   app.use(cookieParser());
   app.use(bodyParser.urlencoded({ extended: true }));

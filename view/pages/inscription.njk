@@ -12,6 +12,10 @@
     <script src="../../assets/js/modules/login.js" defer></script>
 </head>
 
+{% if error %}
+{# Ici tu peux utiliser error pour afficher un message (tu peux déplacer le bloc) #}
+{% endif %}
+
 <body>
     <header>
         <nav class="nav-inscription">
@@ -19,25 +23,25 @@
         </nav>
     </header>
     <h1 class="title-inscription">Inscription</h1>
-    <form action="" class="formulaire-inscription" id="block-inscription" method="post">
+    <form action="/inscription" class="formulaire-inscription" id="block-inscription" method="post">
         <div class="pseudo">
-            <label for="">Pseudo</label>
-            <input type="text" required>
+            <label for="pseudo">Pseudo</label>
+            <input type="text" name="pseudo" id="pseudo" required>
         </div>
 
         <div class="email">
-            <label for="">Adresse email</label>
-            <input type="email" required>
+            <label for="email">Adresse email</label>
+            <input type="email" name="email" id="email" required>
         </div>
 
         <div class="password">
-            <label for="">Mot de passe</label>
-            <input type="password" id="mdp" required>
+            <label for="mdp">Mot de passe</label>
+            <input type="password" name="password" id="mdp" required>
         </div>
 
         <div class="confirm-password">
-            <label for="">Confirmer le Mot de passe</label>
-            <input type="password" id="confirm_mdp" required>
+            <label for="confirm_mdp">Confirmer le Mot de passe</label>
+            <input type="password" name="password_confirm" id="confirm_mdp" required>
         </div>
         <button type="submit" id="button_form">S'inscrire</button>
         <a href="../view/pages/connexion.html">Connexion</a>
