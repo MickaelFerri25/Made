@@ -15,33 +15,34 @@ export const comment = (req: express.Request, res: express.Response) => {
 
 export const connexion = async (req: express.Request, res: express.Response) => {
   let error: Error | null = null;
-  console.log(req.body);
+  // Check if it's a POST
   if (req.body && req.body.email && req.body.password) {
-    const serviceResult = await new UserService().login(req.body.email, req.body.password);
+    const serviceResult = await new UserService().login(req.body.email, req.body.password); // Call the service
     if (serviceResult.status === 'error') {
       const result = serviceResult as ServiceResult<ServiceError>;
       error = { code: result.data.code, info: result.data.info };
     } else {
       const result = serviceResult as ServiceResult<LoginSuccess>;
-      if (req.session) req.session.user = result.data.user;
-      return res.redirect('/');
+      if (req.session) req.session.user = result.data.user; // Set the session
+      return res.redirect('/'); // Redirect the user to home page
     }
   }
   return res.render('pages/connexion.njk', { error });
 };
 
 export const inscription = async (req: express.Request, res: express.Response) => {
-  console.log(req.body);
   let error: Error | null = null;
+  // Check if it's a POST
   if (req.body && req.body.pseudo && req.body.email && req.body.password && req.body.password_confirm) {
     if (req.body.password === req.body.password_confirm) {
-      const serviceResult = await new UserService().createAccount(req.body.pseudo, req.body.email, req.body.password);
+      const serviceResult = await new UserService().createAccount(req.body.pseudo, req.body.email, req.body.password); // Call the service
       if (serviceResult.status === 'error') {
         const result = serviceResult as ServiceResult<ServiceError>;
         error = { code: result.data.code, info: result.data.info };
       } else {
         const result = serviceResult as ServiceResult<CreateAccountSuccess>;
-        // ! TODO something here
+        if (req.session) req.session.user = result.data.user; // Set the session
+        return res.redirect('/'); // Redirect the user to home page
       }
     } else {
       error = errors.user.ConfirmPasswordNotMatch;

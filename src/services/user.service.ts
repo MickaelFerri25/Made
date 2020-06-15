@@ -12,14 +12,18 @@ export default class UserService extends Service {
   ): Promise<ServiceResult | ServiceResult<CreateAccountSuccess>> => {
     email = email.toLowerCase().trim();
     pseudo = pseudo.trim();
-    // ! TODO here make some requirements for the password
+    // Test password strength
+    if (password.length < 8 || !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+      return this.error(errors.user.PasswordDontMatchRequirements);
+    }
+    // Chech if email is already used
     const checkEmailResult = await UserEntity.findOne().where('email', '=', email).exec();
     if (checkEmailResult) {
       return this.error(errors.user.EmailAlreadyUsed);
     }
     const user = new UserEntity(pseudo, email, password);
-    user.hashPassword();
-    const newUser = await user.create();
+    user.hashPassword(); // Hash the password
+    const newUser = await user.create(); // Create the user
     if (!newUser) {
       return this.error(errors.global.Unexpected);
     }
@@ -28,10 +32,12 @@ export default class UserService extends Service {
 
   public login = async (email: string, password: string): Promise<ServiceResult | ServiceResult<LoginSuccess>> => {
     email = email.toLowerCase().trim();
+    // Check if a user with this email exists
     const user: UserEntity | null = await UserEntity.findOne().where('email', '=', email).exec();
     if (!user) {
       return this.error(errors.user.IncorrectAuthInfos);
     }
+    // Check if the password match
     if (!user.verifPassword(password)) {
       return this.error(errors.user.IncorrectAuthInfos);
     }

@@ -14,3 +14,8 @@ export const ConfirmPasswordNotMatch: Error = {
   code: 103,
   info: 'Confirm password do not match',
 };
+
+export const PasswordDontMatchRequirements: Error = {
+  code: 104,
+  info: 'Password do not match requirements (at least 8 characters and 1 number)',
+};
