@@ -2,12 +2,12 @@ import { Error } from './index';
 
 export const EmailAlreadyUsed: Error = {
   code: 101,
-  info: 'Email already used',
+  info: 'Email est déjà utilisé',
 };
 
 export const IncorrectAuthInfos: Error = {
   code: 102,
-  info: 'Email or password incorrect',
+  info: 'Email ou mot de passe incorrecte',
 };
 
 export const ConfirmPasswordNotMatch: Error = {
@@ -17,5 +17,5 @@ export const ConfirmPasswordNotMatch: Error = {
 
 export const PasswordDontMatchRequirements: Error = {
   code: 104,
-  info: 'Password do not match requirements (at least 8 characters and 1 number)',
+  info: 'Le mot de passe ne correspond pas aux exigences (au moins 8 caractères et 1 chiffre)',
 };

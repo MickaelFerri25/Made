@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/app.css">
     <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
-    <script src="../../assets/js/modules/formulaire.js" defer></script>
+    <script src="../../assets/js/modules/connexion.js" defer></script>
     <script src="../../assets/js/modules/login.js" defer></script>
 </head>
 
@@ -30,6 +30,9 @@
         <div class="password">
             <label for="mdp">Mot de passe</label>
             <input type="password" name="password" id="mdp" required>
+            {% if error.code == 102 %}
+                <p class="error">Email ou mot de passe incorrecte</p>
+            {% endif %}
         </div>
         <button type="submit" id="button_form">Connexion</button>
         <a href="../view/pages/connexion.html" class="mdp-oublier">Mot de passe oublié ?</a>

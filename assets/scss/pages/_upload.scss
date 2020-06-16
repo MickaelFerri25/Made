@@ -58,6 +58,14 @@
             outline: none;
             border: solid 1px rgb(124, 124, 124);
         }
+        .types {
+            background-color: $w;
+            height: 30px;
+            color: $g;
+            padding-left: 7px;
+            padding-right: 7px;
+            border: solid 1px rgb(124, 124, 124);
+        }
         .info-cards {
             .infos{
                display: flex;
@@ -81,6 +89,7 @@
             }
         }
         .img-card {
+            margin-left: 25px;
             input {
                 height: 258px;
                 width: 250px;
@@ -148,6 +157,7 @@
             }
             .img-card {
                 margin-top: 16px;
+                margin-left: 0px;
                 input {
                     height: 258px;
                     width: 535px;
@@ -172,6 +182,9 @@
             width: 250px!important;
             background-color: $bg!important;
         }
+        .types {
+            background-color: $bg!important;
+        }
         .info-cards {
             .infos{
                display: flex!important;
@@ -188,6 +201,7 @@
             }
         }
         .img-card {
+            margin-left: 0px;
             input {
                 height: 220px!important;
                 width: 250px!important;
@@ -212,8 +226,11 @@
                 }
             }
         }
-        
+        .types {
+            background-color: $bg!important;
+        }
         .img-card {
+            margin-left: 0px;
             input {
                 height: 220px!important;
                 width: 220px!important;
