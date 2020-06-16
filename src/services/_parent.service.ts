@@ -1,6 +1,10 @@
 import { Error } from '../errors/index';
 
 export default abstract class Service {
+  protected context: any;
+  constructor(context: any) {
+    this.context = context;
+  }
   public success = <T>(response: T): ServiceResult<T> => {
     return this.result<T>('success', response);
   };

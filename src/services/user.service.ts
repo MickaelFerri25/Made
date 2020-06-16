@@ -17,13 +17,13 @@ export default class UserService extends Service {
       return this.error(errors.user.PasswordDontMatchRequirements);
     }
     // Chech if email is already used
-    const checkEmailResult = await UserEntity.findOne().where('email', '=', email).exec();
+    const checkEmailResult = await UserEntity.findOne(this.context).where('email', '=', email).exec();
     if (checkEmailResult) {
       return this.error(errors.user.EmailAlreadyUsed);
     }
     const user = new UserEntity(pseudo, email, password);
     user.hashPassword(); // Hash the password
-    const newUser = await user.create(); // Create the user
+    const newUser = await user.create(undefined, this.context); // Create the user
     if (!newUser) {
       return this.error(errors.global.Unexpected);
     }
@@ -33,7 +33,7 @@ export default class UserService extends Service {
   public login = async (email: string, password: string): Promise<ServiceResult | ServiceResult<LoginSuccess>> => {
     email = email.toLowerCase().trim();
     // Check if a user with this email exists
-    const user: UserEntity | null = await UserEntity.findOne().where('email', '=', email).exec();
+    const user: UserEntity | null = await UserEntity.findOne(this.context).where('email', '=', email).exec();
     if (!user) {
       return this.error(errors.user.IncorrectAuthInfos);
     }

@@ -27,6 +27,7 @@ export default async () => {
   );
   app.set('view engine', 'njk');
   app.use(errorHandler);
+
   app.use('/assets', express.static('assets'));
   app.use('/', routes);
   nunjucks.configure('view', {

@@ -1,3 +1,4 @@
+import { EntityManager } from '@smallprod/models';
 import express from 'express';
 
 export const errorHandler = (req: express.Request, res: express.Response, next: express.NextFunction) => {

@@ -8,10 +8,12 @@
     "private": true,
     "scripts": {
         "build": "tsc -p src",
-        "run": "node ./dist/index.js"
+        "run": "node ./dist/index.js",
+        "db:migrate": "node ./database/migration.js migrate",
+        "db:reset": "node ./database/migration.js reset"
     },
     "dependencies": {
-        "@smallprod/models": "^4.4.2",
+        "@smallprod/models": "^4.4.4",
         "bcrypt": "^5.0.0",
         "body-parser": "^1.19.0",
         "cookie-parser": "^1.4.5",

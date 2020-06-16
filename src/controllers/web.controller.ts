@@ -17,7 +17,7 @@ export const connexion = async (req: express.Request, res: express.Response) => 
   let error: Error | null = null;
   // Check if it's a POST
   if (req.body && req.body.email && req.body.password) {
-    const serviceResult = await new UserService().login(req.body.email, req.body.password); // Call the service
+    const serviceResult = await new UserService(res.locals.modelContext).login(req.body.email, req.body.password); // Call the service
     if (serviceResult.status === 'error') {
       const result = serviceResult as ServiceResult<ServiceError>;
       error = { code: result.data.code, info: result.data.info };
@@ -35,7 +35,11 @@ export const inscription = async (req: express.Request, res: express.Response) =
   // Check if it's a POST
   if (req.body && req.body.pseudo && req.body.email && req.body.password && req.body.password_confirm) {
     if (req.body.password === req.body.password_confirm) {
-      const serviceResult = await new UserService().createAccount(req.body.pseudo, req.body.email, req.body.password); // Call the service
+      const serviceResult = await new UserService(res.locals.modelContext).createAccount(
+        req.body.pseudo,
+        req.body.email,
+        req.body.password,
+      ); // Call the service
       if (serviceResult.status === 'error') {
         const result = serviceResult as ServiceResult<ServiceError>;
         error = { code: result.data.code, info: result.data.info };
