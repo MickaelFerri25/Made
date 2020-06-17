@@ -11,6 +11,7 @@ import {
   Varchar,
 } from '@smallprod/models';
 
+import ProjectCategoryEntity from './projectcategory.entity';
 import UserEntity from './user.entity';
 
 @Table('project')
@@ -31,8 +32,14 @@ export default class ProjectEntity extends Entity {
   @LongText()
   public description: string;
 
-  // ! TODO handle the type
+  @ManyToOne('project-category', true)
+  public category: ProjectCategoryEntity;
 
-  @Varchar(255)
-  public image: string; // ! Maybe not like this only with id
+  constructor(name: string, description: string, author: UserEntity, category: ProjectCategoryEntity) {
+    super();
+    this.name = name;
+    this.description = description;
+    this.author = author;
+    this.category = category;
+  }
 }

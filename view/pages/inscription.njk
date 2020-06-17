@@ -23,7 +23,7 @@
         <div class="pseudo">
             <label for="pseudo">Pseudo</label>
             <input type="text" name="pseudo" id="pseudo" required>
-             {% if errorCodes.105 %}
+             {% if errorCodes['105'] %}
                 <p class="error">Le pseudo est déjà utilisé</p>
             {% endif %}
         </div>
@@ -31,7 +31,7 @@
         <div class="email">
             <label for="email">Adresse email</label>
             <input type="email" name="email" id="email" required>
-            {% if errorCodes.101 %}
+            {% if errorCodes['101'] %}
                 <p class="error">Email est déjà utilisé</p>
             {% endif %}
         </div>
@@ -39,7 +39,7 @@
         <div class="password">
             <label for="mdp">Mot de passe</label>
             <input type="password" name="password" id="mdp" required>
-            {% if errorCodes.104 %}
+            {% if errorCodes['104'] %}
             <p class="error">Le mot de passe ne correspond pas<br>aux exigences
             (au moins 8 caractères et 1 chiffre)</p>
             {% endif %}
@@ -48,7 +48,7 @@
         <div class="confirm-password">
             <label for="confirm_mdp">Confirmer le Mot de passe</label>
             <input type="password" name="password_confirm" id="confirm_mdp" required>
-            {% if errorCodes.103 %}
+            {% if errorCodes['103'] %}
             <p class="error">Le mot de passe est different</p>
             {% endif %}
         </div>
