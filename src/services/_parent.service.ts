@@ -12,6 +12,10 @@ export default abstract class Service {
     return this.result('error', { data, code: error.code, info: error.info });
   };
 
+  public errors = (errors: Error[]): ServiceResult<ServiceErrors> => {
+    return this.result<ServiceErrors>('error', { errors });
+  };
+
   private result = <T = ServiceError>(status: 'success' | 'error', data: T): ServiceResult<T> => {
     return {
       status,
@@ -29,4 +33,8 @@ export interface ServiceError {
   code: number;
   info: string;
   data: any;
+}
+
+export interface ServiceErrors {
+  errors: Error[];
 }

@@ -1,5 +1,5 @@
 import { CreateAccountSuccess, LoginSuccess } from '../services/results/user.result';
-import { ServiceError, ServiceResult } from '../services/_parent.service';
+import { ServiceError, ServiceErrors, ServiceResult } from '../services/_parent.service';
 import errors, { Error } from '../errors/index';
 
 import UserService from '../services/user.service';
@@ -31,7 +31,7 @@ export const connexion = async (req: express.Request, res: express.Response) => 
 };
 
 export const inscription = async (req: express.Request, res: express.Response) => {
-  let error: Error | null = null;
+  let resErrors: Error[] = [];
   // Check if it's a POST
   if (req.body && req.body.pseudo && req.body.email && req.body.password && req.body.password_confirm) {
     if (req.body.password === req.body.password_confirm) {
@@ -41,18 +41,19 @@ export const inscription = async (req: express.Request, res: express.Response) =
         req.body.password,
       ); // Call the service
       if (serviceResult.status === 'error') {
-        const result = serviceResult as ServiceResult<ServiceError>;
-        error = { code: result.data.code, info: result.data.info };
+        const result = serviceResult as ServiceResult<ServiceErrors>;
+        resErrors = result.data.errors;
       } else {
         const result = serviceResult as ServiceResult<CreateAccountSuccess>;
         if (req.session) req.session.user = result.data.user; // Set the session
         return res.redirect('/'); // Redirect the user to home page
       }
     } else {
-      error = errors.user.ConfirmPasswordNotMatch;
+      resErrors.push(errors.user.ConfirmPasswordNotMatch);
     }
   }
-  return res.render('pages/inscription.njk', { error });
+  const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});
+  return res.render('pages/inscription.njk', { errorCodes, errors: resErrors });
 };
 
 export const frontend = (req: express.Request, res: express.Response) => {
