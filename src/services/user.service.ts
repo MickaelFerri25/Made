@@ -16,10 +16,15 @@ export default class UserService extends Service {
     if (password.length < 8 || !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
       return this.error(errors.user.PasswordDontMatchRequirements);
     }
-    // Chech if email is already used
+    // Check if email is already used
     const checkEmailResult = await UserEntity.findOne(this.context).where('email', '=', email).exec();
     if (checkEmailResult) {
       return this.error(errors.user.EmailAlreadyUsed);
+    }
+    // Check if pseudo is already used
+    const checkPseudoResult = await UserEntity.findOne(this.context).where('pseudo', '=', pseudo).exec();
+    if (checkPseudoResult) {
+      return this.error(errors.user.PseudoAlreadyUsed);
     }
     const user = new UserEntity(pseudo, email, password);
     user.hashPassword(); // Hash the password
