@@ -67,3 +67,10 @@ export const upload = (req: express.Request, res: express.Response) => {
 export const releases = (req: express.Request, res: express.Response) => {
   return res.render('pages/releases.njk');
 };
+
+export const logout = (req: express.Request, res: express.Response) => {
+  if (req.session) {
+    req.session.user = undefined;
+  }
+  return res.redirect('/');
+};
