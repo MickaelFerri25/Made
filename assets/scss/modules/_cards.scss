@@ -134,6 +134,50 @@
    }
 }
 
+.categories {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 46.5%;
+    left: 50%;
+    transform: translate(-50%,-46.5%);
+    @media screen and(max-width:1000px) {
+     flex-direction: column;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+    }
+    .card-categorie {
+        background-color: white;
+        height: 90px;
+        padding: 25px;
+        padding-left: 0;
+        width: 250px;
+        border-radius: 2px;
+        box-shadow: $s;
+        margin-bottom: 25px;
+        margin-right: 35px;
+        display: flex;
+        border-top: solid 8px $r;
+        transition: $tr;
+        &:hover {
+            cursor: pointer;
+            transform: translateY(-15px);
+            background-color: rgb(253, 233, 233);
+        }
+        @media screen and(max-width:500px) {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+        i {
+            font-size: 22px;
+            color: $r;
+            margin-left: 50px;
+            margin-right: 10px;
+            transform: translateY(5px);
+        }
+    }
+}
 @media screen and (max-width:1000px) {
     .filtre {
         text-align: center;

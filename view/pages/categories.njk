@@ -11,7 +11,6 @@
     <script src="../../assets/js/modules/header.js" defer></script>
     <script src="../../assets/js/modules/animations.js" defer></script>
 </head>
-
 <body>
     <header>
         <nav class="desktop">
@@ -46,7 +45,7 @@
                     <a href="../pages/releases.html">Releases</a>
                 </li>
                 <li>
-                    <a href="#" class="red">Upload</a>
+                    <a href="#">Upload</a>
                 </li>
                 <li>
                     <a href="../view/pages/fonctionnalites.html">Ajouts de fonctionnalités</a>
@@ -101,43 +100,27 @@
             </ul>
         </nav>
     </header>
-    <form action="" class="form-upload">
-        <div class="flex">
-            <div class="info-cards">
-                <div class="infos">
-                    <div>
-                        <label for="">Nom du projet</label>
-                        <input type="text" placeholder="Made" required>
-                    </div>
+    <div class="categories">
+        <a href="">
+            <div class="card-categorie">
+                <i class="fab fa-vuejs"></i>
+                <h2 class="red">Front-End</h2>
+            </div>
+        </a>
+        
+        <a href="">
+            <div class="card-categorie">
+                <i class="far fa-window-restore"></i>
+                <h2 class="red">Fullstack</h2>
+            </div>
+        </a>
 
-                    <div>
-                        <label for="">Type</label>
-                        <select name="" id="" class="types">
-                            <option value="">Front-end</option>
-                            <option value="">Back-end</option>
-                            <option value="">Fullstack</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="figma">
-                    <div class="link-figma">
-                        <label for="">Lien figma</label>
-                        <input type="text" required placeholder="https://www.figma.com/file/u0nvjQbJbSJ85_KsWmK13W/Made?node-id=269-ca2" required>
-                    </div>
-                </div>
-                <div class="bio">
-                    <label for="">Bio</label>
-                    <textarea required placeholder="Description" name="" id="" cols="30" rows="10"></textarea>
-                </div>
-                <button type="submit" class="cta-red">Enregistrer</button>
+        <a href="">
+            <div class="card-categorie">
+                <i class="fab fa-php"></i>
+                <h2 class="red">Backend</h2>
             </div>
-            <div class="img-card">
-                <label for="">Image</label>
-                <input type="file" alt="upload image" required />
-            </div>
-            <button type="submit" class="cta-red btn-2">Enregistrer</button>
-        </div>
-    </form>
+        </a>
+    </div>
 </body>
-
 </html>
