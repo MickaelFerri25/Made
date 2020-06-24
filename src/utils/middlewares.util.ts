@@ -16,3 +16,10 @@ export const requireNotLogged = (req: express.Request, res: express.Response, ne
   }
   next();
 };
+
+export const requireLogged = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (!req.session || !req.session.user) {
+    return res.redirect('/');
+  }
+  next();
+};

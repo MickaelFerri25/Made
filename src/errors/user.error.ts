@@ -19,3 +19,8 @@ export const PasswordDontMatchRequirements: Error = {
   code: 104,
   info: 'Le mot de passe ne correspond pas aux exigences (au moins 8 caractères et 1 chiffre)',
 };
+
+export const PseudoAlreadyUsed: Error = {
+  code: 105,
+  info: 'Ce pseudo est déjà utilisé',
+};

@@ -22,6 +22,7 @@ export default class UserEntity extends Entity {
   public id: string;
 
   @Varchar(50)
+  @Unique()
   public pseudo: string;
 
   @Varchar(50)
