@@ -1,0 +1,27 @@
+.politique-de-confidentialite {
+    margin-left: 65px;
+    margin-top: 25px;
+    color: $n;
+    .title-politique {
+        margin-bottom: 25px;
+    }
+    .contents {
+        .text {
+            margin-bottom: 27px;
+            h2 {
+                @media screen and(max-width:1000px){
+                    font-size:20px;
+                }
+            }
+            p {
+                display: inline-block;
+                margin-top: 15px;
+                margin-right: 40px;
+                background-color: $w;
+                box-shadow: $s;
+                border-radius: 4px;
+                padding: 20px;
+            }
+        }
+    }
+}
