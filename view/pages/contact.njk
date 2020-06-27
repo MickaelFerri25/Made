@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made - La platforme en ligne de TP pour apprendre le développement Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/app.css">
+    <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
+    <script src="../../assets/js/modules/header.js" defer></script>
+    <script src="../../assets/js/modules/animations.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="desktop">
+            <!-- conteneur -->
+            <div class="menu-deroulant" id="menu-deroulant">
+                <!-- ul -->
+                <ul class="liste-deroulante" id="liste-deroulante">
+                    <li>
+                        <i class="fab fa-vuejs"></i>
+                        <a href="../view/pages/frontend.html">Front-End</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-php"></i>
+                        <a href="../view/pages/backend.html">Back-End</a>
+                    </li>
+                    <li>
+                        <i class="far fa-window-restore"></i>
+                        <a href="../view/pages/fullstack.html">Fullstack</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="menu-left">
+                <li class="menu-logo">
+                    <a href="#" class="logo">Made</a>
+                </li>
+            </ul>
+            <ul class="menu-right">
+                <li>
+                    <a href="#" id="lien-tp">Traveaux pratiques <i class="fas fa-chevron-down arrow"></i></a>
+                </li>
+                <li>
+                    <a href="../view/pages/releases.html">Releases</a>
+                </li>
+                <li>
+                    <a href="../view/pages/upload.html">Upload</a>
+                </li>
+                <li>
+                    <a href="../view/pages/fonctionnalites.html">Ajouts de fonctionnalités</a>
+                </li>
+                <li>
+                    <a href="../view/pages/connexion.html">Connexion</a>
+                </li>
+                <li>
+                    <a href="../view/pages/inscription.html" class="cta-red">Inscription</a>
+                </li>
+                <li>
+                    <i class="fas fa-bars bars" id="bars-bg"></i>
+                </li>
+            </ul>
+        </nav>
+        <nav class="mobile" id="block-bg">
+            <i class="fas fa-times times croix" id="croix-bg"></i>
+            <a href="" class="menu-logo">Made</a>
+            <ul>
+                <li>
+                    <a href="#" id="lien-tp2">Traveaux pratiques <i class="fas fa-chevron-down arrow"></i></a>
+                    <div class="liens" id="menu-mobil-deroualant">
+                        <a href="../view/pages/frontend.html">Front-End</a>
+                        <a href="../view/pages/backend.html">Back-End</a>
+                        <a href="../view/pages/fullstack.html">Fullstack</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="../view/pages/releases.html">Releases</a>
+                </li>
+
+                <li>
+                    <a href="../view/pages/upload.html">Upload</a>
+                </li>
+
+                <li>
+                    <a href="../view/pages/fonctionnalites.html">Ajouts de fonctionnalités</a>
+                </li>
+                
+                <li>
+                    <a href="../view/pages/confidentialite.html">Confidentialité</a>
+                </li>
+
+                <li>
+                    <a href="../view/pages/connexion.html">Connexion</a>
+                </li>
+
+                <li>
+                    <a href="../view/pages/inscription.html">Inscription</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <form action="" class="container-contact" method="post">
+        <h2>Contact</h2>
+        <label for="" class="pseudo">
+            Pseudo
+            <input type="text" required>
+        </label>
+
+        <label for="" class="email">
+            Adresse email
+            <input type="email" required>
+        </label>
+
+        <label for="" class="message">
+            Message
+            <textarea name="" id="" cols="30" rows="10" required></textarea>
+        </label>
+        <button class="cta-red" type="submit">Envoyer</button>
+    </form>
+</body>
+</html>
