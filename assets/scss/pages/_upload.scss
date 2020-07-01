@@ -41,6 +41,11 @@
     padding: 26px;
     border-radius: 6px;
     box-shadow: $s;
+    h3 {
+        color:$n;
+        margin-bottom: 8px;
+        color:$r;
+    }
     .flex {
         display: flex;
         .figma {
