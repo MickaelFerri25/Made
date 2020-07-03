@@ -22,5 +22,8 @@ export const requireLogged = (req: express.Request, res: express.Response, next:
     return res.redirect('/');
   }
   res.locals.user = req.session.user;
+  res.locals.renderWithUser = (template: string, params?: any) => {
+    res.render(template, { ...params, user: res.locals.user });
+  };
   next();
 };

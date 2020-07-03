@@ -10,7 +10,6 @@ const upload = multer({ dest: 'assets/upload/temp', limits: { files: 1, fileSize
 const router = express.Router();
 
 router.get('/', controllers.web.home);
-router.get('/commentaires', controllers.web.comment); // ! TODO remove this
 
 // Auth
 router.get('/connexion', requireNotLogged, withContext(controllers.web.connexion));
@@ -18,6 +17,10 @@ router.post('/connexion', requireNotLogged, withContext(controllers.web.connexio
 router.get('/inscription', requireNotLogged, withContext(controllers.web.inscription));
 router.post('/inscription', requireNotLogged, withContext(controllers.web.inscription));
 router.get('/logout', requireLogged, controllers.web.logout);
+
+// Feature request
+router.get('/commentaires', requireLogged, withContext(controllers.web.comment));
+router.post('/commentaires', requireLogged, withContext(controllers.web.comment));
 
 // Project categories
 router.get('/category/:categorySlug', withContext(controllers.web.category));

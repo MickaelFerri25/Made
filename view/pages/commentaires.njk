@@ -85,7 +85,7 @@
                 <li>
                     <a href="../view/pages/fonctionnalites.html">Ajouts de fonctionnalités</a>
                 </li>
-                
+
                 <li>
                     <a href="../view/pages/confidentialite.html">Confidentialité</a>
                 </li>
@@ -103,34 +103,37 @@
     <section class="ajout-de-commentaire">
         <h2>Proposer nous de nouvelles fonctionnalités !</h2>
         <!-- Formulaire pour le PHP -->
-        <form action="POST">
+        <form method="POST" action="">
             <label for="">Message</label>
-            <textarea required name="Message" id="" cols="30" rows="10"></textarea>
+            <textarea required name="message" id="" cols="30" rows="10"></textarea>
             <button type="submit" class="cta-red">Envoyer</button>
         </form>
     </section>
     <section class="espace-commentaire">
         <h3 class="number-comments">16 Commentaire</h3>
+        {% for comment in comments %}
         <div class="commentaire">
             <div class="img">
-                <img src="../../assets/img/commentaires/user-profil.svg" alt="">
+                <img src="../../assets/img/commentaires/user-profil.svg" alt="User profile picture">
             </div>
             <div class="text">
-                <h3>Jonh Does</h3>
+                <h3>{{comment.author.pseudo}}</h3>
                 <p class="time">il y a 20 min</p>
                 <p class="content-commentaire">
-                    J'aimerais bien voir arriver sur Made la possibilité d'avoir un compte premium et avoir<br>
-                    accès à diffèrentes choses.
+                    {{comment.message}}
                 </p>
                 <div class="buttons">
-                    <a href="" class="cta-red-2">Répondre</a>
+                    {#<a href="" class="cta-red-2">Répondre</a>#}
                     {# Prochaine Mise à jour #}
                     {# <a href="" class="cta-white-2">Voir le profil</a> #}
                     {# Si un user veut supprimer son message, il a le droit #}
-                    <a href="" class="delete cta-red">Supprimer</a>
+
+                    {#<a href="" class="delete cta-red">Supprimer</a>#}
+
                 </div>
             </div>
         </div>
+        {% endfor %}
     </section>
 </body>
 </html>

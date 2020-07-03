@@ -3,6 +3,7 @@ import { ServiceError, ServiceErrors, ServiceResult } from '../services/_parent.
 import errors, { Error } from '../errors/index';
 
 import { CreateProjectSuccess } from '../services/results/project.result';
+import FeatureRequestService from '../services/featurerequest.service';
 import ProjectCategoryEntity from '../models/entities/projectcategory.entity';
 import ProjectCategoryService from '../services/projectcategory.service';
 import ProjectEntity from '../models/entities/project.entity';
@@ -16,8 +17,13 @@ export const home = (req: express.Request, res: express.Response) => {
   return res.render('pages/home.njk');
 };
 
-export const comment = (req: express.Request, res: express.Response) => {
-  return res.render('pages/commentaires.njk');
+export const comment = async (req: express.Request, res: express.Response) => {
+  const service = new FeatureRequestService(res.locals.modelContext);
+  if (req.body && req.body.message) {
+    await service.create(req.body.message, res.locals.user); // ! TODO catch error maybe
+  }
+  const comments = await service.findAll();
+  return res.locals.renderWithUser('pages/commentaires.njk', { comments });
 };
 
 export const connexion = async (req: express.Request, res: express.Response) => {
@@ -61,18 +67,6 @@ export const inscription = async (req: express.Request, res: express.Response) =
   }
   const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});
   return res.render('pages/inscription.njk', { errorCodes, errors: resErrors });
-};
-
-export const frontend = (req: express.Request, res: express.Response) => {
-  return res.render('pages/frontend.njk');
-};
-
-export const backend = (req: express.Request, res: express.Response) => {
-  return res.render('pages/backend.njk');
-};
-
-export const fullstack = (req: express.Request, res: express.Response) => {
-  return res.render('pages/fullstack.njk');
 };
 
 export const category = async (req: express.Request, res: express.Response) => {

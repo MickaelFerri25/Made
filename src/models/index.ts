@@ -1,5 +1,6 @@
 import { DbManager, EntityManager } from '@smallprod/models';
 
+import FeatureRequestEntity from './entities/featurerequest.entity';
 import ProjectCategoryEntity from './entities/projectcategory.entity';
 import ProjectEntity from './entities/project.entity';
 import UserEntity from './entities/user.entity';
@@ -19,6 +20,6 @@ export default async () => {
     true,
   );
 
-  EntityManager.registerEntities([ProjectEntity, ProjectCategoryEntity, UserEntity]);
+  EntityManager.registerEntities([ProjectEntity, ProjectCategoryEntity, FeatureRequestEntity, UserEntity]);
   await EntityManager.initialize();
 };
