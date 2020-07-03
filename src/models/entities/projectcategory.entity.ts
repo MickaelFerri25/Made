@@ -13,7 +13,7 @@ import {
 
 import ProjectEntity from './project.entity';
 
-@Table('project-category')
+@Table('projectcategory')
 @AutoCreateNUpdate()
 export default class ProjectCategoryEntity extends Entity {
   @Id()

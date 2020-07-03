@@ -21,5 +21,6 @@ export const requireLogged = (req: express.Request, res: express.Response, next:
   if (!req.session || !req.session.user) {
     return res.redirect('/');
   }
+  res.locals.user = req.session.user;
   next();
 };

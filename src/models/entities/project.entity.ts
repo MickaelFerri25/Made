@@ -32,7 +32,7 @@ export default class ProjectEntity extends Entity {
   @LongText()
   public description: string;
 
-  @ManyToOne('project-category', true)
+  @ManyToOne('projectcategory', true)
   public category: ProjectCategoryEntity;
 
   constructor(name: string, description: string, author: UserEntity, category: ProjectCategoryEntity) {

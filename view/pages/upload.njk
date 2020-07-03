@@ -101,33 +101,33 @@
             </ul>
         </nav>
     </header>
-    <form action="" class="form-upload">
+    <form action="/upload" class="form-upload" method="post" enctype="multipart/form-data">
         <div class="flex">
             <div class="info-cards">
                 <div class="infos">
                     <div>
-                        <label for="">Nom du projet</label>
-                        <input type="text" placeholder="Made" required>
+                        <label for="name">Nom du projet</label>
+                        <input type="text" id="name" name="name" placeholder="Made" required>
                     </div>
 
                     <div>
-                        <label for="">Type</label>
-                        <select name="" id="" class="types">
-                            <option value="">Front-end</option>
-                            <option value="">Back-end</option>
-                            <option value="">Fullstack</option>
+                        <label for="type">Type</label>
+                        <select name="category" id="type" class="types">
+                            {% for category in projectCategories %}
+                              <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
                 <div class="bio">
-                    <label for="">Bio</label>
-                    <textarea required placeholder="Description" name="" id="" cols="30" rows="10"></textarea>
+                    <label for="desc">Bio</label>
+                    <textarea required placeholder="Description" name="description" id="desc" cols="30" rows="10"></textarea>
                 </div>
                 <button type="submit" class="cta-red">Enregistrer</button>
             </div>
             <div class="img-card">
                 <label for="">Image</label>
-                <input type="file" alt="upload image" required />
+                <input type="file" name="image" alt="upload image" required />
             </div>
             <button type="submit" class="cta-red btn-2">Enregistrer</button>
         </div>

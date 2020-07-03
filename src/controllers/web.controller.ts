@@ -2,6 +2,8 @@ import { CreateAccountSuccess, LoginSuccess } from '../services/results/user.res
 import { ServiceError, ServiceErrors, ServiceResult } from '../services/_parent.service';
 import errors, { Error } from '../errors/index';
 
+import ProjectCategoryService from '../services/projectcategory.service';
+import ProjectService from '../services/project.service';
 import UserService from '../services/user.service';
 import express from 'express';
 
@@ -60,8 +62,24 @@ export const frontend = (req: express.Request, res: express.Response) => {
   return res.render('pages/frontend.njk');
 };
 
-export const upload = (req: express.Request, res: express.Response) => {
-  return res.render('pages/upload.njk');
+export const upload = async (req: express.Request, res: express.Response) => {
+  console.log(req.body);
+  if (req.body && req.body.name && req.body.category && req.body.description && req.file) {
+    const serviceResult = await new ProjectService(res.locals.modelContext).create(
+      req.body.name,
+      req.body.description,
+      req.body.category,
+      res.locals.user,
+    );
+    console.log(serviceResult);
+    if (serviceResult.status === 'error') {
+    } else {
+      // ! TODO Redirect to the project page
+      console.log('Success');
+    }
+  }
+  const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
+  return res.render('pages/upload.njk', { projectCategories });
 };
 
 export const releases = (req: express.Request, res: express.Response) => {
