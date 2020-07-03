@@ -35,13 +35,28 @@
     background-color: $w;
     position: absolute;
     top: 50%;
+    margin-top: 35px;
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 26px;
     border-radius: 6px;
     box-shadow: $s;
+    h3 {
+        color:$n;
+        margin-bottom: 8px;
+        color:$r;
+    }
     .flex {
         display: flex;
+        .figma {
+            margin-top: 16px;
+            label {
+            margin-top: 8px;
+            }
+            input {
+                width: 525px;
+            }
+        }
         label{
             display: block;
             margin-bottom: 10px;
@@ -76,7 +91,7 @@
             .bio {
                 padding-top: 16px;
                 textarea {
-                    width: 535px;
+                    width: 530px;
                 }
             }
             button {
@@ -91,9 +106,9 @@
         .img-card {
             margin-left: 25px;
             input {
-                height: 258px;
+                height: 333.5px;
                 width: 250px;
-                padding-top: 125px;
+                padding-top: 150px;
             }
         }
         .btn-2 {
@@ -108,8 +123,8 @@
     }
     @media screen and (max-width:900px) {
         background-color: $w;
-        margin-top: 155px;
-        margin-bottom: 60px;
+        margin-top: 190px;
+        margin-bottom: 55px;
         padding: 26px;
         border-radius: 6px;
         box-shadow: $s;

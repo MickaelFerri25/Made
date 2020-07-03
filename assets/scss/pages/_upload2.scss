@@ -1,0 +1,40 @@
+.form-upload2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    h3 {
+        color: $n;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    label {
+        color: $r;
+        font-size: 19px;
+        font-weight: 500;
+    }
+    textarea {
+        display: block;
+        margin-top: 10px;
+        width: 400px;
+        height: 200px;
+        padding: 15px 10px;
+        border-radius: 4px;
+        outline: none;
+        &::placeholder {
+            font-family: 'Lato', sans-serif;
+        }
+        &:-moz-placeholder {
+            font-family: 'Lato', sans-serif;
+        }
+    }
+    button {
+        margin-top: 12px;
+        outline: none;
+    }
+    @media screen and(max-width:500px) {
+        textarea {
+          width: 220px;
+        }
+    }
+}

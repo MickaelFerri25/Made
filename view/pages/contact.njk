@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Made - Mises à jours</title>
+    <title>Made - La platforme en ligne de TP pour apprendre le développement Web</title>
     <link rel="shortcut icon" href="../../assets/img/logomade.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/app.css">
@@ -11,7 +11,7 @@
     <script src="../../assets/js/modules/header.js" defer></script>
     <script src="../../assets/js/modules/animations.js" defer></script>
 </head>
-<body class="body">
+<body>
     <header>
         <nav class="desktop">
             <!-- conteneur -->
@@ -100,28 +100,23 @@
             </ul>
         </nav>
     </header>
-    <div class="releases">
-        <h2>RELEASES 1.1.0</h2>
-        <h3 class="text-releases">Nouvelles fonctionnalités ajouté !</h3>
-        <ul class="block-fonctionnalites">
-            <li>
-                <p>Possibilité d'upload des projets</p>
-            </li>
+    <form action="" class="container-contact" method="post">
+        <h2>Contact</h2>
+        <label for="" class="pseudo">
+            Pseudo
+            <input type="text" required>
+        </label>
 
-            <li>
-                <p>Création d'un espace membres + pannel admin</p>
-            </li>
-        </ul>
-        <h3 class="text-releases">Correction de bugs mineurs</h3>
-        <ul class="block-bug">
-            <li>
-                <p>Possibilité d'upload des projets</p>
-            </li>
+        <label for="" class="email">
+            Adresse email
+            <input type="email" required>
+        </label>
 
-            <li>
-                <p>Création d'un espace membres + pannel admin</p>
-            </li>
-        </ul>
-    </div>
+        <label for="" class="message">
+            Message
+            <textarea name="" id="" cols="30" rows="10" required></textarea>
+        </label>
+        <button class="cta-red" type="submit">Envoyer</button>
+    </form>
 </body>
 </html>

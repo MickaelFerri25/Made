@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Made - La platforme en ligne de TP pour apprendre le développement Web</title>
+    <link rel="shortcut icon" href="../../assets/img/logomade.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/app.css">
     <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
     <script src="../../assets/js/modules/header.js" defer></script>
     <script src="../../assets/js/modules/animations.js" defer></script>
 </head>
-
 <body>
     <header>
         <nav class="desktop">
@@ -46,7 +46,7 @@
                     <a href="../pages/releases.html">Releases</a>
                 </li>
                 <li>
-                    <a href="#" class="red">Upload</a>
+                    <a href="#">Upload</a>
                 </li>
                 <li>
                     <a href="../view/pages/fonctionnalites.html">Ajouts de fonctionnalités</a>
@@ -101,44 +101,27 @@
             </ul>
         </nav>
     </header>
-    <form action="/upload" class="form-upload" method="post" enctype="multipart/form-data">
-
-       <h3>Etape 1</h3>
-        <div class="flex">
-            <div class="info-cards">
-                <div class="infos">
-                    <div>
-                        <label for="name">Nom du projet</label>
-                        <input type="text" id="name" name="name" placeholder="Made" required>
-                    </div>
-
-                    <div>
-                        <label for="type">Type</label>
-                        <select name="category" id="type" class="types">
-                            {% for category in projectCategories %}
-                              <option value="{{ category.id }}">{{ category.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                <div class="figma">
-                    <div class="link-figma">
-                        <label for="">Lien figma *</label>
-                        <input type="text" placeholder="https://www.figma.com/file/u0nvjQbJbSJ85_KsWmK13W/Made?node-id=269-ca2" required>
-                    </div>
-                </div>
-                <div class="bio">
-                    <label for="desc">Bio</label>
-                    <textarea required placeholder="Description" name="description" id="desc" cols="30" rows="10"></textarea>
-                </div>
-                <button type="submit" class="cta-red">Enregistrer</button>
+    <div class="categories">
+        <a href="">
+            <div class="card-categorie">
+                <i class="fab fa-vuejs"></i>
+                <h2 class="red">Front-End</h2>
             </div>
-            <div class="img-card">
-                <label for="">Image</label>
-                <input type="file" name="image" alt="upload image" required />
+        </a>
+        
+        <a href="">
+            <div class="card-categorie">
+                <i class="far fa-window-restore"></i>
+                <h2 class="red">Fullstack</h2>
             </div>
-            <button type="submit" class="cta-red btn-2">Enregistrer</button>
-        </div>
-    </form>
+        </a>
+
+        <a href="">
+            <div class="card-categorie">
+                <i class="fab fa-php"></i>
+                <h2 class="red">Backend</h2>
+            </div>
+        </a>
+    </div>
 </body>
 </html>
