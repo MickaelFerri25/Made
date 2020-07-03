@@ -34,6 +34,10 @@ router.post('/upload', requireLogged, upload.single('image'), withContext(contro
 router.get('/upload/:projectId', requireLogged, withContext(controllers.web.uploadPublish));
 router.post('/upload/:projectId', requireLogged, withContext(controllers.web.uploadPublish));
 
-router.get('/releases', controllers.web.releases);
+router.get('/releases', controllers.web.releases); // ! TODO remove that maybe
+
+// Contact
+router.get('/contact', controllers.web.contact);
+router.post('/contact', controllers.web.contact);
 
 export default router;

@@ -9,8 +9,10 @@ import ProjectCategoryService from '../services/projectcategory.service';
 import ProjectEntity from '../models/entities/project.entity';
 import ProjectService from '../services/project.service';
 import UserService from '../services/user.service';
+import config from '../utils/config.util';
 import express from 'express';
 import fs from 'fs';
+import mailerUtil from '../utils/mailer.util';
 import { v4 as uuidv4 } from 'uuid';
 
 export const home = (req: express.Request, res: express.Response) => {
@@ -145,4 +147,15 @@ export const logout = (req: express.Request, res: express.Response) => {
     req.session.user = undefined;
   }
   return res.redirect('/');
+};
+
+export const contact = async (req: express.Request, res: express.Response) => {
+  if (req.body && req.body.pseudo && req.body.email && req.body.message) {
+    await mailerUtil.sendMail(
+      config.mail.contact,
+      '[Made Contact] nouveau message',
+      `${req.body.pseudo} (${req.body.email}) à envoyé un message via le formaulaire de contact de made. Voici son message: ${req.body.message}`,
+    );
+  }
+  return res.render('pages/contact.njk');
 };
