@@ -14,7 +14,7 @@
           </form>
       </section>
       <section class="espace-commentaire">
-          <h3 class="number-comments">16 Commentaire</h3>
+          <h3 class="number-comments">{{comments.length}} Commentaire{{ 's' if comments.length > 1}}</h3>
           {% for comment in comments %}
           <div class="commentaire">
               <div class="img">
@@ -22,7 +22,7 @@
               </div>
               <div class="text">
                   <h3>{{comment.author.pseudo}}</h3>
-                  <p class="time">il y a 20 min</p>
+                  <p class="time">Le {{comment.publishedAt}}</p>
                   <p class="content-commentaire">
                       {{comment.message}}
                   </p>

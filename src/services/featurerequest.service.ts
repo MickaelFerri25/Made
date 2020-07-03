@@ -9,7 +9,7 @@ export default class FeatureRequestService extends Service {
     if (!user) {
       return this.error(errors.global.Unexpected);
     }
-    const request = await new FeatureRequestEntity(message, user).create(this.context);
+    const request = await new FeatureRequestEntity(message, user).create(undefined, this.context);
     if (!request) {
       return this.error(errors.global.Unexpected);
     }

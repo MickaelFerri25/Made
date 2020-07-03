@@ -24,7 +24,10 @@ export const comment = async (req: express.Request, res: express.Response) => {
   if (req.body && req.body.message) {
     await service.create(req.body.message, res.locals.user); // ! TODO catch error maybe
   }
-  const comments = await service.findAll();
+  const comments = (await service.findAll()).map((com: any) => {
+    com.publishedAt = com.publishedAt.toLocaleString('fr-FR', { timeZone: 'UTC' });
+    return com;
+  });
   return res.locals.renderWithUser('pages/commentaires.njk', { comments });
 };
 
@@ -86,7 +89,7 @@ export const category = async (req: express.Request, res: express.Response) => {
 export const project = async (req: express.Request, res: express.Response) => {
   const proj = await ProjectEntity.findById(req.params.projectId);
   if (!proj) return res.redirect('/');
-
+  console.log(proj);
   return res.render('pages/regles.njk', { project: proj });
 };
 
@@ -127,7 +130,6 @@ export const uploadPublish = async (req: express.Request, res: express.Response)
   let resErrors: Error[] = [];
   if (req.body && req.body.rules) {
     const serviceResult = await new ProjectService(res.locals.modelContext).publish(req.body.rules, proj);
-    console.log(serviceResult);
     if (serviceResult.status === 'error') {
       const resu = serviceResult as ServiceResult<ServiceError>;
       resErrors = [resu.data];
