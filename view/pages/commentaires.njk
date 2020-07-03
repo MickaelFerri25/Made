@@ -2,44 +2,43 @@
 
 
 {% block body %}
-
-  {% include "../components/header.njk" %}
   <main class="body body-upload">
-  <section class="ajout-de-commentaire">
-        <h2>Proposer nous de nouvelles fonctionnalités !</h2>
-        <!-- Formulaire pour le PHP -->
-        <form method="POST" action="">
-            <label for="">Message</label>
-            <textarea required name="message" id="" cols="30" rows="10"></textarea>
-            <button type="submit" class="cta-red">Envoyer</button>
-        </form>
-    </section>
-    <section class="espace-commentaire">
-        <h3 class="number-comments">16 Commentaire</h3>
-        {% for comment in comments %}
-        <div class="commentaire">
-            <div class="img">
-                <img src="../../assets/img/commentaires/user-profil.svg" alt="User profile picture">
-            </div>
-            <div class="text">
-                <h3>{{comment.author.pseudo}}</h3>
-                <p class="time">il y a 20 min</p>
-                <p class="content-commentaire">
-                    {{comment.message}}
-                </p>
-                <div class="buttons">
-                    {#<a href="" class="cta-red-2">Répondre</a>#}
-                    {# Prochaine Mise à jour #}
-                    {# <a href="" class="cta-white-2">Voir le profil</a> #}
-                    {# Si un user veut supprimer son message, il a le droit #}
+    {% include "../components/header.njk" %}
+    <section class="ajout-de-commentaire">
+          <h2>Proposer nous de nouvelles fonctionnalités !</h2>
+          <!-- Formulaire pour le PHP -->
+          <form method="POST" action="">
+              <label for="">Message</label>
+              <textarea required name="message" id="" cols="30" rows="10"></textarea>
+              <button type="submit" class="cta-red">Envoyer</button>
+          </form>
+      </section>
+      <section class="espace-commentaire">
+          <h3 class="number-comments">16 Commentaire</h3>
+          {% for comment in comments %}
+          <div class="commentaire">
+              <div class="img">
+                  <img src="../../assets/img/commentaires/user-profil.svg" alt="User profile picture">
+              </div>
+              <div class="text">
+                  <h3>{{comment.author.pseudo}}</h3>
+                  <p class="time">il y a 20 min</p>
+                  <p class="content-commentaire">
+                      {{comment.message}}
+                  </p>
+                  <div class="buttons">
+                      {#<a href="" class="cta-red-2">Répondre</a>#}
+                      {# Prochaine Mise à jour #}
+                      {# <a href="" class="cta-white-2">Voir le profil</a> #}
+                      {# Si un user veut supprimer son message, il a le droit #}
 
-                    {#<a href="" class="delete cta-red">Supprimer</a>#}
+                      {#<a href="" class="delete cta-red">Supprimer</a>#}
 
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </section>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </section>
     </main>
 
 {% endblock %}

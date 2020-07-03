@@ -1,9 +1,7 @@
 // Modules
-
 // Variables
 @import "modules/var/varColor";
 @import "modules/var/varAnimation";
-
 // composants
 @import "modules/header-desktop";
 @import "modules/header-mobile";
@@ -22,7 +20,6 @@
 @import "pages/contact";
 @import "pages/upload2";
 @import "pages/regles";
-
 * {
     margin: 0;
     padding: 0;
@@ -38,40 +35,41 @@ body {
 
 .body {
     background-color: $w;
+    min-height: 100vh;
 }
 
 .logo {
-    color: $r!important;
+    color: $r !important;
     font-size: 18px;
     font-weight: 600;
 }
 
 .cta-red {
     @include button-red;
-    color:$w!important;
+    color: $w !important;
 }
 
 .cta-red-2 {
     @include button-red-2;
-    color:$w!important;
+    color: $w !important;
 }
 
 .cta-white {
     @include button-white;
-    color:$r!important;
+    color: $r !important;
 }
 
 .cta-white-2 {
     @include button-white-2;
-    color:$r!important;
+    color: $r !important;
 }
 
 .red {
-    color: $r!important;
+    color: $r !important;
 }
 
 .black {
-    color: $n!important;
+    color: $n !important;
 }
 
 .center {
