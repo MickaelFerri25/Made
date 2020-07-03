@@ -2,10 +2,14 @@ import { CreateAccountSuccess, LoginSuccess } from '../services/results/user.res
 import { ServiceError, ServiceErrors, ServiceResult } from '../services/_parent.service';
 import errors, { Error } from '../errors/index';
 
+import { CreateProjectSuccess } from '../services/results/project.result';
 import ProjectCategoryService from '../services/projectcategory.service';
+import ProjectEntity from '../models/entities/project.entity';
 import ProjectService from '../services/project.service';
 import UserService from '../services/user.service';
 import express from 'express';
+import fs from 'fs';
+import { v4 as uuidv4 } from 'uuid';
 
 export const home = (req: express.Request, res: express.Response) => {
   return res.render('pages/home.njk');
@@ -63,23 +67,51 @@ export const frontend = (req: express.Request, res: express.Response) => {
 };
 
 export const upload = async (req: express.Request, res: express.Response) => {
-  console.log(req.body);
+  let resErrors: Error[] = [];
   if (req.body && req.body.name && req.body.category && req.body.description && req.file) {
+    const picturePath = `${uuidv4()}${req.file.originalname.substring(req.file.originalname.lastIndexOf('.'))}`;
     const serviceResult = await new ProjectService(res.locals.modelContext).create(
       req.body.name,
       req.body.description,
       req.body.category,
+      req.body.designLink || '',
+      picturePath,
       res.locals.user,
     );
-    console.log(serviceResult);
     if (serviceResult.status === 'error') {
+      const resu = serviceResult as ServiceResult<ServiceErrors>;
+      resErrors = resu.data.errors;
     } else {
-      // ! TODO Redirect to the project page
-      console.log('Success');
+      const resu = serviceResult as ServiceResult<CreateProjectSuccess>;
+      fs.copyFileSync(req.file.path, `assets/upload/project/${picturePath}`);
+      fs.unlinkSync(req.file.path);
+      return res.redirect(`/upload/${resu.data.project.id}`);
     }
+    fs.unlinkSync(req.file.path);
   }
   const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
-  return res.render('pages/upload.njk', { projectCategories });
+  const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});
+  return res.render('pages/upload.njk', { projectCategories, errorCodes, errors: resErrors });
+};
+
+export const uploadPublish = async (req: express.Request, res: express.Response) => {
+  const project: ProjectEntity | null = await ProjectEntity.findById(req.params.projectId, res.locals.modelContext);
+  if (!project) return res.redirect('/');
+  if (project.author.id !== res.locals.user.id) return res.redirect('/');
+  if (project.isPublished) return res.redirect('/');
+  let resErrors: Error[] = [];
+  if (req.body && req.body.rules) {
+    const serviceResult = await new ProjectService(res.locals.modelContext).publish(req.body.rules, project);
+    console.log(serviceResult);
+    if (serviceResult.status === 'error') {
+      const resu = serviceResult as ServiceResult<ServiceError>;
+      resErrors = [resu.data];
+    } else {
+      // ! TODO redirect to project
+    }
+  }
+  const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});
+  return res.render('pages/upload2.njk', { errorCodes, errors: resErrors });
 };
 
 export const releases = (req: express.Request, res: express.Response) => {

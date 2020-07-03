@@ -42,10 +42,10 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@smallprod/models@^4.4.4":
-  version "4.4.5"
-  resolved "https://registry.yarnpkg.com/@smallprod/models/-/models-4.4.5.tgz#35e36c2c5aca6d125a3306415e5110d29a4d38da"
-  integrity sha512-LkwG4fKBOSSZ62duZiZRLfS6v1ZR5f8BvTS+ZPxlPlQqV3yTJSShb/JqTa19NBznln9BtPhdv2+yVkCFJo3iuA==
+"@smallprod/models@^4.4.11":
+  version "4.4.11"
+  resolved "https://registry.yarnpkg.com/@smallprod/models/-/models-4.4.11.tgz#0c8bd6cd98413069f33eb651b3047888d4a78a10"
+  integrity sha512-aEgGOmred+iqh3x1HtTSnZUSeKLylHC5e0uzCIHP9aK/iERaB1TsJFuycJX3RMwCVamw243UIjNRQB+erI5XPQ==
   dependencies:
     mysql "^2.18.1"
 

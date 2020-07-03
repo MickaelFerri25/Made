@@ -9,3 +9,8 @@ export const CategoryNotFound: Error = {
   code: 202,
   info: 'Project category not found',
 };
+
+export const DesignLinkIncorrect: Error = {
+  code: 203,
+  info: 'Design link incorrect (not a figma link)',
+};
