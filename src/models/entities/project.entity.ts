@@ -4,6 +4,7 @@ import {
   AutoIncrement,
   BigInt,
   Bool,
+  DateTime,
   Entity,
   Id,
   LongText,
@@ -50,6 +51,10 @@ export default class ProjectEntity extends Entity {
 
   @Bool()
   public isPublished = false;
+
+  @AllowNull()
+  @DateTime()
+  public publishedAt: Date | null = null;
 
   constructor(
     name: string,

@@ -3,6 +3,7 @@ import { ServiceError, ServiceErrors, ServiceResult } from '../services/_parent.
 import errors, { Error } from '../errors/index';
 
 import { CreateProjectSuccess } from '../services/results/project.result';
+import ProjectCategoryEntity from '../models/entities/projectcategory.entity';
 import ProjectCategoryService from '../services/projectcategory.service';
 import ProjectEntity from '../models/entities/project.entity';
 import ProjectService from '../services/project.service';
@@ -66,6 +67,33 @@ export const frontend = (req: express.Request, res: express.Response) => {
   return res.render('pages/frontend.njk');
 };
 
+export const backend = (req: express.Request, res: express.Response) => {
+  return res.render('pages/backend.njk');
+};
+
+export const fullstack = (req: express.Request, res: express.Response) => {
+  return res.render('pages/fullstack.njk');
+};
+
+export const category = async (req: express.Request, res: express.Response) => {
+  const cat = await ProjectCategoryEntity.findOne(res.locals.modelContext)
+    .where('slug', '=', req.params.categorySlug)
+    .exec();
+  if (!cat) return res.redirect('/');
+
+  const page = req.query.page && typeof req.query.page === 'string' ? parseInt(req.query.page, 10) : 1;
+  const projects = await new ProjectService(res.locals.modelContext).findByCategory(cat, page);
+
+  return res.render('pages/category.njk', { projects, category: cat });
+};
+
+export const project = async (req: express.Request, res: express.Response) => {
+  const proj = await ProjectEntity.findById(req.params.projectId);
+  if (!proj) return res.redirect('/');
+
+  return res.render('pages/regles.njk', { project: proj });
+};
+
 export const upload = async (req: express.Request, res: express.Response) => {
   let resErrors: Error[] = [];
   if (req.body && req.body.name && req.body.category && req.body.description && req.file) {
@@ -95,19 +123,19 @@ export const upload = async (req: express.Request, res: express.Response) => {
 };
 
 export const uploadPublish = async (req: express.Request, res: express.Response) => {
-  const project: ProjectEntity | null = await ProjectEntity.findById(req.params.projectId, res.locals.modelContext);
-  if (!project) return res.redirect('/');
-  if (project.author.id !== res.locals.user.id) return res.redirect('/');
-  if (project.isPublished) return res.redirect('/');
+  const proj: ProjectEntity | null = await ProjectEntity.findById(req.params.projectId, res.locals.modelContext);
+  if (!proj) return res.redirect('/');
+  if (proj.author.id !== res.locals.user.id) return res.redirect('/');
+  if (proj.isPublished) return res.redirect('/');
   let resErrors: Error[] = [];
   if (req.body && req.body.rules) {
-    const serviceResult = await new ProjectService(res.locals.modelContext).publish(req.body.rules, project);
+    const serviceResult = await new ProjectService(res.locals.modelContext).publish(req.body.rules, proj);
     console.log(serviceResult);
     if (serviceResult.status === 'error') {
       const resu = serviceResult as ServiceResult<ServiceError>;
       resErrors = [resu.data];
     } else {
-      // ! TODO redirect to project
+      return res.redirect(`/project/${proj.id}`);
     }
   }
   const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});

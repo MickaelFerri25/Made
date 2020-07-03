@@ -46,10 +46,22 @@ export default class ProjectService extends Service {
     try {
       project.rules = rules;
       project.isPublished = true;
+      project.publishedAt = new Date();
       await project.update();
       return this.success<PublishProjectSuccess>({ project });
     } catch (err) {
       return this.error(errors.global.Unexpected);
     }
+  };
+
+  public findByCategory = async (category: ProjectCategoryEntity, page: number) => {
+    const projects = await ProjectEntity.findMany(this.context)
+      .where('category_id', '=', category.id)
+      .and()
+      .where('isPublished', '=', 1)
+      .sort('publishedAt', 'DESC')
+      /*.limit(6, (page - 1) * 6)*/
+      .exec();
+    return projects;
   };
 }

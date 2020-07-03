@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../../assets/css/app.css">
         <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
         <script src="../../assets/js/modules/header.js" defer></script>
-        
+
     </head>
 <body>
     <header>
@@ -85,7 +85,7 @@
                 <li>
                     <a href="../view/pages/fonctionnalites.html">Ajouts de fonctionnalités</a>
                 </li>
-                
+
                 <li>
                     <a href="../view/pages/confidentialite.html">Confidentialité</a>
                 </li>
@@ -102,34 +102,31 @@
     </header>
     <div class="block-regles">
         <div class="bio-projet">
-            <h2>Title</h2>
+            <h2>{{project.name}}</h2>
             <p>
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br>
-               Omnis nulla ipsam eligendi aliquam itaque cum laborum nihil repudiandae nobis accusantium<br>
-               qui molestiae facilis quo dolorum, distinctio repellat architecto modi similique.<br>
-               Omnis nulla ipsam eligendi aliquam itaque cum laborum nihil repudiandae nobis accusantium.
+               {{project.description}}
             </p>
             <!-- image qui pose problème -->
-            <img src="../../assets/img/frontEnd/Rectangle 68.png" alt="">
+            <img src="/assets/upload/project/{{project.picture}}" alt="Project picture">
         </div>
         <div class="profil">
             <div class="img-profil">
                 <img src="../../assets/img/commentaires/user-profil.svg" alt="">
             </div>
             <div class="name-profil">
-                <h3>Crée par <strong class="red">Mickael</strong></h3>
+                <h3>Crée par <strong class="red">{{project.author.pseudo}}</strong></h3>
             </div>
         </div>
         <div class="regles">
             <h3>Règles :</h3>
-            <p>1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore porro tenetur maiores.</p>
-            <p>2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore porro tenetur maiores.</p>
-            <p>3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore porro tenetur maiores.</p>
+            <p>{{project.rules}}</p>
         </div>
+        {% if project.designLink %}
         <div class="maquette">
             <h3>Maquette</h3>
-            <a href="">https://www.figma.com/file/u0nvjQbJbSJ7MXKsWmK13W/Made?node-id=0%3A1</a>
+            <a href="{{project.designLink}}">{{project.designLink}}</a>
         </div>
+        {% endif %}
         <div class="exit">
             <a href="">Retour</a>
         </div>
