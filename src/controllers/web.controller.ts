@@ -98,10 +98,11 @@ export const upload = async (req: express.Request, res: express.Response) => {
       req.body.name,
       req.body.description,
       req.body.category,
-      req.body.designLink || '',
+      req.body.designlink || '',
       picturePath,
       res.locals.user,
     );
+    console.log(serviceResult.data);
     if (serviceResult.status === 'error') {
       const resu = serviceResult as ServiceResult<ServiceErrors>;
       resErrors = resu.data.errors;
