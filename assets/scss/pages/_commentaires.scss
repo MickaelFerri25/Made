@@ -71,10 +71,10 @@
         }
     }
     .commentaire {
-        margin-left: 100px;
-        margin-top: 75px;
+        margin-left: 70px;
+        margin-top: 5px;
         display: flex;
-        margin-bottom: 30px;
+        margin-bottom: 5px;
         .img {
             margin-right: 15px;
          }
@@ -118,9 +118,9 @@
     @media screen and(max-width:500px) {
         .commentaire {
             margin-left: 0px;
-            margin-top: 75px;
+            margin-top: 25px;
             display: flex;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             .img {
                 margin-right: 15px;
              }

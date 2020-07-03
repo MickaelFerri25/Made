@@ -36,7 +36,7 @@
     margin-bottom: 60px;
    .text {
        background-color: $w;
-       width: 600px;
+       width: 70%;
        padding: 35px;
        position: relative;
        h2 {
@@ -74,9 +74,11 @@
        }
    }
    .img {
+       width: 32%;
+       margin-right:30px;
        img {
-           height: 349px;
-           border-top-left-radius:4px;
+           width: 100%;
+           border-radius:4px;
        }
    }
 }
