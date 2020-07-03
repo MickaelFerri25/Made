@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "../layouts/global.njk" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Made - Inscription</title>
-    <link rel="shortcut icon" href="../../assets/img/logomade.jpg" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/app.css">
-    <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
-    <script src="../../assets/js/modules/formulaire.js" defer></script>
-    <script src="../../assets/js/modules/login.js" defer></script>
-    <script src="../../assets/js/modules/inscription.js" defer></script>
-</head>
-<body>
-    <header>
-        <nav class="nav-inscription">
-            <a href="../index.html">Made</a>
-        </nav>
-    </header>
-    <h1 class="title-inscription">Inscription</h1>
+{% block head %}
+
+  <script src="/assets/js/modules/formulaire.js" defer></script>
+  <script src="/assets/js/modules/login.js" defer></script>
+  <script src="/assets/js/modules/inscription.js" defer></script>
+
+{% endblock %}
+
+{% block body %}
+
+  {% include "../components/auth-header.njk" %}
+
+  <h1 class="title-inscription">Inscription</h1>
     <form action="/inscription" class="formulaire-inscription" id="block-inscription" method="post">
         <div class="pseudo">
             <label for="pseudo">Pseudo</label>
@@ -56,6 +49,7 @@
         <button type="submit" id="button_form">S'inscrire</button>
         <a href="../view/pages/connexion.html">Connexion</a>
     </form>
-</body>
 
-</html>
+{% endblock %}
+
+<body>

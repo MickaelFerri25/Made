@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Made - Connexion</title>
-    <link rel="shortcut icon" href="../../assets/img/logomade.jpg" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/app.css">
-    <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
-    <script src="../../assets/js/modules/connexion.js" defer></script>
-    <script src="../../assets/js/modules/login.js" defer></script>
-</head>
+{% extends "../layouts/global.njk" %}
 
-{% if error %}
-{# Ici tu peux utiliser error pour afficher un message (tu peux déplacer le bloc) #}
-{% endif %}
+{% block head %}
+  <script src="/assets/js/modules/connexion.js" defer></script>
+  <script src="/assets/js/modules/login.js" defer></script>
+{% endblock %}
 
-<body>
-    <header>
-        <nav class="nav-inscription">
-            <a href="../index.html">Made</a>
-        </nav>
-    </header>
-    <form action="/connexion" class="formulaire-inscription" id="block-inscription" method="post">
+{% block body %}
+  {% include "../components/auth-header.njk" %}
+  <form action="/connexion" class="formulaire-inscription" id="block-inscription" method="post">
         <div class="email">
             <label for="email">Adresse email</label>
             <input type="email" name="email" id="email" required>
@@ -37,6 +22,5 @@
         </div>
         <button type="submit" id="button_form">Connexion</button>
         <a href="../view/pages/connexion.html" class="mdp-oublier">Mot de passe oublié ?</a>
-    </form>
-</body>
-</html>
+  </form>
+{% endblock %}
