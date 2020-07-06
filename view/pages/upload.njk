@@ -22,6 +22,14 @@
                             {% endfor %}
                         </select>
                     </div>
+                    <div>
+                        <label for="type">Niveaux</label>
+                        <select name="category" id="type" class="types">
+                            {% for category in projectCategories %}
+                              <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
                 <div class="figma">
                     <div class="link-figma">

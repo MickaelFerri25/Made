@@ -36,9 +36,12 @@
     margin-bottom: 60px;
    .text {
        background-color: $w;
-       width: 70%;
+       width: 55%;
        padding: 35px;
        position: relative;
+       @media screen and (max-width:800px) {
+        width: 400px;
+        }
        h2 {
            color: $r;
        }
@@ -61,6 +64,9 @@
        }
        p {
             margin-top: 16px;
+            text-overflow: ellipsis;
+            white-space:nowrap;
+            overflow: hidden;
             line-height: 24px;
        }
        .buttons {
@@ -74,12 +80,22 @@
        }
    }
    .img {
-       width: 32%;
+       width: 30%;
        margin-right:30px;
+       overflow:hidden;
+       @media screen and (max-width:800px) {
+        width: 400px;
+        height:250px;
+        margin-right:0px;
+        }
        img {
            width: 100%;
            border-radius:4px;
+           @media screen and (max-width:800px) {
+            width: 400px;
+        }
        }
+       
    }
 }
 
@@ -238,6 +254,8 @@
            }
        }
        .img {
+           margin-right:0;
+           width:400px;
            img {
                height:345px;
                width: 400px!important;
@@ -319,7 +337,7 @@
         margin-bottom: 60px;
        .text {
            background-color: $w;
-           width: 350px;
+           width: 400px!important;
            transform: translateY(-2px);
            padding: 35px;
            position: relative;
@@ -360,8 +378,7 @@
        }
        .img {
            img {
-               height:305px;
-               width: 350px!important;
+               width:400px!important;
            }
        }
     }
@@ -439,7 +456,7 @@
         margin-bottom: 60px;
        .text {
            background-color: $w;
-           width: 270px;
+           width: 400px;
            transform: translateY(-2px);
            padding: 35px;
            position: relative;
@@ -484,7 +501,7 @@
        .img {
            img {
                height:230px;
-               width: 350px!important;
+               width: 400px!important;
            }
        }
     }
