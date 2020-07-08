@@ -94,7 +94,6 @@ export const category = async (req: express.Request, res: express.Response) => {
 export const project = async (req: express.Request, res: express.Response) => {
   const proj = await ProjectEntity.findById(req.params.projectId, res.locals.modelContext);
   if (!proj) return res.redirect('/');
-  console.log(proj);
   return res.render('pages/regles.njk', { project: proj });
 };
 
@@ -111,7 +110,6 @@ export const upload = async (req: express.Request, res: express.Response) => {
       picturePath,
       res.locals.user,
     );
-    console.log(serviceResult.data);
     if (serviceResult.status === 'error') {
       const resu = serviceResult as ServiceResult<ServiceErrors>;
       resErrors = resu.data.errors;
