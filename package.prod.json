@@ -1,0 +1,30 @@
+{
+    "name": "made",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:MickaelFerri25/My-Structure.git",
+    "author": "",
+    "license": "PRIVATE",
+    "private": true,
+    "scripts": {
+        "build": "tsc -p src",
+        "run": "node ./dist/index.js",
+        "db:migrate": "node ./database/migration.js migrate",
+        "db:reset": "node ./database/migration.js reset"
+    },
+    "dependencies": {
+        "@smallprod/models": "^4.4.11",
+        "bcrypt": "^5.0.0",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.5",
+        "crypto": "^1.0.1",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "helmet": "^3.22.0",
+        "multer": "^1.4.2",
+        "mysql": "^2.18.1",
+        "nodemailer": "^6.4.10",
+        "nunjucks": "^3.2.1",
+        "uuid": "^8.1.0"
+    }
+}

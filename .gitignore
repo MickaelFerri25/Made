@@ -3,3 +3,5 @@
 /config.json
 /yarn-error.log
 /assets/upload
+/config.prod.json
+/database/migrations
