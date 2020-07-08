@@ -80,8 +80,13 @@ export const category = async (req: express.Request, res: express.Response) => {
     .exec();
   if (!cat) return res.redirect('/');
 
+  let level: string | null = req.query.level as string;
+  if (level && !['0', '1', '2'].includes(level)) {
+    level = null;
+  }
+
   const page = req.query.page && typeof req.query.page === 'string' ? parseInt(req.query.page, 10) : 1;
-  const projects = await new ProjectService(res.locals.modelContext).findByCategory(cat, page);
+  const projects = await new ProjectService(res.locals.modelContext).findByCategory(cat, page, level);
 
   return res.render('pages/category.njk', { projects, category: cat });
 };
@@ -95,12 +100,13 @@ export const project = async (req: express.Request, res: express.Response) => {
 
 export const upload = async (req: express.Request, res: express.Response) => {
   let resErrors: Error[] = [];
-  if (req.body && req.body.name && req.body.category && req.body.description && req.file) {
+  if (req.body && req.body.name && req.body.category && req.body.description && req.file && req.body.level) {
     const picturePath = `${uuidv4()}${req.file.originalname.substring(req.file.originalname.lastIndexOf('.'))}`;
     const serviceResult = await new ProjectService(res.locals.modelContext).create(
       req.body.name,
       req.body.description,
       req.body.category,
+      req.body.level,
       req.body.designlink || '',
       picturePath,
       res.locals.user,
@@ -161,4 +167,9 @@ export const contact = async (req: express.Request, res: express.Response) => {
     );
   }
   return res.render('pages/contact.njk');
+};
+
+export const categories = async (req: express.Request, res: express.Response) => {
+  const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
+  return res.render('pages/categories.njk', { projectCategories });
 };

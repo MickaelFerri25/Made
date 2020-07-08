@@ -5,25 +5,13 @@
   {% include "../components/header.njk" %}
 
   <div class="categories">
-        <a href="">
+        {% for category in projectCategories %}
+          <a href="/category/{{category.slug}}">
             <div class="card-categorie">
                 <i class="fab fa-vuejs"></i>
-                <h2 class="red">Front-End</h2>
+                <h2 class="red">{{category.name}}</h2>
             </div>
         </a>
-
-        <a href="">
-            <div class="card-categorie">
-                <i class="far fa-window-restore"></i>
-                <h2 class="red">Fullstack</h2>
-            </div>
-        </a>
-
-        <a href="">
-            <div class="card-categorie">
-                <i class="fab fa-php"></i>
-                <h2 class="red">Backend</h2>
-            </div>
-        </a>
+        {% endfor %}
     </div>
 {% endblock %}

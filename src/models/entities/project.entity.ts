@@ -12,6 +12,7 @@ import {
   PrimaryKey,
   Table,
   Varchar,
+  SmallInt,
 } from '@smallprod/models';
 
 import { Context } from '@smallprod/models/dist/entities/entitymanager';
@@ -56,6 +57,9 @@ export default class ProjectEntity extends Entity {
   @DateTime()
   public publishedAt: Date | null = null;
 
+  @SmallInt()
+  public level = 0;
+
   constructor(
     name: string,
     description: string,
@@ -64,6 +68,7 @@ export default class ProjectEntity extends Entity {
     author: UserEntity,
     category: ProjectCategoryEntity,
     rules: string,
+    level: number,
   ) {
     super();
     this.name = name;
@@ -73,5 +78,6 @@ export default class ProjectEntity extends Entity {
     this.author = author;
     this.category = category;
     this.rules = rules;
+    this.level = level;
   }
 }

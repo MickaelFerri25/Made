@@ -23,6 +23,7 @@ router.get('/commentaires', requireLogged, withContext(controllers.web.comment))
 router.post('/commentaires', requireLogged, withContext(controllers.web.comment));
 
 // Project categories
+router.get('/categories', withContext(controllers.web.categories));
 router.get('/category/:categorySlug', withContext(controllers.web.category));
 
 // Project

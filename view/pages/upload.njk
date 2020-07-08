@@ -23,11 +23,11 @@
                         </select>
                     </div>
                     <div>
-                        <label for="type">Niveaux</label>
-                        <select name="category" id="type" class="types">
-                            {% for category in projectCategories %}
-                              <option value="{{ category.id }}">{{ category.name }}</option>
-                            {% endfor %}
+                        <label for="level">Niveaux</label>
+                        <select name="level" id="level" class="types">
+                            <option value="0">Facile</option>
+                            <option value="1">Moyen</option>
+                            <option value="2">Difficile</option>
                         </select>
                     </div>
                 </div>

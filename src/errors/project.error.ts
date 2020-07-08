@@ -14,3 +14,8 @@ export const DesignLinkIncorrect: Error = {
   code: 203,
   info: 'Design link incorrect (not a figma link)',
 };
+
+export const LevelNotFound: Error = {
+  code: 204,
+  info: 'Level not found',
+};

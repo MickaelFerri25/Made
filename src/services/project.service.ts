@@ -11,6 +11,7 @@ export default class ProjectService extends Service {
     name: string,
     description: string,
     categoryId: number,
+    level: string,
     designLink: string,
     picturePath: string,
     user: UserEntity,
@@ -32,11 +33,24 @@ export default class ProjectService extends Service {
       resErrors.push(errors.project.DesignLinkIncorrect);
     }
 
+    if (level !== '0' && level !== '1' && level !== '2') {
+      resErrors.push(errors.project.LevelNotFound);
+    }
+
     if (resErrors.length) return this.errors(resErrors);
     user = await UserEntity.findById(user.id);
     if (!user) return this.errors([errors.global.Unexpected]);
     // Create the project
-    const project = new ProjectEntity(name, description, picturePath, designLink, user, category, '');
+    const project = new ProjectEntity(
+      name,
+      description,
+      picturePath,
+      designLink,
+      user,
+      category,
+      '',
+      parseInt(level, 10),
+    );
     const newProject = await project.create();
     if (!newProject) return this.errors([errors.global.Unexpected]);
     return this.success<CreateProjectSuccess>({ project: newProject });
@@ -54,14 +68,17 @@ export default class ProjectService extends Service {
     }
   };
 
-  public findByCategory = async (category: ProjectCategoryEntity, page: number) => {
-    const projects = await ProjectEntity.findMany(this.context)
+  public findByCategory = async (category: ProjectCategoryEntity, page: number, level: string | null) => {
+    const query = ProjectEntity.findMany(this.context)
       .where('category_id', '=', category.id)
       .and()
       .where('isPublished', '=', 1)
-      .sort('publishedAt', 'DESC')
-      /*.limit(6, (page - 1) * 6)*/
-      .exec();
+      .sort('publishedAt', 'DESC');
+    /*.limit(6, (page - 1) * 6)*/
+    if (level) {
+      query.and().where('level', '=', level);
+    }
+    const projects = await query.exec();
     return projects;
   };
 }
