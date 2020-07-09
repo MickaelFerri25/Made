@@ -36,12 +36,16 @@
             <li>
                 <a href="/commentaires">Ajouts de fonctionnalités</a>
             </li>
+            {% if user %}
+
+            {% else %}
             <li>
                 <a href="/connexion">Connexion</a>
             </li>
             <li>
                 <a href="/inscription" class="cta-red">Inscription</a>
             </li>
+            {% endif %}
             <li>
                 <i class="fas fa-bars bars" id="bars-bg"></i>
             </li>

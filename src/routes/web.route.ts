@@ -41,4 +41,7 @@ router.get('/releases', controllers.web.releases); // ! TODO remove that maybe
 router.get('/contact', controllers.web.contact);
 router.post('/contact', controllers.web.contact);
 
+// Confidentiality
+router.get('/confidentialite', controllers.web.confidentialite);
+
 export default router;

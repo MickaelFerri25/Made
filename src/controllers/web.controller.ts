@@ -70,7 +70,10 @@ export const inscription = async (req: express.Request, res: express.Response) =
       resErrors.push(errors.user.ConfirmPasswordNotMatch);
     }
   }
-  const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});
+  const errorCodes: any = resErrors.reduce((prev: any, e) => {
+    prev[e.code] = true;
+    return prev;
+  }, {});
   return res.render('pages/inscription.njk', { errorCodes, errors: resErrors });
 };
 
@@ -122,7 +125,10 @@ export const upload = async (req: express.Request, res: express.Response) => {
     fs.unlinkSync(req.file.path);
   }
   const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
-  const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});
+  const errorCodes: any = resErrors.reduce((prev: any, e) => {
+    prev[e.code] = true;
+    return prev;
+  }, {});
   return res.render('pages/upload.njk', { projectCategories, errorCodes, errors: resErrors });
 };
 
@@ -170,4 +176,8 @@ export const contact = async (req: express.Request, res: express.Response) => {
 export const categories = async (req: express.Request, res: express.Response) => {
   const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
   return res.render('pages/categories.njk', { projectCategories });
+};
+
+export const confidentialite = async (req: express.Request, res: express.Response) => {
+  return res.render('pages/confidentialite.njk');
 };

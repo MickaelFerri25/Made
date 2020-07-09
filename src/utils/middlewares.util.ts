@@ -1,4 +1,3 @@
-import { EntityManager } from '@smallprod/models';
 import express from 'express';
 
 export const errorHandler = (req: express.Request, res: express.Response, next: express.NextFunction) => {
@@ -24,6 +23,18 @@ export const requireLogged = (req: express.Request, res: express.Response, next:
   res.locals.user = req.session.user;
   res.locals.renderWithUser = (template: string, params?: any) => {
     res.render(template, { ...params, user: res.locals.user });
+  };
+  next();
+};
+
+export const betterRender = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  let user: any = null;
+  if (req.session && req.session.user) {
+    user = req.session.user;
+  }
+  const _render = res.render;
+  res.render = function (view: string, options?: any, callback?: any) {
+    _render.call(this, view, { ...options, user }, callback);
   };
   next();
 };

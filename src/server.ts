@@ -1,7 +1,8 @@
+import { betterRender, errorHandler } from './utils/middlewares.util';
+
 import bodyParser from 'body-parser';
 import config from './utils/config.util';
 import cookieParser from 'cookie-parser';
-import { errorHandler } from './utils/middlewares.util';
 import express from 'express';
 import expressSession from 'express-session';
 import helmet from 'helmet';
@@ -27,6 +28,7 @@ export default async () => {
   );
   app.set('view engine', 'njk');
   app.use(errorHandler);
+  app.use(betterRender);
 
   app.use('/assets', express.static('assets'));
   app.use('/', routes);
