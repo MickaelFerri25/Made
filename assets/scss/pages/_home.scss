@@ -95,7 +95,7 @@
                 margin-top: 20px;
                 display: none;
             }
-            a {
+            a.voir-pluss {
                 cursor: pointer;
                 color: $r;
                 display: block;
@@ -127,6 +127,22 @@
                 width: 190px;
                 border-radius: 4px;
                 padding-left: 5px;
+            }
+        }
+    }
+}
+.icones-reseaux {
+    display: flex;
+    li {
+        margin-right: 12px;
+        margin-top: 10px;
+        i {
+            font-size:22px;
+            color:$n;
+            color: $n;
+            transition: 0.2s;
+            &:hover {
+                color:$r;
             }
         }
     }
