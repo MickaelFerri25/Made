@@ -21,14 +21,16 @@ export const home = (req: express.Request, res: express.Response) => {
 
 export const comment = async (req: express.Request, res: express.Response) => {
   const service = new FeatureRequestService(res.locals.modelContext);
+  let success = false;
   if (req.body && req.body.message) {
     await service.create(req.body.message, res.locals.user); // ! TODO catch error maybe
+    success = true;
   }
   const comments = (await service.findAll()).map((com: any) => {
     com.publishedAt = com.publishedAt.toLocaleString('fr-FR', { timeZone: 'UTC' });
     return com;
   });
-  return res.locals.renderWithUser('pages/commentaires.njk', { comments });
+  return res.locals.renderWithUser('pages/commentaires.njk', { comments, success });
 };
 
 export const connexion = async (req: express.Request, res: express.Response) => {
@@ -163,14 +165,16 @@ export const logout = (req: express.Request, res: express.Response) => {
 };
 
 export const contact = async (req: express.Request, res: express.Response) => {
+  let success = false;
   if (req.body && req.body.pseudo && req.body.email && req.body.message) {
     await mailerUtil.sendMail(
       config.mail.contact,
       '[Made Contact] nouveau message',
       `${req.body.pseudo} (${req.body.email}) à envoyé un message via le formaulaire de contact de made. Voici son message: ${req.body.message}`,
     );
+    success = true;
   }
-  return res.render('pages/contact.njk');
+  return res.render('pages/contact.njk', { success });
 };
 
 export const categories = async (req: express.Request, res: express.Response) => {
