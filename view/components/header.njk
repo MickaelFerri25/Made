@@ -28,18 +28,18 @@
                 <a href="#" id="lien-tp">Traveaux pratiques <i class="fas fa-chevron-down arrow"></i></a>
             </li>
             <li>
-                <a href="/releases">Releases</a>
-            </li>
-            <li>
                 <a href="/upload">Upload</a>
             </li>
             <li>
                 <a href="/commentaires">Ajouts de fonctionnalités</a>
             </li>
+            <li>
+                <a href="/contact">Contact</a>
+            </li>
             {% if user %}
                  <li>
-                <a href="/logout">Déconnexion</a>
-            </li>
+                    <a href="/logout" class="cta-red">Déconnexion</a>
+                </li>
             {% else %}
             <li>
                 <a href="/connexion">Connexion</a>
@@ -82,13 +82,18 @@
                 <a href="/confidentialite">Confidentialité</a>
             </li>
 
+           {% if user %}
+                 <li>
+                    <a href="/logout">Déconnexion</a>
+                </li>
+            {% else %}
             <li>
                 <a href="/connexion">Connexion</a>
             </li>
-
             <li>
                 <a href="/inscription">Inscription</a>
             </li>
+            {% endif %}
         </ul>
     </nav>
 </header>

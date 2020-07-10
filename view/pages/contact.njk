@@ -1,10 +1,12 @@
 {% extends "../layouts/global.njk" %}
-
 {% block body %}
-  {% include "../components/header.njk" %}
+{% include "../components/header.njk" %}
 
   <form action="" class="container-contact" method="post">
         <h2>Contact</h2>
+        {% if success %}
+        <p class="succes" id="msg-succes1">Message envoyer avec succès ! <i class="fas fa-times" id="i-delete1"></i> </p>
+        {% endif %}
         <label for="" class="pseudo">
             Pseudo
             <input name="pseudo" type="text" required>
@@ -22,4 +24,5 @@
         <button class="cta-red" type="submit">Envoyer</button>
     </form>
 
+<script src="../../assets/js/modules/notifs.js"></script>
 {% endblock %}

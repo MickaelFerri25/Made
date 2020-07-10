@@ -55,6 +55,8 @@
 
 .espace-commentaire {
     color: $n;
+    display: flex;
+    flex-direction: column;
     h3.number-comments {
         text-align: center;
         transform: translateX(-106px);
@@ -92,6 +94,8 @@
                 display: block;
                 width: auto;
                 margin-top: 10px;
+                overflow:hidden;
+                text-overflow: ellipsis;
                 border-radius: 4px;
                 background-color: rgb(237, 237, 240);
            }

@@ -4,15 +4,15 @@
               <h2>Made</h2>
               <ul>
                   <li>
-                      <a href="">Instagram</a>
+                      <a href="https://www.instagram.com/madeprojets/?hl=fr" target="BLANK_">Instagram</a>
                   </li>
 
                   <li>
-                      <a href="">Twitter</a>
+                      <a href="https://twitter.com/Made12712531" target="BLANK_">Twitter</a>
                   </li>
 
                   <li>
-                      <a href="/contact">Contact</a>
+                      <a href="https://github.com/MickaelFerri25" target="BLANK_">Github</a>
                   </li>
               </ul>
           </div>
@@ -35,14 +35,18 @@
           <div class="right">
               <h2>Pages</h2>
               <ul>
-                  <li>
-                      <a href="/connexion">Connexion</a>
-                  </li>
-
-                  <li>
-                      <a href="/inscription">Inscription</a>
-                  </li>
-
+                 {% if user %}
+                 <li>
+                    <a href="/logout">Déconnexion</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/connexion">Connexion</a>
+                </li>
+                <li>
+                    <a href="/inscription">Inscription</a>
+                </li>
+                {% endif %}
                   <li>
                       <a href="/confidentialite">Confidentialité</a>
                   </li>

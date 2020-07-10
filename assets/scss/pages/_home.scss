@@ -76,6 +76,10 @@
         opacity: 0;
         transform: translateX(-40px);
         transition: 0.4s ease-in-out;
+        
+        @media screen and (max-width:450px) {
+            width: 100%!important;
+        }
         .text {
             padding-top: 22.5px;
             h2 {

@@ -32,6 +32,7 @@
 
 body {
     background-color: $bg;
+    overflow-x: hidden!important;
 }
 
 .body {
@@ -76,8 +77,51 @@ body {
 .center {
     text-align: center;
 }
+.m3 {
+    margin-top: 3px;
+}
 
 .error {
     color: $r;
     margin-top: 5px;
+}
+
+.succes {
+    transition: 0.4s ease-in-out;
+    background-color: #d1fdd1;
+    color: #27a327;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    border-left: 6px solid #27a327;
+    border-radius: 3px;
+    transform: translateX(-60px);
+    opacity: 0;
+    i {
+        margin-left: 24px;
+    }
+    .active-notif {
+    transform: translateX(0);
+    opacity: 1;
+    }
+}
+
+.succes2 {
+    transition: 0.4s ease-in-out;
+    background-color: #d1fdd1;
+    color: #27a327;
+    padding: 8px 16px;
+    border-left: 6px solid #27a327;
+    border-radius: 3px;
+    transform: translateX(-60px);
+    opacity: 0;
+    margin: 0 auto;
+    width: 330px;
+    margin-bottom: 16px;
+    i {
+        margin-left: 24px;
+    }
+    .active-notif {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

@@ -7,6 +7,9 @@
     <section class="ajout-de-commentaire">
           <h2>Proposer nous de nouvelles fonctionnalités !</h2>
           <!-- Formulaire pour le PHP -->
+          {% if success %}
+            <p class="succes2" id="msg-succes1">Commentaire envoyer avec succès ! <i class="fas fa-times" id="i-delete1"></i> </p>
+          {% endif %}
           <form method="POST" action="">
               <label for="">Message</label>
               <textarea required name="message" id="" cols="30" rows="10"></textarea>
@@ -26,7 +29,7 @@
                   <p class="content-commentaire">
                       {{comment.message}}
                   </p>
-                  <div class="buttons">
+                  {# <div class="buttons"> #}
                       {#<a href="" class="cta-red-2">Répondre</a>#}
                       {# Prochaine Mise à jour #}
                       {# <a href="" class="cta-white-2">Voir le profil</a> #}
@@ -41,4 +44,5 @@
       </section>
     </main>
 
+<script src="../../assets/js/modules/notifs.js"></script>
 {% endblock %}
