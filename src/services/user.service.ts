@@ -14,7 +14,7 @@ export default class UserService extends Service {
     pseudo = pseudo.trim();
     const resErrors: Error[] = [];
     // Test password strength
-    if (password.length < 8 || !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+    if (password.length < 8 || !/^(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/.test(password)) {
       resErrors.push(errors.user.PasswordDontMatchRequirements);
     }
     // Check if email is already used
