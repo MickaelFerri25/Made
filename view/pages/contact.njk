@@ -4,6 +4,7 @@
   {% include "../components/header.njk" %}
 
   <form action="" class="container-contact" method="post">
+        {{ csrf_input | safe }}
         <h2>Contact</h2>
         <label for="" class="pseudo">
             Pseudo

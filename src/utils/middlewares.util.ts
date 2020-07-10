@@ -1,4 +1,5 @@
 import express from 'express';
+import { v4 as uuidv4 } from 'uuid';
 
 export const errorHandler = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   try {
@@ -34,7 +35,12 @@ export const betterRender = (req: express.Request, res: express.Response, next: 
   }
   const _render = res.render;
   res.render = function (view: string, options?: any, callback?: any) {
-    _render.call(this, view, { ...options, user }, callback);
+    const csrf = uuidv4();
+    if (req.session) {
+      req.session.csrf = csrf;
+    }
+    const csrf_input = `<input type="hidden" name="csrf" value="${csrf}" />`;
+    _render.call(this, view, { ...options, user, csrf, csrf_input }, callback);
   };
   next();
 };

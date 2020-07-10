@@ -4,7 +4,7 @@
   {% include "../components/header.njk" %}
 
   <form action="/upload" class="form-upload" method="post" enctype="multipart/form-data">
-
+      {{ csrf_input | safe }}
        <h3>Etape 1</h3>
         <div class="flex">
             <div class="info-cards">

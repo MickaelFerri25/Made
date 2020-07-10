@@ -22,8 +22,10 @@ export const home = (req: express.Request, res: express.Response) => {
 export const comment = async (req: express.Request, res: express.Response) => {
   const service = new FeatureRequestService(res.locals.modelContext);
   let success = false;
-  if (req.body && req.body.message) {
-    await service.create(req.body.message, res.locals.user); // ! TODO catch error maybe
+  if (req.body && req.body.message && req.body.csrf && req.session) {
+    if (req.session.csrf === req.body.csrf) {
+      await service.create(req.body.message, res.locals.user); // ! TODO catch error maybe
+    }
     success = true;
   }
   const comments = (await service.findAll()).map((com: any) => {
@@ -36,15 +38,17 @@ export const comment = async (req: express.Request, res: express.Response) => {
 export const connexion = async (req: express.Request, res: express.Response) => {
   let error: Error | null = null;
   // Check if it's a POST
-  if (req.body && req.body.email && req.body.password) {
-    const serviceResult = await new UserService(res.locals.modelContext).login(req.body.email, req.body.password); // Call the service
-    if (serviceResult.status === 'error') {
-      const result = serviceResult as ServiceResult<ServiceError>;
-      error = { code: result.data.code, info: result.data.info };
-    } else {
-      const result = serviceResult as ServiceResult<LoginSuccess>;
-      if (req.session) req.session.user = result.data.user; // Set the session
-      return res.redirect('/'); // Redirect the user to home page
+  if (req.body && req.body.email && req.body.password && req.body.csrf && req.session) {
+    if (req.session.csrf === req.body.csrf) {
+      const serviceResult = await new UserService(res.locals.modelContext).login(req.body.email, req.body.password); // Call the service
+      if (serviceResult.status === 'error') {
+        const result = serviceResult as ServiceResult<ServiceError>;
+        error = { code: result.data.code, info: result.data.info };
+      } else {
+        const result = serviceResult as ServiceResult<LoginSuccess>;
+        if (req.session) req.session.user = result.data.user; // Set the session
+        return res.redirect('/'); // Redirect the user to home page
+      }
     }
   }
   return res.render('pages/connexion.njk', { error });
@@ -53,23 +57,33 @@ export const connexion = async (req: express.Request, res: express.Response) => 
 export const inscription = async (req: express.Request, res: express.Response) => {
   let resErrors: Error[] = [];
   // Check if it's a POST
-  if (req.body && req.body.pseudo && req.body.email && req.body.password && req.body.password_confirm) {
-    if (req.body.password === req.body.password_confirm) {
-      const serviceResult = await new UserService(res.locals.modelContext).createAccount(
-        req.body.pseudo,
-        req.body.email,
-        req.body.password,
-      ); // Call the service
-      if (serviceResult.status === 'error') {
-        const result = serviceResult as ServiceResult<ServiceErrors>;
-        resErrors = result.data.errors;
+  if (
+    req.body &&
+    req.body.pseudo &&
+    req.body.email &&
+    req.body.password &&
+    req.body.password_confirm &&
+    req.body.csrf &&
+    req.session
+  ) {
+    if (req.body.csrf === req.session.csrf) {
+      if (req.body.password === req.body.password_confirm) {
+        const serviceResult = await new UserService(res.locals.modelContext).createAccount(
+          req.body.pseudo,
+          req.body.email,
+          req.body.password,
+        ); // Call the service
+        if (serviceResult.status === 'error') {
+          const result = serviceResult as ServiceResult<ServiceErrors>;
+          resErrors = result.data.errors;
+        } else {
+          const result = serviceResult as ServiceResult<CreateAccountSuccess>;
+          if (req.session) req.session.user = result.data.user; // Set the session
+          return res.redirect('/'); // Redirect the user to home page
+        }
       } else {
-        const result = serviceResult as ServiceResult<CreateAccountSuccess>;
-        if (req.session) req.session.user = result.data.user; // Set the session
-        return res.redirect('/'); // Redirect the user to home page
+        resErrors.push(errors.user.ConfirmPasswordNotMatch);
       }
-    } else {
-      resErrors.push(errors.user.ConfirmPasswordNotMatch);
     }
   }
   const errorCodes: any = resErrors.reduce((prev: any, e) => {
@@ -104,27 +118,38 @@ export const project = async (req: express.Request, res: express.Response) => {
 
 export const upload = async (req: express.Request, res: express.Response) => {
   let resErrors: Error[] = [];
-  if (req.body && req.body.name && req.body.category && req.body.description && req.file && req.body.level) {
-    const picturePath = `${uuidv4()}${req.file.originalname.substring(req.file.originalname.lastIndexOf('.'))}`;
-    const serviceResult = await new ProjectService(res.locals.modelContext).create(
-      req.body.name,
-      req.body.description,
-      req.body.category,
-      req.body.level,
-      req.body.designlink || '',
-      picturePath,
-      res.locals.user,
-    );
-    if (serviceResult.status === 'error') {
-      const resu = serviceResult as ServiceResult<ServiceErrors>;
-      resErrors = resu.data.errors;
-    } else {
-      const resu = serviceResult as ServiceResult<CreateProjectSuccess>;
-      fs.copyFileSync(req.file.path, `assets/upload/project/${picturePath}`);
+  if (
+    req.body &&
+    req.body.name &&
+    req.body.category &&
+    req.body.description &&
+    req.file &&
+    req.body.level &&
+    req.body.csrf &&
+    req.session
+  ) {
+    if (req.session.csrf === req.body.csrf) {
+      const picturePath = `${uuidv4()}${req.file.originalname.substring(req.file.originalname.lastIndexOf('.'))}`;
+      const serviceResult = await new ProjectService(res.locals.modelContext).create(
+        req.body.name,
+        req.body.description,
+        req.body.category,
+        req.body.level,
+        req.body.designlink || '',
+        picturePath,
+        res.locals.user,
+      );
+      if (serviceResult.status === 'error') {
+        const resu = serviceResult as ServiceResult<ServiceErrors>;
+        resErrors = resu.data.errors;
+      } else {
+        const resu = serviceResult as ServiceResult<CreateProjectSuccess>;
+        fs.copyFileSync(req.file.path, `assets/upload/project/${picturePath}`);
+        fs.unlinkSync(req.file.path);
+        return res.redirect(`/upload/${resu.data.project.id}`);
+      }
       fs.unlinkSync(req.file.path);
-      return res.redirect(`/upload/${resu.data.project.id}`);
     }
-    fs.unlinkSync(req.file.path);
   }
   const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
   const errorCodes: any = resErrors.reduce((prev: any, e) => {
@@ -140,13 +165,15 @@ export const uploadPublish = async (req: express.Request, res: express.Response)
   if (proj.author.id !== res.locals.user.id) return res.redirect('/');
   if (proj.isPublished) return res.redirect('/');
   let resErrors: Error[] = [];
-  if (req.body && req.body.rules) {
-    const serviceResult = await new ProjectService(res.locals.modelContext).publish(req.body.rules, proj);
-    if (serviceResult.status === 'error') {
-      const resu = serviceResult as ServiceResult<ServiceError>;
-      resErrors = [resu.data];
-    } else {
-      return res.redirect(`/project/${proj.id}`);
+  if (req.body && req.body.rules && req.body.csrf && req.session) {
+    if (req.body.csrf === req.session.csrf) {
+      const serviceResult = await new ProjectService(res.locals.modelContext).publish(req.body.rules, proj);
+      if (serviceResult.status === 'error') {
+        const resu = serviceResult as ServiceResult<ServiceError>;
+        resErrors = [resu.data];
+      } else {
+        return res.redirect(`/project/${proj.id}`);
+      }
     }
   }
   const errorCodes: any = resErrors.reduce((prev: any, e) => (prev[e.code] = true), {});
@@ -166,13 +193,15 @@ export const logout = (req: express.Request, res: express.Response) => {
 
 export const contact = async (req: express.Request, res: express.Response) => {
   let success = false;
-  if (req.body && req.body.pseudo && req.body.email && req.body.message) {
-    await mailerUtil.sendMail(
-      config.mail.contact,
-      '[Made Contact] nouveau message',
-      `${req.body.pseudo} (${req.body.email}) à envoyé un message via le formaulaire de contact de made. Voici son message: ${req.body.message}`,
-    );
-    success = true;
+  if (req.body && req.body.pseudo && req.body.email && req.body.message && req.body.csrf && req.session) {
+    if (req.session.csrf === req.body.csrf) {
+      await mailerUtil.sendMail(
+        config.mail.contact,
+        '[Made Contact] nouveau message',
+        `${req.body.pseudo} (${req.body.email}) à envoyé un message via le formaulaire de contact de made. Voici son message: ${req.body.message}`,
+      );
+      success = true;
+    }
   }
   return res.render('pages/contact.njk', { success });
 };

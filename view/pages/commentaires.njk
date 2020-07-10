@@ -8,6 +8,7 @@
           <h2>Proposer nous de nouvelles fonctionnalités !</h2>
           <!-- Formulaire pour le PHP -->
           <form method="POST" action="">
+              {{ csrf_input | safe }}
               <label for="">Message</label>
               <textarea required name="message" id="" cols="30" rows="10"></textarea>
               <button type="submit" class="cta-red">Envoyer</button>
