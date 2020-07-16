@@ -1,7 +1,7 @@
 .nav-inscription {
     padding: 30px 60px;
     a {
-        color: $r;
+        color: $blue;
         font-size: 18px;
     }
 }
@@ -26,7 +26,7 @@
         label, input {
             display: flex;
             flex-direction: column;
-            color: $n;
+            color: $blue;
             transition: 0.2s ease-in-out;
         }
         .valid {
@@ -37,6 +37,7 @@
             margin-top: 10px;
             outline: none;
             height: 30px;
+            color: $blue;
             width: 250px;
             border: 1px solid #CFCFCF;
             border-radius: 3px;
@@ -53,10 +54,10 @@
         position: absolute;
         bottom: 52px;
         right: 65px;
-        color: $n;
+        color: $blue!important;
         transition: $tr;
         &:hover {
-            color: $r;
+            color: $blue!important;
         }
     }
 }

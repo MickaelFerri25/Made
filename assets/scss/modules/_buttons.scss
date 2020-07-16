@@ -1,55 +1,84 @@
-@mixin button-red {
-    background-color: $r;
-    color: $w;
-    padding: 9px 15px;
-    border: solid 1px $r;
+@mixin button-blue-white {
+    background-color: $bg;
+    color: $blue;
+    padding: 12px 16px;
+    border: solid 1px $blue;
     border-radius: 3px;
     font-weight: 600;
     transition: 0.3s ease-out;
     &:hover {
-        background-color: $bg;
-        color: $r!important;
+        border: solid 1px $blue;
+        color:  $blue!important;
+    }
+}
+
+@mixin button-blue {
+    background-color: $blue;
+    color: $w;
+    padding: 12px 16px;
+    border: solid 1px $blue;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: 0.2s ease-out;
+    &:hover {
+        border: solid 1px $blue;
+        color:  $w!important;
+    }
+}
+
+@mixin button-red {
+    background-color: $blue;
+    color: $w;
+    padding: 12px 16px;
+    border: solid 1px $blue;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: 0.3s ease-out;
+    &:hover {
+        background-color: rgba(208, 201, 255, 0.14);
+        color: $blue!important;
     }
 }
 
 @mixin button-white {
-    background-color: $w;
-    color: $r;
-    padding: 9px 15px;
-    border: solid 1px $r;
+    background-color: $bg;
+    color: $blue;
+    padding: 10px 16px;
+    border: solid 1px $blue;
     border-radius: 3px;
     font-weight: 600;
     transition: 0.3s ease-out;
     &:hover {
-        background-color: $r;
-        color: $w!important;
+        color: #2f1da0!important;
+        border-color: #2f1da0;
+        background-color: rgba(208, 201, 255, 0.14);
     }
 }
 
 @mixin button-white-2 {
     background-color: $w;
-    color: $r;
-    padding: 9px 15px;
-    border: solid 1px $r;
+    color: $blue;
+    padding: 8px 16px;
+    border: solid 1px $blue;
     border-radius: 3px;
     font-weight: 600;
     transition: 0.3s ease-out;
     &:hover {
-        border: solid 1px rgb(255, 28, 28);
-        color:  rgb(255, 28, 28)!important;
+        border: solid 1px $blue;
+        color:  $blue!important;
     }
 }
 
 @mixin button-red-2 {
-    background-color: $r;
+    background-color: $blue;
     color: $w;
     padding: 9px 15px;
-    border: solid 1px $r;
+    border: solid 1px $blue;
     border-radius: 3px;
     font-weight: 600;
     transition: 0.3s ease-out;
     &:hover {
-        background-color: rgb(206, 37, 37);
-        color: $w!important;
+        background-color: rgba(208, 201, 255, 0.14);
+        color: $blue!important;
     }
 }

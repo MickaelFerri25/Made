@@ -21,27 +21,27 @@
 @import "pages/upload2";
 @import "pages/regles";
 @import "pages/releases";
+@import "pages/projets";
 * {
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     background-color: $bg;
-    overflow-x: hidden!important;
 }
 
-.body {
-    background-color: $w;
-    min-height: 100vh;
-}
+// .body {
+//     background-color: $w;
+//     min-height: 100vh;
+// }
 
 .logo {
-    color: $r !important;
+    color: $blue!important;
     font-size: 18px;
     font-weight: 600;
 }
@@ -53,21 +53,27 @@ body {
 
 .cta-red-2 {
     @include button-red-2;
-    color: $w !important;
+    color: $w!important;
 }
 
+.cta-blue-2 {
+    @include button-red-2;
+    border: $blue2;
+    background: $blue2!important;
+}
 .cta-white {
     @include button-white;
-    color: $r !important;
+    color: $blue!important;
+    background-color: rgba(208, 201, 255, 0.14);
 }
 
 .cta-white-2 {
-    @include button-white-2;
-    color: $r !important;
+    @include button-white;
+    color: $blue!important;
 }
 
 .red {
-    color: $r !important;
+    color: $blue!important;
 }
 
 .black {

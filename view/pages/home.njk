@@ -2,7 +2,7 @@
 
 {% block head %}
 
-<script src="../../assets/js/modules/bars.js" defer></script>
+{# <script src="../../assets/js/modules/bars.js" defer></script> #}
 
 {% endblock %}
 
@@ -10,83 +10,64 @@
 
   {% include "../components/header.njk" %}
 
-  <section class="section1">
-        <h1 id="text">La première platforme en ligne de TP web</h1>
-        <div class="tp">
-            <div class="etiquettes" id="etiquettes">
-                <div id="bars1">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3>Besoin de projets concret ?</h3>
-                </div>
-
-                <div id="bars2">
-                    <i class="fas fa-layer-group"></i>
-                    <h3>TP pour tous les niveaux</h3>
-                </div>
-
-                <div id="bars3">
-                    <i class="fab fa-figma"></i>
-                    <h3>Maquettes + site fournis</h3>
-                </div>
-                <a href="/categories" class="cta-red button" id="button-red">Voir les TP</a>
-            </div>
-            <div class="img" id="img1">
-                <img src="../assets/img/home/projects.svg" alt="">
-            </div>
-        </div>
+    <section class="infos-made">
+        <h2>Apprenez à coder</h2>
+        <h1>à travers des <span>TP</span></h1>
+        <a href="/categories">Voir les TP<i class="fas fa-chevron-right"></i></a>
     </section>
-    <section class="section2">
-        <div class="card-about" id="a-propos">
-            <div class="text">
-                    <h2>A propos</h2>
-                    <p class="p1">
-                        Bonjour ! Made est un site web dédié pour les développeurs à la recherche de projets pour apprendre le code ! comportent des maquettes et des règles bien précise.<br>
-                        C'est futurs projets pourront être posté sur votre github pour attirer vos<br>
-                        futurs clients !<br><br>
+
+    <section class="about-made"id="ancre">
+        <div class="about">
+            <div class="text" >
+                <h3>A PROPOS</h3>
+                <p>
+                    Bonjour ! Made est un site web dédié pour les développeurs à la recherche de projets<br> 
+                    pour apprendre le code ! comportent des maquettes et des règles bien précise.<br>
+                    C'est futurs projets pourront être posté sur votre github pour attirer vos<br>
+                    futurs clients !
+                </p>
+                <div class="invisible" id="invisible">
+                    <p>
                         Toi seul est libre de coder et t'améliorer, alors bon courage et bon code !
                     </p>
-                    <p class="p2" id="p2-savoir-plus">
-                        Mickael et Polo sont les développeurs de ce projet.<br><br>
-                    </p>
-                    <ul class="icones-reseaux">
+                    <ul class="reseaux">
                         <li>
-                            <a href="https://github.com/MickaelFerri25" target="BLANK_"><i class="fab fa-github"></i></a>
+                            <a href=""><i class="fab fa-github"></i></a>
                         </li>
-
                         <li>
-                            <a href="https://discord.gg/VPsHzew" target="BLANK_"><i class="fab fa-discord"></i></a>
+                            <a href=""><i class="fab fa-twitter"></i></a>
                         </li>
-
                         <li>
-                            <a href="https://twitter.com/Made12712531" target="BLANK_"><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
                         </li>
-
                         <li>
-                            <a href="https://www.instagram.com/madeprojets/?hl=fr" target="BLANK_"><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-discord"></i></a>
                         </li>
                     </ul>
-                    <div class="lien-color">
-                        <a id="lien-savoir-plus" class="voir-pluss">Voir plus <i class="fas fa-chevron-down"></i></a>
-                    </div>
+                </div>
+                <a href="#ancre" id="voir-plus">Voir plus <i class="fas fa-chevron-down" id="i-voir-plus"></i></a>
             </div>
             <div class="img">
-                <img src="/assets/img/home/profil.svg" alt="">
-            </div>
+                <img src="../../assets/img/home/img-about.svg" class="thumbnail" alt="">
             </div>
         </div>
     </section>
-    <section class="section3">
-        <div class="support" id="section_support">
-            <div class="text">
-                <h1>SUPPORT</h1>
-                <p>
-                    Vous voulez avoir de nouvelles fonctionnalité ?<br>
-                    Nous rapporter des bugs ?
-                </p>
-                <a href="/contact" class="cta-red">Contacter-nous</a>
-            </div>
+
+    <section class="contact-made">
+        <div class="contact">
             <div class="img">
-                <img src="/assets/img/home/support.svg" alt="">
+                <img src="../../assets/img/home/img-contact.svg" class="thumbnail2" alt="">
+            </div>
+            <div class="text">
+                <h1>Contact</h1>
+                <form action="/contact" method="POST">
+                    <div class="infos-contact">
+                            <input type="text" class="pseudo" required placeholder="Pseudo">
+                            <input type="text" class="email" required placeholder="Adresse email">
+                    </div>
+                    <textarea name="" id="" cols="30" rows="10" required placeholder="Message"></textarea>
+                <button type="submit" class="cta-red">Envoyer</button>
+                </form>
             </div>
         </div>
     </section>

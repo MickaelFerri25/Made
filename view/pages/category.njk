@@ -27,26 +27,83 @@
             </li>
         </ul>
     </div>
-    {% for project in projects %}
-    <div class="card">
-        <div class="img">
-            <img src="/assets/upload/project/{{project.picture}}" alt="Project image">
-        </div>
-        <div class="text">
-            <h2>{{project.name}}</h2>
-            <h4>Crée par {{project.author.pseudo}}</h4>
-            <h3>{{category.name}}</h3>
-            <p>
-                {{project.description}}
-            </p>
-            <div class="buttons">
-                <a href="/project/{{project.id}}" class="cta-red-2"><i class="fas fa-pencil-ruler"></i> Règle</a>
-                {#<a href="" class="cta-white-2"><i class="fas fa-eye"></i> Voir le site</a>#}
+
+    <div class="projet-tp">
+        <div class="catogries-projets">
+            <h2>Travaux Pratique</h2>
+            <div class="projet">
+                <div class="icone">
+                    <img src="../../assets/img/projets/triangle.svg" alt="">
+                </div>
+                <div class="text">
+                    <h3><a href="">Made</a></h3>
+                    <p>Débutant</p>
+                </div>
             </div>
+            <div class="projet">
+                <div class="icone">
+                    <img src="../../assets/img/projets/triangle.svg" alt="">
+                </div>
+                <div class="text">
+                    <h3><a href="">Made</a></h3>
+                    <p>Débutant</p>
+                </div>
+            </div>
+            <h2>Projets</h2>
+            <div class="projet">
+                <div class="icone">
+                    <img src="../../assets/img/projets/triangle.svg" alt="">
+                </div>
+                <div class="text">
+                    <h3><a href="">Made</a></h3>
+                    <p>Débutant</p>
+                </div>
+            </div>
+            <div class="projet">
+                <div class="icone">
+                    <img src="../../assets/img/projets/triangle.svg" alt="">
+                </div>
+                <div class="text">
+                    <h3><a href="">Made</a></h3>
+                    <p>Débutant</p>
+                </div>
+        </div>
+    
+    
+    
+        </div>
+        <div class="tableaux">
+            <table rules="none">
+                <thead>
+                    <h2>LES MEILLEURES PROJET DE 2020</h2>
+                </thead>
+                <tr>
+                    <td>Made</td>
+                    <td class="link">Crée par Micka</td>
+                    <td class="link"><a href="">Voir plus</a></td>
+                </tr>
+    
+                <tr>
+                    <td>MadeInJapan</td>
+                    <td class="link">Crée par Mickael</td>
+                    <td class="link"><a href="">Voir plus</a></td>
+                </tr>
+    
+                <tr>
+                    <td>Made</td>
+                    <td class="link">Crée par Mickassssss</td>
+                    <td class="link"><a href="">Voir plus</a></td>
+                </tr>
+    
+                <tr>
+                    <td>MadeInJapan</td>
+                    <td class="link">Crée par Mickael</td>
+                    <td class="link"><a href="">Voir plus</a></td>
+                </tr>
+            </table>
         </div>
     </div>
-    {% endfor %}
-    {#
+    <!-- </div>
     <div class="pagination">
         <div class="number">
             <a href="" class="number1">1</a>
@@ -59,8 +116,5 @@
         <div class="number">
             <a href="">3</a>
         </div>
-    </div>
-    #}
-
-
+    </div> -->
 {% endblock %}

@@ -1,0 +1,73 @@
+.projet-tp {
+    display: flex;  
+    justify-content: space-between;
+    .catogries-projets {
+        margin-left: 11%;
+        h2 {
+            margin: 16px 0 8px 0;
+            color: $blue;
+        }
+        .projet {
+            display: flex;
+            color: $blue;
+            .icone {
+                background-color: $blue2;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                margin-top: 6px;
+                img {
+                    width: 19px;
+                    height:17px;
+                    transform: translate(13px,10px);
+                }
+            }
+            .text {
+                margin: 3.5px 12px;
+                color: $blue;
+                a {
+                    transition: 0.2s ease-in-out;
+                    color: $blue;
+                    &:hover {
+                        margin-left: 8px;
+                    }
+                }
+                p {
+                    transform: translateY(-4px);
+                    color: $g;
+                }
+            }
+        }
+    }
+    .tableaux {
+        background-color: $w;
+        box-shadow: $s;
+        margin-right: 5%;
+        padding: 24px;
+        height:250px;
+        border-radius: 6px;
+        table {
+            color: $blue;
+            thead {
+                display: none!important;
+            }
+            tr {
+                transition:0.2s;
+                cursor: pointer;
+                &:hover {
+                    background-color: #F2F1F9;
+                }
+                background-color: #ffffff;
+                height: 40px;
+                border-radius: 6px;
+                .link {
+                    padding-left: 30px;
+                    padding-right: 24px;
+                }
+                a {
+                    color:#3C23C1;
+                }
+            }
+        }
+    }
+}

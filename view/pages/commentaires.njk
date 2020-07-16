@@ -1,9 +1,9 @@
 {% extends "../layouts/global.njk" %}
 
-
 {% block body %}
-  <main class="body body-upload">
+
     {% include "../components/header.njk" %}
+  <main class="body body-upload">
     <section class="ajout-de-commentaire">
           <h2>Proposer nous de nouvelles fonctionnalités !</h2>
           <!-- Formulaire pour le PHP -->
@@ -26,19 +26,17 @@
               <div class="text">
                   <h3>{{comment.author.pseudo}}</h3>
                   <p class="time">Le {{comment.publishedAt}}</p>
-                  <p class="content-commentaire">
-                      {{comment.message}}
-                  </p>
-                  {# <div class="buttons"> #}
-                      {#<a href="" class="cta-red-2">Répondre</a>#}
-                      {# Prochaine Mise à jour #}
-                      {# <a href="" class="cta-white-2">Voir le profil</a> #}
-                      {# Si un user veut supprimer son message, il a le droit #}
-
-                      {#<a href="" class="delete cta-red">Supprimer</a>#}
-
-                  </div>
+                  <div class="block-comment">
+                    <p class="content-commentaire">
+                        {{comment.message}}
+                    </p>
+                  
               </div>
+              <div class="buttons"> 
+                <a href="" class="cta-red-2">Répondre</a>
+                 <a href="" class="cta-white-2">Voir le profil</a> 
+                <a href="" class="delete cta-red">Supprimer</a>
+            </div>
           </div>
           {% endfor %}
       </section>

@@ -1,4 +1,8 @@
 .mdp-oublier {
-    transform: translateX(10px);
+    transform: translateX(30px);
     font-size: 14px;
+    color: $blue!important;
+    &:hover {
+        color: $blue!important;
+    }
 }

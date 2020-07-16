@@ -1,5 +1,5 @@
 .filtre {
-    margin-left: 60px;
+    margin-left: 11%;
     button {
         cursor: pointer;
         outline: none;
@@ -27,296 +27,65 @@
     }
 }
 
-.card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    margin-top: 30px;
-    margin-bottom: 60px;
-   .text {
-       background-color: $w;
-       width: 55%;
-       padding: 35px;
-       position: relative;
-       @media screen and (max-width:800px) {
-        width: 400px;
-        }
-       h2 {
-           color: $r;
-       }
-       h4 {
-           margin-top: 5px;
-           color: $g;
-           font-weight:400;
-       }
-       h3 {
-           background-color: $bg;
-           padding: 9px 15px;
-           color: $r;
-           display: block;
-           text-align: center;
-           width: 115px;
-           border: 3px;
-           position: absolute;
-           top: 25px;
-           right: 30px;
-       }
-       p {
-            margin-top: 16px;
-            text-overflow: ellipsis;
-            white-space:nowrap;
-            overflow: hidden;
-            line-height: 24px;
-       }
-       .buttons {
-           margin-top: 22px;
-           i {
-               margin-right: 6px;
-           }
-           a {
-               margin-right: 15px;
-           }
-       }
-   }
-   .img {
-       width: 30%;
-       margin-right:30px;
-       overflow:hidden;
-       @media screen and (max-width:800px) {
-        width: 400px;
-        height:250px;
-        margin-right:0px;
-        }
-       img {
-           width: 100%;
-           border-radius:4px;
-           @media screen and (max-width:800px) {
-            width: 400px;
-        }
-       }
-       
-   }
-}
-
-.card2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    margin-bottom: 60px;
-   .text {
-       position: relative;
-       background-color: $w;
-       width: 600px;
-       padding: 35px;
-       h2 {
-           color: $r;
-       }
-       h4 {
-           margin-top: 5px;
-           color: $g;
-           font-weight:400;
-       }
-       h3 {
-        background-color: $bg;
-        padding: 9px 15px;
-        color: $r;
-        display: block;
-        text-align: center;
-        width: 115px;
-        border: 3px;
-        position: absolute;
-        top: 25px;
-        right: 30px;
-    }
-       p {
-            margin-top: 16px;
-            line-height: 24px;
-       }
-       .buttons {
-           margin-top: 22px;
-           i {
-            margin-right: 6px;
-            }
-           a {
-               margin-right: 15px;
-           }
-       }
-   }
-   .img {
-       img {
-           height: 349px;
-           border-top-left-radius:4px;
-       }
-   }
+.cat {
+    margin-left: 10%;
+    margin-top: 24px;
+    color: $blue;
 }
 
 .categories {
     display: flex;
     justify-content: center;
-    position: absolute;
-    top: 46.5%;
-    left: 50%;
-    transform: translate(-50%,-46.5%);
-    @media screen and(max-width:1000px) {
-     flex-direction: column;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%,-50%);
+    align-items: center;
+    div {
+        margin: 15px;
     }
     .card-categorie {
-        background-color: white;
-        height: 90px;
-        padding: 25px;
-        padding-left: 0;
-        width: 250px;
-        border-radius: 2px;
-        box-shadow: $s;
-        margin-bottom: 25px;
-        margin-right: 35px;
-        display: flex;
-        border-top: solid 8px $r;
-        transition: $tr;
-        &:hover {
-            cursor: pointer;
-            transform: translateY(-15px);
-            background-color: rgb(253, 233, 233);
+        background: $w;
+        border-radius: 4px;
+        box-shadow:$s;
+        padding: 24px;
+        width: 25%; 
+        text-align: center;
+        h2, p, a {
+        margin-bottom: 8px;
+        color: $blue!important;
         }
-        @media screen and(max-width:500px) {
-            margin-right: 0;
-            margin-bottom: 30px;
-        }
-        i {
-            font-size: 22px;
-            color: $r;
-            margin-left: 50px;
-            margin-right: 10px;
-            transform: translateY(5px);
+        p {
+            margin-bottom: 24px;
         }
     }
 }
+
+.premium-none {
+    opacity: 0.4;
+    cursor: no-drop;
+}
+
 @media screen and (max-width:1000px) {
-    .filtre {
-        text-align: center;
-        margin: 0 auto;
-        ul {
-            margin: 0 auto;
+    .categories {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        div {
+            margin: 15px;
         }
-    }
-    .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 6px;
-        margin-top: 30px;
-        margin-bottom: 60px;
-       .text {
-           background-color: $w;
-           width: 400px!important;
-           transform: translateY(-2px);
-           padding: 35px;
-           position: relative;
-           h2 {
-               color: $r;
-           }
-           h4 {
-               margin-top: 5px;
-               color: $g;
-               font-weight:400;
-           }
-           h3 {
-               background-color: $bg;
-               padding: 9px 15px;
-               color: $r;
-               display: block;
-               text-align: center;
-               width: 115px;
-               border: 3px;
-               position: absolute;
-               top: 25px;
-               right: 30px;
-           }
-           p {
-                font-size: 13.5px;
-                margin: 16px auto;
-                line-height: 24px;
-           }
-           .buttons {
-               margin-top: 22px;
-               i {
-                   margin-right: 6px;
-               }
-               a {
-                   margin-right: 15px;
-               }
-           }
-       }
-       .img {
-           margin-right:0;
-           width:400px;
-           margin-bottom: 0;
-           img {
-               height:345px;
-               width: 400px!important;
-           }
-       }
-    }
-    .card2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 6px;
-        border-radius: 6px;
-        margin-bottom: 60px;
-       .text {
-           position: relative;
-           background-color: $w;
-           width: 400px;
-           padding: 35px;
-           h2 {
-               color: $r;
-           }
-           h4 {
-               margin-top: 5px;
-               color: $g;
-               font-weight:400;
-           }
-           h3 {
-            background-color: $bg;
-            padding: 9px 15px;
-            color: $r;
-            display: block;
+        .card-categorie {
+            background: $w;
+            border-radius: 4px;
+            box-shadow:$s;
+            padding: 24px;
+            width: 40%; 
             text-align: center;
-            width: 115px;
-            border: 3px;
-            position: absolute;
-            top: 25px;
-            right: 30px;
+            h2, p, a {
+            margin-bottom: 8px;
+            color: $blue!important;
+            }
+            p {
+                margin-bottom: 24px;
+            }
         }
-           p {
-                font-size: 13.5px;
-                margin: 16px auto;
-                line-height: 24px;
-           }
-           .buttons {
-               margin-top: 22px;
-               i {
-                margin-right: 6px;
-                }
-               a {
-                   margin-right: 15px;
-               }
-           }
-       }
-       .img {
-           img {
-                height:345px;
-                width: 400px!important;
-           }
-       }
     }
 }
 
@@ -327,331 +96,5 @@
         ul {
             margin: 0 auto;
         }
-    }
-    .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 6px;
-        margin-top: 30px;
-        margin-bottom: 60px;
-       .text {
-           background-color: $w;
-           width: 400px!important;
-           transform: translateY(-2px);
-           padding: 35px;
-           position: relative;
-           h2 {
-               color: $r;
-           }
-           h4 {
-               margin-top: 5px;
-               color: $g;
-               font-weight:400;
-           }
-           h3 {
-               background-color: $bg;
-               padding: 9px 15px;
-               color: $r;
-               display: block;
-               text-align: center;
-               width: 115px;
-               border: 3px;
-               position: absolute;
-               top: 25px;
-               right: 30px;
-           }
-           p {
-                font-size: 13.5px;
-                margin: 16px auto;
-                line-height: 24px;
-           }
-           .buttons {
-               margin-top: 22px;
-               i {
-                   margin-right: 6px;
-               }
-               a {
-                   margin-right: 15px;
-               }
-           }
-       }
-       .img {
-           img {
-               width:400px!important;
-           }
-       }
-    }
-    .card2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 6px;
-        margin-bottom: 60px;
-       .text {
-           position: relative;
-           background-color: $w;
-           width: 350px;
-           padding: 35px;
-           h2 {
-               color: $r;
-           }
-           h4 {
-               margin-top: 5px;
-               color: $g;
-               font-weight:400;
-           }
-           h3 {
-            background-color: $bg;
-            padding: 9px 15px;
-            color: $r;
-            display: block;
-            text-align: center;
-            width: 115px;
-            border: 3px;
-            position: absolute;
-            top: 25px;
-            right: 30px;
-        }
-           p {
-                font-size: 13.5px;
-                margin: 16px auto;
-                line-height: 24px;
-           }
-           .buttons {
-               margin-top: 22px;
-               i {
-                margin-right: 6px;
-                }
-               a {
-                   margin-right: 15px;
-               }
-           }
-       }
-       .img {
-           img {
-                height:305px;
-                width: 400px!important;
-           }
-       }
-    }
-}
-
-@media screen and (max-width:500px) {
-    .filtre {
-        text-align: center;
-        margin: 0 auto;
-        ul {
-            margin: 0 auto;
-        }
-    }
-    .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 6px;
-        margin-top: 30px;
-        margin-bottom: 60px;
-       .text {
-           background-color: $w;
-           width: 310px!important;
-           transform: translateY(-2px);
-           padding: 35px;
-           position: relative;
-           h2 {
-               color: $r;
-           }
-           h4 {
-               margin-top: 5px;
-               color: $g;
-               font-weight:400;
-           }
-           h3 {
-               background-color: $bg;
-               padding: 9px 15px;
-               color: $r;
-               display: block;
-               text-align: center;
-               width: 115px;
-               border: 3px;
-               position: absolute;
-               top: 25px;
-               right: 30px;
-           }
-           p {
-                font-size: 13.5px;
-                margin: 16px auto;
-                line-height: 24px;
-           }
-           .buttons {
-               margin-top: 22px;
-               i {
-                   margin-right: 6px;
-               }
-               a {
-                   margin-right: 15px;
-                   display: block;
-                   text-align: center;
-                   margin-top: 15px;
-               }
-           }
-       }
-       .img {
-           display: flex;
-           justify-content: center;
-           img {
-               height:230px;
-               width: 310px!important;
-           }
-       }
-    }
-    .card2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 6px;
-        margin-bottom: 60px;
-       .text {
-           position: relative;
-           background-color: $w;
-           width: 270px;
-           padding: 35px;
-           h2 {
-               color: $r;
-           }
-           h4 {
-               margin-top: 5px;
-               color: $g;
-               font-weight:400;
-           }
-           h3 {
-            background-color: $bg;
-            padding: 9px 15px;
-            color: $r;
-            display: block;
-            text-align: center;
-            width: 115px;
-            border: 3px;
-            position: absolute;
-            top: 25px;
-            right: 30px;
-        }
-           p {
-                font-size: 13.5px;
-                margin: 16px auto;
-                line-height: 24px;
-           }
-           .buttons {
-               margin-top: 22px;
-               i {
-                margin-right: 6px;
-                }
-               a {
-                    margin-right: 15px;
-                    display: block;
-                    text-align: center;
-                    margin-top: 15px;
-               }
-           }
-       }
-       .img {
-           img {
-            height:230px;
-            width: 350px!important;
-           }
-       }
-    }
-}
-
-@media screen and (max-width:320px) {
-    .filtre {
-        text-align: center;
-        margin: 0 auto;
-        ul {
-            margin: 0 auto;
-        }
-    }
-    .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 6px;
-        margin-top: 30px;
-        margin-bottom: 60px;
-       .text {
-           background-color: $w;
-           width: 270px!important;
-           transform: translateY(-2px);
-           padding: 35px;
-           position: relative;
-           h2 {
-               color: $r;
-           }
-           h4 {
-               margin-top: 5px;
-               color: $g;
-               font-weight:400;
-           }
-           h3 {
-               background-color: $bg;
-               padding: 9px 15px;
-               color: $r;
-               display: block;
-               text-align: center;
-               width: 125px;
-               border: 3px;
-               position: absolute;
-               top: 25px;
-               right: 10px;
-           }
-           p {
-                font-size: 13.5px;
-                margin: 16px auto;
-                line-height: 24px;
-           }
-           .buttons {
-               margin-top: 22px;
-               i {
-                   margin-right: 6px;
-               }
-               a {
-                   margin-right: 15px;
-                   display: block;
-                   text-align: center;
-                   margin-top: 15px;
-               }
-           }
-       }
-       .img {  
-            display: flex;
-            justify-content: center;
-
-            width: 270px!important;
-           img {
-               height:230px;
-               width: 270px!important;
-           }
-       }
-    }
-    .card2 {
-       .text {
-           h3 {
-            background-color: $bg;
-            padding: 9px 15px;
-            color: $r;
-            display: block;
-            text-align: center;
-            width: 125px;
-            border: 3px;
-            position: absolute;
-            top: -5px;
-            right: 30px;
-        }
-       }
     }
 }

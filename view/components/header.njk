@@ -1,7 +1,9 @@
 <header>
     <nav class="desktop">
         <!-- conteneur -->
-        <div class="menu-deroulant" id="menu-deroulant">
+        
+        {% if user %}
+        <div class="menu-deroulant translate" id="menu-deroulant">
             <!-- ul -->
             <ul class="liste-deroulante" id="liste-deroulante">
                 <li>
@@ -18,6 +20,25 @@
                 </li>
             </ul>
         </div>
+        {% else %}
+          <div class="menu-deroulant" id="menu-deroulant">
+            <!-- ul -->
+            <ul class="liste-deroulante" id="liste-deroulante">
+                <li>
+                    <i class="fab fa-vuejs"></i>
+                    <a href="/category/front-end">Front-End</a>
+                </li>
+                <li>
+                    <i class="fab fa-php"></i>
+                    <a href="/category/back-end">Back-End</a>
+                </li>
+                <li>
+                    <i class="far fa-window-restore"></i>
+                    <a href="/category/fullstack">Fullstack</a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
         <ul class="menu-left">
             <li class="menu-logo">
                 <a href="/" class="logo">Made</a>
@@ -39,6 +60,9 @@
             {% if user %}
                  <li>
                     <a href="/logout" class="cta-red">Déconnexion</a>
+                </li>
+                <li>
+                    <a href="/logout" class="cta-white mon-compte">Mon compte</a>
                 </li>
             {% else %}
             <li>
@@ -96,4 +120,5 @@
             {% endif %}
         </ul>
     </nav>
+    <img src="../../assets/img/home/form.svg" class="form-header" alt="">
 </header>

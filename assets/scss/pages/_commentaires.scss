@@ -1,6 +1,6 @@
 .ajout-de-commentaire {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 40px;
     color: $n;
     h2 {
         margin-bottom: 35px;
@@ -22,13 +22,17 @@
         button {
             display: block;
             margin: 0 auto;
+            padding: 9px 16px;
             cursor: pointer;
             margin-top: 10px;
             transform: translateX(-135px);
         }
     }
     @media screen and(max-width:320px) {
-            form {    
+        h2 {
+            font-size:20px;
+        }
+        form {    
                 label {
                     display: block;
                     transform: translateX(0);
@@ -49,7 +53,7 @@
                     margin-top: 10px;
                     transform: translateX(0px);
                 }
-            }
+        }
     }
 }
 
@@ -57,31 +61,30 @@
     color: $n;
     display: flex;
     flex-direction: column;
+    margin-left: 10%;
     h3.number-comments {
-        text-align: center;
-        transform: translateX(-106px);
         margin-top: 40px;
+        margin-bottom: 24px;
         position: relative;
         &:after {
             content:'';
             position: absolute;
             bottom: -10px;
-            width:350px;
-            transform: translateX(-138px);
+            left:0;
+            width:180px;
             height: 2px;
             background-color: rgb(233, 233, 233);
         }
     }
     .commentaire {
-        margin-left: 70px;
         margin-top: 5px;
         display: flex;
-        margin-bottom: 5px;
+        flex-direction: column;
         .img {
             margin-right: 15px;
          }
         .text {
-            color: $n;
+            color: $blue!important;
             p.time {
                 margin-top: 3px;
                 color: grey;
@@ -89,195 +92,90 @@
             p {
                 margin-bottom: 10px;
             }
+            .block-comment {
+                background-color: $g2;
+                padding: 10px;
+                padding-top: 22px;
+                padding-left:10px;
+                margin-right: 10%;
+            }
             p.content-commentaire {
-                padding: 22.5px;
-                display: block;
-                width: auto;
-                margin-top: 10px;
-                overflow:hidden;
-                text-overflow: ellipsis;
-                border-radius: 4px;
-                background-color: rgb(237, 237, 240);
-           }
+                color: $blue;
+                word-break: break-all;
+                word-break: break-word;
+            }
            .buttons {
-               padding-top: 20px;
+               padding-top: 24px;
+               margin-bottom: 32px;
                a {
-                   margin-right: 10px;
-               }
+                    margin-right: 9px;
+                }
+               
                .delete {
                   transition: 0.2s ease-in-out;
                   float:right;
                   background-color: rgb(250, 226, 226);
                   border: 1px solid rgb(250, 226, 226);
                   color: $r!important;
-                  margin-right: 0;
+                  margin-right: 10%;
+                  padding: 10px 16px;
                   transform: translateY(-10px);
-                  &:hover {
-                    transform: translateY(-16px);
-                  }
                }
            }
         }
     }
-    @media screen and(max-width:500px) {
-        .commentaire {
-            margin-left: 0px;
-            margin-top: 25px;
-            display: flex;
-            margin-bottom: 10px;
-            .img {
-                margin-right: 15px;
-             }
-            .text {
-                color: $n;
-                p.time {
-                    margin-top: 3px;
-                    color: grey;
-                }
-                p {
+}
+
+@media screen and (max-width: 500px) {
+    .ajout-de-commentaire {
+        h2 {
+            font-size:20px;
+        }
+        form {    
+                label {
+                    display: block;
+                    transform: translateX(0);
                     margin-bottom: 10px;
                 }
-                p.content-commentaire {
-                    padding: 22.5px;
+                textarea {
+                    width: 270px;
+                    height: 150px;
+                    border: none;
+                    background-color: rgb(233, 233, 236);
+                    outline: none;
+                    padding: 10px;
+                }
+                button {
                     display: block;
-                    width: auto;
+                    margin: 0 auto;
+                    cursor: pointer;
                     margin-top: 10px;
-                    border-radius: 4px;
-                    background-color: rgb(237, 237, 240);
-               }
-               .buttons {
-                   padding-top: 20px;
-                   a {
-                       margin-right: 10px;
-                   }
-                   .delete {
-                      float: left;
-                      margin: 30px auto;
-                      display: block;
-                      width: 235px;
-                      text-align: center;
-                   }
-               }
-            }
-        } 
+                    transform: translateX(0px);
+                }
+        }
     }
-    @media screen and(max-width:400px) {
+   
+    .espace-commentaire {
         .commentaire {
-            margin-left: 0px;
-            margin-top: 75px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-bottom: 30px;
-            .img {
-                margin-right: 15px;
-             }
-            .text {
-                color: $n;
-                h3 {
-                    text-align:center;
-                }
-                p.time {
-                    margin-top: 3px;
-                    color: grey;
-                    text-align:center;
-                }
-                p {
-                    margin-bottom: 10px;
-                }
-                p.content-commentaire {
-                    padding: 22.5px;
+            .buttons {
+                a {
+                    margin-right: 30px!important;
                     display: block;
-                    width: auto;
-                    margin-top: 10px;
-                    border-radius: 4px;
-                    background-color: rgb(237, 237, 240);
-               }
-               .buttons {
-                   padding-top: 20px;
-                   margin: 0 auto;
-                   text-align: center;
-                   a {
-                       margin-right: 7px;
-                   }
-                   .delete {
-                      float: none;
-                      margin: 30px auto;
-                      display: block;
-                      width: 235px;
-                      text-align: center;
-                   }
-               }
-            }
-        } 
-    }
-    @media screen and(max-width:320px) {
-        h3.number-comments {
-            text-align: center;
-            transform: translateX(0px);
-            margin-top: 40px;
-            position: relative;
-            &:after {
-                content:'';
-                position: absolute;
-                bottom: -10px;
-                width:150px;
-                transform: translateX(-150px);
-                height: 2px;
-                background-color: rgb(233, 233, 233);
+                    margin-bottom: 12px;
+                    text-align: center;
+                }
+                .delete {
+                   transition: 0.2s ease-in-out;
+                   float: none!important;
+                   background-color: rgb(250, 226, 226);
+                   border: 1px solid rgb(250, 226, 226);
+                   color: $r!important;
+                   margin-right: 10%;
+                   padding: 10px 16px;
+                   display: block!important;
+                  transform: translateY(0px)!important;
+                }
             }
         }
-        .commentaire {
-            margin-left: 0px;
-            margin-top: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-bottom: 30px;
-            .img {
-                margin: 0 auto;
-             }
-            .text {
-                color: $n;
-                h3 {
-                    text-align:center;
-                }
-                p.time {
-                    margin-top: 3px;
-                    color: grey;
-                    text-align:center;
-                }
-                p {
-                    margin-bottom: 10px;
-                }
-                p.content-commentaire {
-                    padding: 22.5px;
-                    display: block;
-                    width: auto;
-                    text-align: center;
-                    margin-top: 10px;
-                    margin-left: 0px;
-                    border-radius: 4px;
-                    background-color: rgb(237, 237, 240);
-               }
-               .buttons {
-                   padding-top: 20px;
-                   margin: 0 auto;
-                   text-align: center;
-                   a {
-                       margin-right: 7px;
-                   }
-                   .delete {
-                      float: none;
-                      margin: 30px auto;
-                      display: block;
-                      width: 235px;
-                      text-align: center;
-                   }
-               }
-            }
-        } 
     }
 }

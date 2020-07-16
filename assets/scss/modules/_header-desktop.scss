@@ -12,7 +12,7 @@
         opacity: 0;
         transition: $tr;
         transform: translateX(-50px);
-        right: 695px;
+        right: 765px;
         padding-top: 15px;
         z-index: -2;
         height: 158px;
@@ -25,11 +25,11 @@
                 i {
                     border-radius: 90px;
                     padding:9px;
-                    color: $r;
+                    color: $blue;
                     background-color: $bg;
                 }
                 a {
-                    color: $r;
+                    color: $blue;
                 }
             }
         }
@@ -42,11 +42,14 @@
                 color: $n;
                 transition: $tr;
                 .arrow {
-                    margin-left: 8px;
+                    margin-left: 6px;
                 }
                 &:hover {
-                    color: $r;
+                    color: $blue;
                 }
+            }
+            .mon-compte {
+                margin-left: 0px!important;
             }
             .bars {
                 display: none;
@@ -58,8 +61,13 @@
     }
 }
 
-
-@media screen and (max-width:1000px){
+.form-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index:-1000;
+}
+@media screen and (max-width:1100px){
     .desktop {
         .menu-right {
             a {

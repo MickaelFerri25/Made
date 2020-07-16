@@ -4,14 +4,32 @@
 
   {% include "../components/header.njk" %}
 
+  <h2 class="cat">CATEGORIES</h2>
   <div class="categories">
         {% for category in projectCategories %}
           <a href="/category/{{category.slug}}">
             <div class="card-categorie">
-                <i class="fab fa-vuejs"></i>
+                {# <i class="fab fa-vuejs"></i> #}
                 <h2 class="red">{{category.name}}</h2>
-            </div>
-        </a>
+                <p>Projetd web HTML / CSS / JS</p>
+                <a class="cta-blue-2">Voir plus</a>
+            </div> 
+          </a>
         {% endfor %}
-    </div>
+  </div>
+  
+  <h2 class="cat" style="color: rgb(230, 195, 0)">PREMIUM</h2>
+  <div class="categories premium-none">
+        {% for category in projectCategories %}
+          <a href="/category/{{category.slug}}" class="premium-none">
+            <div class="card-categorie">
+                {# <i class="fab fa-vuejs"></i> #}
+                <h2 class="red">{{category.name}}</h2>
+                <p>Projetd web HTML / CSS / JS</p>
+                <a class="cta-blue-2 premium-none">Voir plus</a>
+            </div> 
+          </a>
+        {% endfor %}
+  </div>
+</div>
 {% endblock %}
