@@ -11,6 +11,7 @@
         input, select, textarea {
             display: block;
             border: solid 1px $g;
+            outline-color: $g;
             margin-bottom: 16px;
         }
         input, textarea {
@@ -23,7 +24,7 @@
         select {
             background-color:$w!important;
             @media screen and (max-width:950px) {
-                background-color:$bg!important;
+                background-color:#F2F1F9!important;
             }
         }
         textarea {
@@ -100,8 +101,8 @@
         }
         input, select, textarea {
             background-color: $bg!important;
-            @media screen and (max-width:550px) {
-                background-color:$bg!important;
+            @media screen and (max-width:950px) {
+                background-color:#F2F1F9!important;
             }
         }
         

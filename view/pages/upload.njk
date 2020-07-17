@@ -1,7 +1,7 @@
 {% extends "../layouts/global.njk" %}
 
 {% block body %}
-  {% include "../components/header.njk" %}
+{% include "../components/header.njk" %}
 
 <form action="POST" class="form-upload">
     <div class="line">
@@ -33,7 +33,6 @@
                     </select>
                 </label>
             </div>
-            
             <div class="liste-tp-projects">
                 <label for="">
                     Types
@@ -43,9 +42,9 @@
                     </select>
                 </label>
             </div>
+            </div>
         </div>
     </div>
-
     <div class="link-figma">
         <label for="">
             Lien Figma *
@@ -82,7 +81,7 @@
     </div>
     <div class="envoie">
         <button type="submit" class="cta-red">Continuer</button>
-        <a href="/home"><i class="fas fa-sign-in-alt"></i> Retour</a>
+        <a href="/"><i class="fas fa-sign-in-alt"></i> Retour</a>
     </div>
 </form>
 {% endblock %}
