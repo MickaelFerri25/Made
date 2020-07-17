@@ -3,52 +3,86 @@
 {% block body %}
   {% include "../components/header.njk" %}
 
-  <form action="/upload" class="form-upload" method="post" enctype="multipart/form-data">
-
-       <h3>Etape 1</h3>
-        <div class="flex">
-            <div class="info-cards">
-                <div class="infos">
-                    <div>
-                        <label for="name">Nom du projet</label>
-                        <input type="text" id="name" name="name" placeholder="Made" required>
-                    </div>
-
-                    <div>
-                        <label for="type">Type</label>
-                        <select name="category" id="type" class="types">
-                            {% for category in projectCategories %}
-                              <option value="{{ category.id }}">{{ category.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="level">Niveaux</label>
-                        <select name="level" id="level" class="types">
-                            <option value="0">Facile</option>
-                            <option value="1">Moyen</option>
-                            <option value="2">Difficile</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="figma">
-                    <div class="link-figma">
-                        <label for="">Lien figma</label>
-                        <input type="text" name="designlink" placeholder="https://www.figma.com/file/u0nvjQbJbSJ85_KsWmK13W/Made?node-id=269-ca2" required>
-                    </div>
-                </div>
-                <div class="bio">
-                    <label for="desc">Bio</label>
-                    <textarea required placeholder="Description" name="description" id="desc" cols="30" rows="10"></textarea>
-                </div>
-                <button type="submit" class="cta-red">Enregistrer</button>
-            </div>
-            <div class="img-card">
-                <label for="">Image</label>
-                <input type="file" name="image" alt="upload image" required />
-            </div>
-            <button type="submit" class="cta-red btn-2">Enregistrer</button>
+<form action="POST" class="form-upload">
+    <div class="line">
+        <div class="name-project">
+            <label for="">
+                Nom du projet
+                <input type="text">
+            </label>
         </div>
-    </form>
+        <div class="flex">
+            <div class="level">
+                <label for="">
+                    Niveaux  
+                <select name="" id="">
+                    <option value="">Débutant</option>
+                    <option value="">Intermédiaire</option>
+                    <option value="">Avancé</option>
+                </select>
+                </label>
+            </div>
+    
+            <div class="categories-projects">
+                <label for="">
+                    Catégories
+                    <select name="" id="">
+                        <option value="">Front-end</option>
+                        <option value="">Back-end</option>
+                        <option value="">Fullstack</option>
+                    </select>
+                </label>
+            </div>
+            
+            <div class="liste-tp-projects">
+                <label for="">
+                    Types
+                    <select name="" id="">
+                        <option value="">Travaux pratique</option>
+                        <option value="">Projets</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+    </div>
 
+    <div class="link-figma">
+        <label for="">
+            Lien Figma *
+            <input type="text">
+        </label>
+    </div>
+
+    <div class="link-codesandbox">
+        <label for="">
+            Lien CodeSandBox *
+            <input type="text">
+        </label>
+    </div>
+
+    <div class="link-github">
+        <label for="">
+            Lien Github *
+            <input type="text">
+        </label>
+    </div>
+
+    <div class="bio-project">
+        <label for="">
+            Bio
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </label>
+    </div>
+
+    <div class="img-project">
+        <label for="">
+            Image
+            <input type="file" name="" id="">
+        </label>
+    </div>
+    <div class="envoie">
+        <button type="submit" class="cta-red">Continuer</button>
+        <a href="/home"><i class="fas fa-sign-in-alt"></i> Retour</a>
+    </div>
+</form>
 {% endblock %}

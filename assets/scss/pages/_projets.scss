@@ -70,4 +70,37 @@
             }
         }
     }
+    @media screen and (max-width:900px) {
+        display: flex;  
+        justify-content: center;
+        flex-direction: column;
+        .tableaux {
+            margin: 2% auto;
+            height: auto;
+        }
+    }
+    @media screen and (max-width:550px) {
+        display: flex;  
+        justify-content: center;
+        flex-direction: column;
+        .tableaux {
+            margin: 2% auto;
+            height: auto;
+            tr {
+                display: grid;
+                height: auto!important;
+                background-color: $w!important;
+                .title {
+                    font-weight: 700;
+                }
+               .link {
+                    padding-left: 0!important;
+                }
+                .lien {
+                    padding-bottom: 8px!important;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
 }
