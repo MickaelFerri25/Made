@@ -1,40 +1,86 @@
-.form-upload2 {
+.regle {
+    color: $blue;
     position: absolute;
-    left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     h3 {
-        color: $n;
-        font-weight: 600;
         margin-bottom: 8px;
     }
-    label {
-        color: $r;
-        font-size: 19px;
-        font-weight: 500;
-    }
-    textarea {
-        display: block;
-        margin-top: 10px;
-        width: 400px;
-        height: 200px;
-        padding: 15px 10px;
+    .bg {
+        background-color: $w;
+        padding: 24px;
         border-radius: 4px;
-        outline: none;
-        &::placeholder {
-            font-family: 'Lato', sans-serif;
+        box-shadow: $s;
+        color: $blue;
+        width: 600px;
+        label {
+            display: flex;
+            flex-direction: column;
+            textarea { 
+                outline: none;
+                color: $blue;
+                background-color: rgb(245, 245, 245);
+                margin-top: 8px;
+                height: 180px;
+                border-radius: 1px;
+                border: none;
+                border-left:solid 5px $blue;
+                width: 100%;
+                padding-left: 15px;
+                padding-top: 15px;
+                transition: 0.2s ease-in-out;
+                &:focus {
+                    background-color: rgb(240, 240, 240);
+                }
+                &::placeholder {
+                    font-size: 16px;
+                }
+            }
         }
-        &:-moz-placeholder {
-            font-family: 'Lato', sans-serif;
+        button {
+            margin-top: 16px;
+            cursor: pointer;
+        }
+        .envoie {
+            display: flex;
+            justify-content: space-between;
+            a {
+                color: $blue;
+                transform: translateY(50%);
+                i {
+                    transform: translateY(1px);
+                    margin-right: 4px;
+                }
+            }
         }
     }
-    button {
-        margin-top: 12px;
-        outline: none;
+    @media screen and (max-width:500px) {
+        position: static;
+        transform: none;
+        margin-top: 50px;
+        h3 {
+            margin-left: 8px;
+        }
+        .bg {
+            width: 450px;
+        }
     }
-    @media screen and(max-width:500px) {
-        textarea {
-          width: 220px;
+    @media screen and (max-width:450px) {
+        h3 {
+            text-align: center;
+        }
+        .bg {
+            width: auto;
+            .envoie {
+                a {
+                    transform: translateY(45%);
+                }
+            }
         }
     }
 }
