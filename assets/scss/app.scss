@@ -18,9 +18,9 @@
 @import "pages/commentaires";
 @import "pages/confidentialite";
 @import "pages/upload2";
-@import "pages/regles";
 @import "pages/releases";
 @import "pages/projets";
+@import "pages/projet";
 * {
     margin: 0;
     padding: 0;
@@ -130,3 +130,4 @@ body {
         opacity: 1;
     }
 }
+
