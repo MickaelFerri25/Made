@@ -123,6 +123,32 @@
                }
            }
         }
+        
+        .comment-active {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            textarea {
+              background-color: $g2;
+              padding: 10px;
+              padding-top: 15px;
+              padding-left:15px;
+              margin-right: 10%;
+              height: 150px;
+              border: none;
+              border-radius:2px;
+              outline: none;
+              &::placeholder {
+                  font-size: 15px;
+              }
+             }
+             button {
+                 padding: 10px 16px;
+                 margin-top: 16px;
+                 width: 100px;
+                 margin-bottom: 8px;
+             }
+          }
     }
 }
 

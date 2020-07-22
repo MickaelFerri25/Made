@@ -30,14 +30,20 @@
                     <p class="content-commentaire">
                         {{comment.message}}
                     </p>
-                  
               </div>
+              
               <div class="buttons"> 
                 <a href="" class="cta-red-2">Répondre</a>
                  <a href="" class="cta-white-2">Voir le profil</a> 
                 <a href="" class="delete cta-red">Supprimer</a>
+              </div>
+      
+            <div class="comment-active">
+              <textarea name="" id="" cols="30" rows="10" placeholder="Votre réponse"></textarea>
+              <button class="cta-red">Envoyer</button>
             </div>
           </div>
+        </div>
           {% endfor %}
       </section>
     </main>
