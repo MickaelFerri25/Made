@@ -44,4 +44,6 @@ router.post('/contact', controllers.web.contact);
 // Confidentiality
 router.get('/confidentialite', controllers.web.confidentialite);
 
+// Apprentissage
+router.get('/ressources', controllers.web.ressources);
 export default router;

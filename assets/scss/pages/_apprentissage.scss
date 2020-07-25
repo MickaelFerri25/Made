@@ -1,0 +1,40 @@
+.ressource-apprentisage {
+    margin-top: 2.5%;
+    margin-left: 15%;
+    color: $blue;
+    h2 {
+        margin-bottom: 24px;
+    }
+    div {
+        button {
+            @include button-blue2;
+            margin-bottom: 16px;
+            font-size: 15px;
+            outline: none;
+        }
+        a {
+            color: rgb(33, 92, 201);
+            margin-left: 8px;
+        }
+        p {
+            margin-bottom: 4px;
+            word-break: break-word;
+        }
+    }
+    .categories-ressources {
+        margin-bottom: 16px;
+        .french {
+            margin-bottom: 8px;
+            img {
+                margin-left: 4px;
+                transform: translateY(6px);
+            }
+        }
+        .english {
+            img {
+                margin-left: 4px;
+                transform: translateY(6px);
+            }
+        }
+    }
+}

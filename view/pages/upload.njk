@@ -8,14 +8,14 @@
         <div class="name-project">
             <label for="">
                 Nom du projet
-                <input type="text">
+                <input type="text" required>
             </label>
         </div>
         <div class="flex">
             <div class="level">
                 <label for="">
                     Niveaux  
-                <select name="" id="">
+                <select name="" id="" required>
                     <option value="">Débutant</option>
                     <option value="">Intermédiaire</option>
                     <option value="">Avancé</option>
@@ -26,7 +26,7 @@
             <div class="categories-projects">
                 <label for="">
                     Catégories
-                    <select name="" id="">
+                    <select name="" id="" required>
                         <option value="">Front-end</option>
                         <option value="">Back-end</option>
                         <option value="">Fullstack</option>
@@ -36,7 +36,7 @@
             <div class="liste-tp-projects">
                 <label for="">
                     Types
-                    <select name="" id="">
+                    <select name="" id="" required>
                         <option value="">Travaux pratique</option>
                         <option value="">Projets</option>
                     </select>
@@ -69,14 +69,14 @@
     <div class="bio-project">
         <label for="">
             Bio
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="" id="" cols="30" rows="10" required></textarea>
         </label>
     </div>
 
     <div class="img-project">
         <label for="">
             Image
-            <input type="file" name="" id="">
+            <input type="file" accept="image/svg" name="" id="" required>
         </label>
     </div>
     <div class="envoie">

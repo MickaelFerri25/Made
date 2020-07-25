@@ -7,14 +7,12 @@
   <h2 class="cat">CATEGORIES</h2>
   <div class="categories">
         {% for category in projectCategories %}
-          <a href="/category/{{category.slug}}">
             <div class="card-categorie">
                 {# <i class="fab fa-vuejs"></i> #}
                 <h2 class="red">{{category.name}}</h2>
                 <p>Projetd web HTML / CSS / JS</p>
-                <a class="cta-blue-2">Voir plus</a>
+                <a href="/category/{{category.slug}}" class="cta-blue-2">Voir plus</a>
             </div> 
-          </a>
         {% endfor %}
   </div>
   

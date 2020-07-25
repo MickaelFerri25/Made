@@ -40,6 +40,15 @@
     }
 }
 
+@mixin button-blue2 {
+    background-color: $blue2;
+    color: $blue;
+    padding: 10px 16px;
+    border-radius: 3px;
+    border: none;
+    font-weight: 600;
+}
+
 @mixin button-white {
     background-color: $bg;
     color: $blue;

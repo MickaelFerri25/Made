@@ -19,6 +19,10 @@ export const home = (req: express.Request, res: express.Response) => {
   return res.render('pages/home.njk');
 };
 
+export const ressources = (req: express.Request, res: express.Response) => {
+  return res.render('pages/apprentissage.njk');
+};
+
 export const comment = async (req: express.Request, res: express.Response) => {
   const service = new FeatureRequestService(res.locals.modelContext);
   let success = false;
