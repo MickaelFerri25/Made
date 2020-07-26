@@ -14,6 +14,7 @@
 
   <h1 class="title-inscription">Inscription</h1>
     <form action="/inscription" class="formulaire-inscription" id="block-inscription" method="post">
+        {{ csrf_input | safe }}
         <div class="pseudo">
             <label for="pseudo">Pseudo</label>
             <input type="text" name="pseudo" id="pseudo" required>

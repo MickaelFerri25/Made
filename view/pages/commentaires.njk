@@ -11,6 +11,7 @@
             <p class="succes2" id="msg-succes1">Commentaire envoyer avec succès ! <i class="fas fa-times" id="i-delete1"></i> </p>
           {% endif %}
           <form method="POST" action="">
+              {{ csrf_input | safe }}
               <label for="">Message</label>
               <textarea required name="message" id="" cols="30" rows="10"></textarea>
               <button type="submit" class="cta-red">Envoyer</button>

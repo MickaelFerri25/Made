@@ -8,6 +8,7 @@
 {% block body %}
   {% include "../components/auth-header.njk" %}
   <form action="/connexion" class="formulaire-inscription" id="block-inscription" method="post">
+      {{ csrf_input | safe }}
         <div class="email">
             <label for="email">Adresse email</label>
             <input type="email" name="email" id="email" required>

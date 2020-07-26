@@ -4,6 +4,7 @@
 {% include "../components/header.njk" %}
 
 <form action="POST" class="form-upload">
+    {{ csrf_input | safe }}
     <div class="line">
         <div class="name-project">
             <label for="">
@@ -14,7 +15,7 @@
         <div class="flex">
             <div class="level">
                 <label for="">
-                    Niveaux  
+                    Niveaux
                 <select name="" id="" required>
                     <option value="">Débutant</option>
                     <option value="">Intermédiaire</option>
@@ -22,7 +23,7 @@
                 </select>
                 </label>
             </div>
-    
+
             <div class="categories-projects">
                 <label for="">
                     Catégories

@@ -11,13 +11,14 @@
 </head>
 <body>
   <div class="regle">
-    <form class="block-regle"> 
+    <form class="block-regle">
+    {{ csrf_input | safe }}
     <h3>ETAPE 2</h3>
     <div class="bg">
       <label for="">
         Règles
         <textarea name="" id="" cols="30" rows="10" placeholder="Structure :
-         1 - Définisser les règles 
+         1 - Définisser les règles
          2 - Définisser les langages"></textarea>
       </label>
       <div class="envoie">
