@@ -8,6 +8,7 @@ import ProjectCategoryEntity from '../models/entities/projectcategory.entity';
 import ProjectCategoryService from '../services/projectcategory.service';
 import ProjectEntity from '../models/entities/project.entity';
 import ProjectService from '../services/project.service';
+import UserEntity from '../models/entities/user.entity';
 import UserService from '../services/user.service';
 import config from '../utils/config.util';
 import express from 'express';
@@ -102,10 +103,12 @@ export const inscription = async (req: express.Request, res: express.Response) =
 };
 
 export const category = async (req: express.Request, res: express.Response) => {
-  const cat = await ProjectCategoryEntity.findOne(res.locals.modelContext)
+  const cat: ProjectCategoryEntity = await ProjectCategoryEntity.findOne(res.locals.modelContext)
     .where('slug', '=', req.params.categorySlug)
     .exec();
   if (!cat) return res.redirect('/');
+  const user: UserEntity = res.locals.user;
+  if (cat.premiumReserved && (!user || !user.isPremium)) return res.redirect('/categories');
 
   let level: string | null = req.query.level as string;
   if (level && !['1', '2', '3'].includes(level)) {
@@ -172,12 +175,16 @@ export const upload = async (req: express.Request, res: express.Response) => {
       }
     }
   }
-  const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
+  const result = await new ProjectCategoryService(res.locals.modelContext).getAll();
   const errorCodes: any = resErrors.reduce((prev: any, e) => {
     prev[e.code] = true;
     return prev;
   }, {});
-  return res.render('pages/upload.njk', { projectCategories, errorCodes, errors: resErrors });
+  return res.render('pages/upload.njk', {
+    errorCodes,
+    projectCategories: result.categories.concat(result.premiumCategories),
+    errors: resErrors,
+  });
 };
 
 export const uploadPublish = async (req: express.Request, res: express.Response) => {
@@ -228,8 +235,11 @@ export const contact = async (req: express.Request, res: express.Response) => {
 };
 
 export const categories = async (req: express.Request, res: express.Response) => {
-  const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;
-  return res.render('pages/categories.njk', { projectCategories });
+  const result = await new ProjectCategoryService(res.locals.modelContext).getAll();
+  return res.render('pages/categories.njk', {
+    projectCategories: result.categories,
+    premiumProjectCategories: result.premiumCategories,
+  });
 };
 
 export const confidentialite = async (req: express.Request, res: express.Response) => {

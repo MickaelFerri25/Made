@@ -2,6 +2,8 @@ import {
   AutoCreateNUpdate,
   AutoIncrement,
   BigInt,
+  Bool,
+  Default,
   Entity,
   Id,
   PrimaryKey,
@@ -34,6 +36,14 @@ export default class UserEntity extends Entity {
 
   @Varchar(255)
   public salt: string;
+
+  @Bool()
+  @Default('0')
+  public isAdmin = false;
+
+  @Bool()
+  @Default('0')
+  public isPremium = false;
 
   constructor(pseudo: string, email: string, password: string) {
     super();

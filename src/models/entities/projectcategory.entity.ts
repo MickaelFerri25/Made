@@ -2,6 +2,8 @@ import {
   AutoCreateNUpdate,
   AutoIncrement,
   BigInt,
+  Bool,
+  Default,
   Entity,
   Id,
   OneToMany,
@@ -26,16 +28,25 @@ export default class ProjectCategoryEntity extends Entity {
   @Unique()
   public name: string;
 
+  @Varchar(255)
+  public description: string;
+
   @Varchar(50)
   @Unique()
   public slug: string;
 
+  @Bool()
+  @Default('0')
+  public premiumReserved: boolean;
+
   @OneToMany('project', false)
   public projects: ProjectEntity[];
 
-  constructor(name: string, slug: string) {
+  constructor(name: string, slug: string, description: string, premiumReserved: boolean) {
     super();
     this.name = name;
     this.slug = slug;
+    this.description = description;
+    this.premiumReserved = premiumReserved;
   }
 }
