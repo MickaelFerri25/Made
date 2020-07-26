@@ -220,7 +220,7 @@ export const contact = async (req: express.Request, res: express.Response) => {
       success = true;
     }
   }
-  return res.render('pages/contact.njk', { success });
+  return res.redirect('/');
 };
 
 export const categories = async (req: express.Request, res: express.Response) => {

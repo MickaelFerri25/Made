@@ -21,7 +21,7 @@
             <div class="text" >
                 <h3>A PROPOS</h3>
                 <p>
-                    Bonjour! Made est un site web dédié pour les développeurs à la recherche de projets<br> 
+                    Bonjour! Made est un site web dédié pour les développeurs à la recherche de projets<br>
                     pour apprendre le code! comportent des maquettes et des règles bien précises.<br>
                     Ces futurs projets pourront être postés sur votre github pour attirer vos<br>
                     futurs clients!
@@ -48,7 +48,7 @@
                 <a href="#ancre" id="voir-plus">Voir plus <i class="fas fa-chevron-down" id="i-voir-plus"></i></a>
             </div>
             <div class="img">
-                <img src="../../assets/img/home/img-about.svg" class="thumbnail" alt="">
+                <img src="/assets/img/home/img-about.svg" class="thumbnail" alt="">
             </div>
         </div>
     </section>
@@ -56,16 +56,17 @@
     <section class="contact-made">
         <div class="contact">
             <div class="img">
-                <img src="../../assets/img/home/img-contact.svg" class="thumbnail2" alt="">
+                <img src="/assets/img/home/img-contact.svg" class="thumbnail2" alt="">
             </div>
             <div class="text">
                 <h1>Contact</h1>
                 <form action="/contact" method="POST">
+                    {{ csrf_input | safe }}
                     <div class="infos-contact">
-                            <input type="text" class="pseudo" required placeholder="Pseudo">
-                            <input type="text" class="email" required placeholder="Adresse email">
+                            <input name="pseudo" type="text" class="pseudo" required placeholder="Pseudo">
+                            <input name="email" type="text" class="email" required placeholder="Adresse email">
                     </div>
-                    <textarea name="" id="" cols="30" rows="10" required placeholder="Message"></textarea>
+                    <textarea name="message" id="" cols="30" rows="10" required placeholder="Message"></textarea>
                 <button type="submit" class="cta-red">Envoyer</button>
                 </form>
             </div>
