@@ -1,6 +1,7 @@
 import { CreateProjectSuccess, PublishProjectSuccess } from './results/project.result';
 import errors, { Error } from '../errors';
 
+import { FindQuery } from '@smallprod/models';
 import ProjectCategoryEntity from '../models/entities/projectcategory.entity';
 import ProjectEntity from '../models/entities/project.entity';
 import Service from './_parent.service';
@@ -86,17 +87,43 @@ export default class ProjectService extends Service {
     }
   };
 
-  public findByCategory = async (category: ProjectCategoryEntity, page: number, level: string | null) => {
-    const query = ProjectEntity.findMany(this.context)
+  public getProjectCount = async (category: ProjectCategoryEntity, level: string | null) => {
+    const query = new FindQuery('project')
+      .addAttribute('id', 'nb', 'COUNT')
       .where('category_id', '=', category.id)
       .and()
-      .where('isPublished', '=', 1)
-      .sort('publishedAt', 'DESC');
-    /*.limit(6, (page - 1) * 6)*/
+      .where('isPublished', '=', 1);
     if (level) {
       query.and().where('level', '=', level);
     }
-    const projects = await query.exec();
-    return projects;
+    const res = await query.exec();
+    return res[0].nb;
+  };
+
+  public findByCategory = async (category: ProjectCategoryEntity, page: number, level: string | null) => {
+    const projQuery = ProjectEntity.findMany(this.context)
+      .where('category_id', '=', category.id)
+      .and()
+      .where('isPublished', '=', 1)
+      .and()
+      .where('type', '=', '1')
+      .sort('publishedAt', 'DESC')
+      .limit(5, (page - 1) * 5);
+    const workQuery = ProjectEntity.findMany(this.context)
+      .where('category_id', '=', category.id)
+      .and()
+      .where('isPublished', '=', 1)
+      .and()
+      .where('type', '=', '2')
+      .sort('publishedAt', 'DESC')
+      .limit(5, (page - 1) * 5);
+
+    if (level) {
+      projQuery.and().where('level', '=', level);
+      workQuery.and().where('level', '=', level);
+    }
+    const projects = await projQuery.exec();
+    const work = await workQuery.exec();
+    return { projects, work };
   };
 }
