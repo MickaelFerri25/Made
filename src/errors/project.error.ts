@@ -2,7 +2,7 @@ import { Error } from '.';
 
 export const NameAlreadyUsed: Error = {
   code: 201,
-  info: 'Project name is already used',
+  info: 'Le nom du projet est déjà utilisé',
 };
 
 export const CategoryNotFound: Error = {
@@ -12,7 +12,7 @@ export const CategoryNotFound: Error = {
 
 export const DesignLinkIncorrect: Error = {
   code: 203,
-  info: 'Design link incorrect (not a figma link)',
+  info: 'Lien incorrecte (utiliser un lien figma valide.)',
 };
 
 export const LevelNotFound: Error = {
@@ -33,4 +33,14 @@ export const CodesandboxLinkIncorrect: Error = {
 export const GithubLinkIncorrect: Error = {
   code: 207,
   info: 'Github link incorrect',
+};
+
+export const BioVide: Error = {
+  code: 208,
+  info: 'La bio est trop courte',
+};
+
+export const ImgIncorrect: Error = {
+  code: 209,
+  info: 'Les images doivent être en .svg',
 };

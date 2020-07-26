@@ -53,4 +53,7 @@ router.get('/confidentialite', controllers.web.confidentialite);
 
 // Apprentissage
 router.get('/ressources', controllers.web.ressources);
+
+// Projet
+router.get('/projet', controllers.web.projet);
 export default router;

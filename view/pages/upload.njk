@@ -10,6 +10,9 @@
             <label for="">
                 Nom du projet
                 <input name="name" type="text" required>
+                {% if errorCodes['201'] %}
+                <p class="error">Le nom du projet est déjà utilisé</p>
+                {% endif %}
             </label>
         </div>
         <div class="flex">
@@ -21,6 +24,9 @@
                     <option value="2">Intermédiaire</option>
                     <option value="3">Avancé</option>
                 </select>
+                {% if errorCodes['204'] %}
+                    <p class="error">Niveaux non trouvé</p>
+                {% endif %}
                 </label>
             </div>
 
@@ -32,6 +38,9 @@
                           <option value="{{ category.id }}">{{ category.name}}</option>
                         {% endfor %}
                     </select>
+                    {% if errorCodes['202'] %}
+                        <p class="error">Catégories de projet non trouvé</p>
+                    {% endif %}
                 </label>
             </div>
             <div class="liste-tp-projects">
@@ -41,6 +50,9 @@
                         <option value="1">Travaux pratique</option>
                         <option value="2">Projets</option>
                     </select>
+                    {% if errorCodes['205'] %}
+                        <p class="error">Type non trouvé</p>
+                    {% endif %}
                 </label>
             </div>
             </div>
@@ -50,6 +62,9 @@
         <label for="">
             Lien Figma *
             <input type="text" name="designlink">
+            {% if errorCodes['203'] %}
+                <p class="error">Lien incorrecte (utiliser un lien figma valide.)</p>
+            {% endif %}
         </label>
     </div>
 
@@ -57,6 +72,9 @@
         <label for="">
             Lien CodeSandBox *
             <input type="text" name="codesandboxlink">
+            {% if errorCodes['206'] %}
+            <p class="error">Lien incorrecte (utiliser un lien CodeSandBox valide.)</p>
+            {% endif %}
         </label>
     </div>
 
@@ -64,6 +82,9 @@
         <label for="">
             Lien Github *
             <input type="text" name="githublink">
+            {% if errorCodes['207'] %}
+                <p class="error">Lien incorrecte (utiliser un lien Github valide.)</p>
+            {% endif %}
         </label>
     </div>
 
@@ -71,6 +92,9 @@
         <label for="">
             Bio
             <textarea name="description" id="" cols="30" rows="10" required></textarea>
+            {% if errorCodes['208'] %}
+                <p class="error">La bio est trop courte</p>
+            {% endif %}
         </label>
     </div>
 
@@ -78,11 +102,16 @@
         <label for="">
             Image
             <input type="file" accept="image/svg" name="image" id="">
+            {% if errorCodes['209'] %}
+                <p class="error">Les images doivetn être en .svg</p>
+            {% endif %}
         </label>
     </div>
+
     <div class="envoie">
         <button type="submit" class="cta-red">Continuer</button>
         <a href="/"><i class="fas fa-sign-in-alt"></i> Retour</a>
     </div>
 </form>
+
 {% endblock %}
