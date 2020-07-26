@@ -49,7 +49,9 @@
       </ul>
       <div class="buttons">
         <a href="" class="cta-red">Voir le profil</a>
-        <a href="" class="cta-red delete">Supprimer</a>
+        {% if user.isAdmin %}
+          <a href="/project/{{ project.id }}/delete" class="cta-red delete">Supprimer</a>
+        {% endif %}
       </div>
     </div>
   </section>

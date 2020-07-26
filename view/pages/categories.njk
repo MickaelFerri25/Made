@@ -10,23 +10,25 @@
             <div class="card-categorie">
                 {# <i class="fab fa-vuejs"></i> #}
                 <h2 class="red">{{category.name}}</h2>
-                <p>Projetd web HTML / CSS / JS</p>
+                <p>{{ category.description }}</p>
                 <a href="/category/{{category.slug}}" class="cta-blue-2">Voir plus</a>
-            </div> 
+            </div>
         {% endfor %}
   </div>
-  
+
   <h2 class="cat" style="color: rgb(230, 195, 0)">PREMIUM</h2>
   <div class="categories premium-none">
-        {% for category in projectCategories %}
+        {% for category in premiumProjectCategories %}
           <a href="/category/{{category.slug}}" class="premium-none">
             <div class="card-categorie">
                 {# <i class="fab fa-vuejs"></i> #}
                 <h2 class="red">{{category.name}}</h2>
-                <p>Projets web HTML / CSS / JS</p>
+                <p>{{ category.description }}</p>
                 <a class="cta-blue-2 premium-none">Voir plus</a>
-            </div> 
+            </div>
           </a>
+        {% else %}
+          <span>Aucune catégorie prémium pour le moment</span>
         {% endfor %}
   </div>
 </div>
