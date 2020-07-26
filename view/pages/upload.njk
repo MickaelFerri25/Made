@@ -3,7 +3,7 @@
 {% block body %}
 {% include "../components/header.njk" %}
 
-<form action="" class="form-upload" method="POST">
+<form action="" class="form-upload" method="POST" enctype="multipart/form-data">
     {{ csrf_input | safe }}
     <div class="line">
         <div class="name-project">

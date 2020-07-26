@@ -9,7 +9,7 @@
       </div>
       <div class="text">
         <h3>{{ project.name }}</h3>
-        <p>Crée par {{ project.author.pseudo }}</p>
+        <p>Créé par {{ project.author.pseudo }}</p>
       </div>
     </div>
     <div class="presentation">
@@ -17,7 +17,9 @@
       <p>
         {{ project.description | striptags(true) | escape | nl2br }}
       </p>
-      <img src="/assets/img/frontEnd/Rectangle 68.png" alt="">
+      {% if project.picture %}
+        <img src="/assets/upload/project/{{ project.picture }}" alt="">
+      {% endif %}
     </div>
     <div class="regles">
       <h2>REGLES</h2>
@@ -28,17 +30,17 @@
       <ul>
         {% if project.designLink %}
           <li>
-            <a href="">https://www.figma.com/file/u0nvjQbJbSJ7MXKsWmK13W/Made?node-id=0%3A1</a>
+            <a href="{{project.designLink}}">{{project.designLink}}</a>
           </li>
         {% endif %}
         {% if project.codesandboxLink %}
           <li>
-            <a href="">https://codesandbox.io/</a>
+            <a href="{{project.codesandboxLink}}">{{project.codesandboxLink}}</a>
           </li>
         {% endif %}
         {% if project.githubLink %}
           <li>
-            <a href="">https://github.com/MickaelFerri25</a>
+            <a href="{{project.githubLink}}">{{project.githubLink}}</a>
           </li>
         {% endif %}
         {% if not project.designLink and not project.codesandboxLink and not project.githubLink %}

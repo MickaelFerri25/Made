@@ -3,13 +3,15 @@ import { requireLogged, requireNotLogged } from '../utils/middlewares.util';
 import controllers from '../controllers';
 import express from 'express';
 import multer from 'multer';
-import path from 'path';
 import { withContext } from '@smallprod/models';
 
 const upload = multer({
   dest: 'assets/upload/temp',
   limits: { files: 1, fileSize: 20000000 },
-  fileFilter: (req, file, cb) => (file.mimetype === 'image/svg+xml' ? cb(null, true) : cb(null, false)),
+  fileFilter: (req, file, cb) => {
+    console.log(file.mimetype);
+    return file.mimetype === 'image/svg+xml' ? cb(null, true) : cb(null, false);
+  },
 });
 
 const router = express.Router();
