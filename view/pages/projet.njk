@@ -1,63 +1,49 @@
-<!-- {% extends "../layouts/global.njk" %}
+{% extends "../layouts/global.njk" %}
 {% block body %}
-{% include "../components/header.njk" %} -->
-<!-- {% endblock %} -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Made - La plateforme en ligne de TP pour apprendre le développement Web</title>
-    <link rel="shortcut icon" href="/assets/img/logomade.jpg" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/bedd7b9608.js" crossorigin="anonymous" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/app.css">
-  </head>
-<body>
+  {% include "../components/header.njk" %}
+
   <section class="block-projet">
     <div class="infos-profil">
       <div class="img">
-        <img src="../../assets/img/commentaires/user-profil.svg" alt="">
+        <img src="/assets/img/commentaires/user-profil.svg" alt="">
       </div>
       <div class="text">
-        <h3>Made</h3>
-        <p>Crée par Micka</p>
+        <h3>{{ project.name }}</h3>
+        <p>Crée par {{ project.author.pseudo }}</p>
       </div>
     </div>
     <div class="presentation">
       <h2>PRESENTATION</h2>
       <p>
-        Création d'un mur de photos avec les grilles CSS, ce projet est destiné aux débutants il est important
-        de savoir gérer les grilles pour avoir plus de possibilités dans vos créations
+        {{ project.description | striptags(true) | escape | nl2br }}
       </p>
-      <img src="../../assets/img/frontEnd/Rectangle 68.png" alt="">
+      <img src="/assets/img/frontEnd/Rectangle 68.png" alt="">
     </div>
     <div class="regles">
       <h2>REGLES</h2>
-      <ul>
-        <li>
-          <p>1 - Vous devez utiliser les grid, l'utilisation de "float" ou "absolute" est interdit.</p>
-        </li>
-        <li>
-          <p>1 - Vous devez utiliser les grid, l'utilisation de "float" ou "absolute" est interdit.</p>
-        </li>
-        <li>
-          <p>1 - Vous devez utiliser les grid, l'utilisation de "float" ou "absolute" est interdit.</p>
-        </li>
-      </ul>
+      {{ project.rules | striptags(true) | escape | nl2br }}
     </div>
     <div class="liens">
       <h2>LIENS</h2>
       <ul>
-        <li>
-          <a href="">https://www.figma.com/file/u0nvjQbJbSJ7MXKsWmK13W/Made?node-id=0%3A1</a>
-        </li>
-        <li>
-          <a href="">https://codesandbox.io/</a>
-        </li>
-        <li>
-          <a href="">https://github.com/MickaelFerri25</a>
-        </li>
+        {% if project.designLink %}
+          <li>
+            <a href="">https://www.figma.com/file/u0nvjQbJbSJ7MXKsWmK13W/Made?node-id=0%3A1</a>
+          </li>
+        {% endif %}
+        {% if project.codesandboxLink %}
+          <li>
+            <a href="">https://codesandbox.io/</a>
+          </li>
+        {% endif %}
+        {% if project.githubLink %}
+          <li>
+            <a href="">https://github.com/MickaelFerri25</a>
+          </li>
+        {% endif %}
+        {% if not project.designLink and not project.codesandboxLink and not project.githubLink %}
+          <span>AUCUN LIENS</span>
+        {% endif %}
       </ul>
       <div class="buttons">
         <a href="" class="cta-red">Voir le profil</a>
@@ -65,5 +51,5 @@
       </div>
     </div>
   </section>
-</body>
-</html>
+
+{% endblock %}

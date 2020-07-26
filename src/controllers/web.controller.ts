@@ -117,7 +117,7 @@ export const category = async (req: express.Request, res: express.Response) => {
 export const project = async (req: express.Request, res: express.Response) => {
   const proj = await ProjectEntity.findById(req.params.projectId, res.locals.modelContext);
   if (!proj) return res.redirect('/');
-  return res.render('pages/regles.njk', { project: proj });
+  return res.render('pages/projet.njk', { project: proj });
 };
 
 export const upload = async (req: express.Request, res: express.Response) => {
