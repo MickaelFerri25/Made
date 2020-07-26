@@ -9,11 +9,14 @@ import UserEntity from '../models/entities/user.entity';
 export default class ProjectService extends Service {
   public create = async (
     name: string,
-    description: string,
-    categoryId: number,
     level: string,
-    designLink: string,
+    categoryId: string,
+    type: string,
+    description: string,
     picturePath: string,
+    designLink: string,
+    codesandboxLink: string,
+    githubLink: string,
     user: UserEntity,
   ) => {
     const resErrors: Error[] = [];
@@ -29,12 +32,24 @@ export default class ProjectService extends Service {
     }
 
     // Check if the design link is correct
-    if (!designLink.startsWith('https://www.figma.com/file/')) {
+    if (designLink && !designLink.startsWith('https://www.figma.com/')) {
       resErrors.push(errors.project.DesignLinkIncorrect);
     }
 
-    if (level !== '0' && level !== '1' && level !== '2') {
+    if (codesandboxLink && !codesandboxLink.startsWith('https://codesandbox.io/')) {
+      resErrors.push(errors.project.CodesandboxLinkIncorrect);
+    }
+
+    if (githubLink && !githubLink.startsWith('https://github.com/')) {
+      resErrors.push(errors.project.GithubLinkIncorrect);
+    }
+
+    if (level !== '1' && level !== '2' && level !== '3') {
       resErrors.push(errors.project.LevelNotFound);
+    }
+
+    if (type !== '1' && type !== '2') {
+      resErrors.push(errors.project.TypeNotFound);
     }
 
     if (resErrors.length) return this.errors(resErrors);
@@ -50,6 +65,9 @@ export default class ProjectService extends Service {
       category,
       '',
       parseInt(level, 10),
+      parseInt(type, 10),
+      codesandboxLink,
+      githubLink,
     );
     const newProject = await project.create();
     if (!newProject) return this.errors([errors.global.Unexpected]);

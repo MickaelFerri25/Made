@@ -19,3 +19,18 @@ export const LevelNotFound: Error = {
   code: 204,
   info: 'Level not found',
 };
+
+export const TypeNotFound: Error = {
+  code: 205,
+  info: 'Type not found',
+};
+
+export const CodesandboxLinkIncorrect: Error = {
+  code: 206,
+  info: 'CodeSandbox link incorrect',
+};
+
+export const GithubLinkIncorrect: Error = {
+  code: 207,
+  info: 'Github link incorrect',
+};

@@ -125,22 +125,27 @@ export const upload = async (req: express.Request, res: express.Response) => {
   if (
     req.body &&
     req.body.name &&
-    req.body.category &&
-    req.body.description &&
-    req.file &&
     req.body.level &&
+    req.body.category &&
+    req.body.type &&
+    req.body.description &&
     req.body.csrf &&
     req.session
   ) {
     if (req.session.csrf === req.body.csrf) {
-      const picturePath = `${uuidv4()}${req.file.originalname.substring(req.file.originalname.lastIndexOf('.'))}`;
+      const picturePath = req.file
+        ? `${uuidv4()}${req.file.originalname.substring(req.file.originalname.lastIndexOf('.'))}`
+        : '';
       const serviceResult = await new ProjectService(res.locals.modelContext).create(
         req.body.name,
-        req.body.description,
-        req.body.category,
         req.body.level,
-        req.body.designlink || '',
+        req.body.category,
+        req.body.type,
+        req.body.description,
         picturePath,
+        req.body.designlink || '',
+        req.body.codesandboxlink || '',
+        req.body.githublink || '',
         res.locals.user,
       );
       if (serviceResult.status === 'error') {
@@ -148,11 +153,15 @@ export const upload = async (req: express.Request, res: express.Response) => {
         resErrors = resu.data.errors;
       } else {
         const resu = serviceResult as ServiceResult<CreateProjectSuccess>;
-        fs.copyFileSync(req.file.path, `assets/upload/project/${picturePath}`);
-        fs.unlinkSync(req.file.path);
+        if (req.file) {
+          fs.copyFileSync(req.file.path, `assets/upload/project/${picturePath}`);
+          fs.unlinkSync(req.file.path);
+        }
         return res.redirect(`/upload/${resu.data.project.id}`);
       }
-      fs.unlinkSync(req.file.path);
+      if (req.file) {
+        fs.unlinkSync(req.file.path);
+      }
     }
   }
   const projectCategories = (await new ProjectCategoryService(res.locals.modelContext).getAll()).data.categories;

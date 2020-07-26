@@ -3,23 +3,23 @@
 {% block body %}
 {% include "../components/header.njk" %}
 
-<form action="POST" class="form-upload">
+<form action="" class="form-upload" method="POST">
     {{ csrf_input | safe }}
     <div class="line">
         <div class="name-project">
             <label for="">
                 Nom du projet
-                <input type="text" required>
+                <input name="name" type="text" required>
             </label>
         </div>
         <div class="flex">
             <div class="level">
                 <label for="">
                     Niveaux
-                <select name="" id="" required>
-                    <option value="">Débutant</option>
-                    <option value="">Intermédiaire</option>
-                    <option value="">Avancé</option>
+                <select name="level" id="" required>
+                    <option value="1">Débutant</option>
+                    <option value="2">Intermédiaire</option>
+                    <option value="3">Avancé</option>
                 </select>
                 </label>
             </div>
@@ -27,19 +27,19 @@
             <div class="categories-projects">
                 <label for="">
                     Catégories
-                    <select name="" id="" required>
-                        <option value="">Front-end</option>
-                        <option value="">Back-end</option>
-                        <option value="">Fullstack</option>
+                    <select name="category" id="" required>
+                        {% for category in projectCategories %}
+                          <option value="{{ category.id }}">{{ category.name}}</option>
+                        {% endfor %}
                     </select>
                 </label>
             </div>
             <div class="liste-tp-projects">
                 <label for="">
                     Types
-                    <select name="" id="" required>
-                        <option value="">Travaux pratique</option>
-                        <option value="">Projets</option>
+                    <select name="type" id="" required>
+                        <option value="1">Travaux pratique</option>
+                        <option value="2">Projets</option>
                     </select>
                 </label>
             </div>
@@ -49,35 +49,35 @@
     <div class="link-figma">
         <label for="">
             Lien Figma *
-            <input type="text">
+            <input type="text" name="designlink">
         </label>
     </div>
 
     <div class="link-codesandbox">
         <label for="">
             Lien CodeSandBox *
-            <input type="text">
+            <input type="text" name="codesandboxlink">
         </label>
     </div>
 
     <div class="link-github">
         <label for="">
             Lien Github *
-            <input type="text">
+            <input type="text" name="githublink">
         </label>
     </div>
 
     <div class="bio-project">
         <label for="">
             Bio
-            <textarea name="" id="" cols="30" rows="10" required></textarea>
+            <textarea name="description" id="" cols="30" rows="10" required></textarea>
         </label>
     </div>
 
     <div class="img-project">
         <label for="">
             Image
-            <input type="file" accept="image/svg" name="" id="" required>
+            <input type="file" accept="image/svg" name="image" id="">
         </label>
     </div>
     <div class="envoie">

@@ -10,9 +10,9 @@ import {
   LongText,
   ManyToOne,
   PrimaryKey,
+  SmallInt,
   Table,
   Varchar,
-  SmallInt,
 } from '@smallprod/models';
 
 import { Context } from '@smallprod/models/dist/entities/entitymanager';
@@ -44,6 +44,14 @@ export default class ProjectEntity extends Entity {
   @AllowNull()
   public designLink: string;
 
+  @Varchar(255)
+  @AllowNull()
+  public codesandboxLink: string;
+
+  @Varchar(255)
+  @AllowNull()
+  public githubLink: string;
+
   @LongText()
   public rules: string;
 
@@ -58,7 +66,10 @@ export default class ProjectEntity extends Entity {
   public publishedAt: Date | null = null;
 
   @SmallInt()
-  public level = 0;
+  public level = 1;
+
+  @SmallInt()
+  public type = 1;
 
   constructor(
     name: string,
@@ -69,6 +80,9 @@ export default class ProjectEntity extends Entity {
     category: ProjectCategoryEntity,
     rules: string,
     level: number,
+    type: number,
+    codesandboxLink: string,
+    githubLink: string,
   ) {
     super();
     this.name = name;
@@ -79,5 +93,8 @@ export default class ProjectEntity extends Entity {
     this.category = category;
     this.rules = rules;
     this.level = level;
+    this.type = type;
+    this.codesandboxLink = codesandboxLink;
+    this.githubLink = githubLink;
   }
 }
