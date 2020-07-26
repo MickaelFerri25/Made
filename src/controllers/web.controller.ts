@@ -108,14 +108,18 @@ export const category = async (req: express.Request, res: express.Response) => {
   if (!cat) return res.redirect('/');
 
   let level: string | null = req.query.level as string;
-  if (level && !['0', '1', '2'].includes(level)) {
+  if (level && !['1', '2', '3'].includes(level)) {
     level = null;
   }
 
-  const page = req.query.page && typeof req.query.page === 'string' ? parseInt(req.query.page, 10) : 1;
-  const projects = await new ProjectService(res.locals.modelContext).findByCategory(cat, page, level);
+  let page = req.query.page && typeof req.query.page === 'string' ? parseInt(req.query.page, 10) : 1;
+  const nb = await new ProjectService(res.locals.modelContext).getProjectCount(cat, level);
+  if ((page - 1) * 5 > nb) {
+    page = 1;
+  }
+  const { projects, work } = await new ProjectService(res.locals.modelContext).findByCategory(cat, page, level);
 
-  return res.render('pages/category.njk', { projects, category: cat });
+  return res.render('pages/category.njk', { projects, work, nb, page, category: cat });
 };
 
 export const project = async (req: express.Request, res: express.Response) => {
@@ -220,7 +224,7 @@ export const contact = async (req: express.Request, res: express.Response) => {
       success = true;
     }
   }
-  return res.render('pages/contact.njk', { success });
+  return res.redirect('/');
 };
 
 export const categories = async (req: express.Request, res: express.Response) => {

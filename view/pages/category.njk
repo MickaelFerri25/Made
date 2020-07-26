@@ -15,44 +15,46 @@
         </button>
         <ul class="block-filtre" id="ul-filtre">
             <li>
-                <a href="?level=0">Facile</a>
+                <a href="?level=1">Facile</a>
             </li>
 
             <li>
-                <a href="?level=1">Moyen</a>
+                <a href="?level=2">Moyen</a>
             </li>
 
             <li>
-                <a href="?level=2">Difficile</a>
+                <a href="?level=3">Difficile</a>
             </li>
         </ul>
     </div>
 
     <div class="projet-tp">
         <div class="catogries-projets">
-            <h2>Travaux Pratique</h2>
+          <h2>Travaux Pratique</h2>
+          {% for project in work %}
             <div class="projet">
-                <a href="/projet">
-                    <div class="icone">
-                        <img src="../../assets/img/projets/triangle.svg" alt="">
-                    </div>
-                </a>
-                <div class="text">
-                    <h3><a href="/projet">Made</a></h3>
-                    <p>Débutant</p>
-                </div>
+              <div class="icone">
+                  <img src="/assets/img/projets/triangle.svg" alt="">
+              </div>
+              <div class="text">
+                  <h3><a href="/project/{{ project.id }}">{{ project.name }}</a></h3>
+                  <p>{% if project.level == 1 %}Débutant{% elif project.level == 2 %}Intermédiaire{% else %}Avancé{% endif %}</p>
+              </div>
             </div>
-            <h2>Projets</h2>
-            <div class="projet">
+          {% endfor %}
+          <h2>Projets</h2>
+          {% for project in projects %}
+              <div class="projet">
                 <div class="icone">
-                    <img src="../../assets/img/projets/triangle.svg" alt="">
+                    <img src="/assets/img/projets/triangle.svg" alt="">
                 </div>
                 <div class="text">
-                    <h3><a href="">Made</a></h3>
-                    <p>Débutant</p>
+                    <h3><a href="/project/{{ project.id }}">{{ project.name }}</a></h3>
+                    <p>{% if project.level == 1 %}Débutant{% elif project.level == 2 %}Intermédiaire{% else %}Avancé{% endif %}</p>
                 </div>
-            </div>
-    
+              </div>
+            {% endfor %}
+
         </div>
         <div class="tableaux">
             <table rules="none">
@@ -64,19 +66,19 @@
                     <td class="link">Crée par Micka</td>
                     <td class="link lien"><a href="">Voir plus</a></td>
                 </tr>
-    
+
                 <tr>
                     <td class="title">MadeInJapan</td>
                     <td class="link">Crée par Mickael</td>
                     <td class="link lien"><a href="">Voir plus</a></td>
                 </tr>
-    
-                <tr> 
+
+                <tr>
                     <td class="title">Made</td>
                     <td class="link">Crée par Mickassssss</td>
                     <td class="link lien"><a href="">Voir plus</a></td>
                 </tr>
-    
+
                 <tr>
                     <td class="title">MadeInJapan</td>
                     <td class="link">Crée par Mickael</td>
