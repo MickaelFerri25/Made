@@ -15,7 +15,6 @@ import {
   SmallInt,
 } from '@smallprod/models';
 
-import { Context } from '@smallprod/models/dist/entities/entitymanager';
 import ProjectCategoryEntity from './projectcategory.entity';
 import UserEntity from './user.entity';
 

@@ -9,7 +9,7 @@
         <div class="bio-projet">
             <h2>{{project.name}}</h2>
             <p>
-               {{project.description | striptags(true) | escape | nl2br}}
+               {{project.description | striptags(true) | escape | nl2br | md}}
             </p>
             <!-- image qui pose problème -->
             <img src="/assets/upload/project/{{project.picture}}" alt="Project picture">
