@@ -1,54 +1,56 @@
 {% extends "../layouts/global.njk" %}
 
 {% block body %}
-  {% include "../components/header.njk" %}
+{% include "../components/header.njk" %}
 
-  <form action="/upload" class="form-upload" method="post" enctype="multipart/form-data">
-      {{ csrf_input | safe }}
-       <h3>Etape 1</h3>
-        <div class="flex">
-            <div class="info-cards">
-                <div class="infos">
-                    <div>
-                        <label for="name">Nom du projet</label>
-                        <input type="text" id="name" name="name" placeholder="Made" required>
-                    </div>
-
-                    <div>
-                        <label for="type">Type</label>
-                        <select name="category" id="type" class="types">
-                            {% for category in projectCategories %}
-                              <option value="{{ category.id }}">{{ category.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="level">Niveaux</label>
-                        <select name="level" id="level" class="types">
-                            <option value="0">Facile</option>
-                            <option value="1">Moyen</option>
-                            <option value="2">Difficile</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="figma">
-                    <div class="link-figma">
-                        <label for="">Lien figma</label>
-                        <input type="text" name="designlink" placeholder="https://www.figma.com/file/u0nvjQbJbSJ85_KsWmK13W/Made?node-id=269-ca2" required>
-                    </div>
-                </div>
-                <div class="bio">
-                    <label for="desc">Bio</label>
-                    <textarea required placeholder="Description" name="description" id="desc" cols="30" rows="10"></textarea>
-                </div>
-                <button type="submit" class="cta-red">Enregistrer</button>
-            </div>
-            <div class="img-card">
-                <label for="">Image</label>
-                <input type="file" name="image" alt="upload image" required />
-            </div>
-            <button type="submit" class="cta-red btn-2">Enregistrer</button>
+<form action="/upload" class="form-upload" method="post" enctype="multipart/form-data">
+  {{ errors }}
+  {{ csrf_input | safe }}
+  <h3>Etape 1</h3>
+  <div class="flex">
+    <div class="info-cards">
+      <div class="infos">
+        <div>
+          <label for="name">Nom du projet</label>
+          <input type="text" id="name" name="name" placeholder="Made" required>
         </div>
-    </form>
+
+        <div>
+          <label for="type">Type</label>
+          <select name="category" id="type" class="types">
+            {% for category in projectCategories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label for="level">Niveaux</label>
+          <select name="level" id="level" class="types">
+            <option value="0">Facile</option>
+            <option value="1">Moyen</option>
+            <option value="2">Difficile</option>
+          </select>
+        </div>
+      </div>
+      <div class="figma">
+        <div class="link-figma">
+          <label for="">Lien figma</label>
+          <input type="url" name="designlink"
+            placeholder="https://www.figma.com/file/u0nvjQbJbSJ85_KsWmK13W/Made?node-id=269-ca2" />
+        </div>
+      </div>
+      <div class="bio">
+        <label for="desc">Bio</label>
+        <textarea required placeholder="Description" name="description" id="desc" cols="30" rows="10"></textarea>
+      </div>
+      <button type="submit" class="cta-red">Enregistrer</button>
+    </div>
+    <div class="img-card">
+      <label for="">Image</label>
+      <input type="file" name="image" alt="upload image" required />
+    </div>
+    <button type="submit" class="cta-red btn-2">Enregistrer</button>
+  </div>
+</form>
 
 {% endblock %}
