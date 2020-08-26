@@ -37,7 +37,7 @@
             <h4>Crée par {{project.author.pseudo}}</h4>
             <h3>{{category.name}}</h3>
             <p>
-                {{project.description}}
+                {{project.description | striptags(true) | escape | nl2br | md}}
             </p>
             <div class="buttons">
                 <a href="/project/{{project.id}}" class="cta-red-2"><i class="fas fa-pencil-ruler"></i> Règle</a>

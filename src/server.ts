@@ -32,7 +32,7 @@ export default async () => {
 
   app.use('/assets', express.static('assets'));
   app.use('/', routes);
-  nunjucks.configure('view', {
+  let env = nunjucks.configure('view', {
     express: app,
     autoescape: true,
     noCache: !config.session.cache,

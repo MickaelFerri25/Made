@@ -14,6 +14,7 @@ import express from 'express';
 import fs from 'fs';
 import mailerUtil from '../utils/mailer.util';
 import { v4 as uuidv4 } from 'uuid';
+import { Marked } from '@ts-stack/markdown';
 
 export const home = (req: express.Request, res: express.Response) => {
   return res.render('pages/home.njk');
@@ -113,6 +114,7 @@ export const category = async (req: express.Request, res: express.Response) => {
 export const project = async (req: express.Request, res: express.Response) => {
   const proj = await ProjectEntity.findById(req.params.projectId, res.locals.modelContext);
   if (!proj) return res.redirect('/');
+  proj.description = Marked.parse(proj.description);
   return res.render('pages/regles.njk', { project: proj });
 };
 

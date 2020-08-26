@@ -29,7 +29,7 @@ export default class ProjectService extends Service {
     }
 
     // Check if the design link is correct
-    if (!designLink.startsWith('https://www.figma.com/file/')) {
+    if (designLink != '' && !designLink.startsWith('https://www.figma.com/file/')) {
       resErrors.push(errors.project.DesignLinkIncorrect);
     }
 
