@@ -23,7 +23,7 @@
         "helmet": "^3.22.0",
         "multer": "^1.4.2",
         "mysql": "^2.18.1",
-        "nodemailer": "^6.4.10",
+        "nodemailer": "^6.4.16",
         "nunjucks": "^3.2.1",
         "uuid": "^8.1.0"
     },
